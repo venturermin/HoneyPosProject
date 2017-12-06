@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "600028622491",
+    "firebase_url": "https://posproject-5225a.firebaseio.com",
+    "project_id": "posproject-5225a",
+    "storage_bucket": "posproject-5225a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:600028622491:android:314b2ff928541902",
+        "android_client_info": {
+          "package_name": "com.bumslap.bum.POSproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "600028622491-lfivru8gof8gn68a0nu86rcb9l0pe6sb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bumslap.bum.POSproject",
+            "certificate_hash": "c1f095636ec19188670622e522932987feb7ef16"
+          }
+        },
+        {
+          "client_id": "600028622491-jtnc3q95gq8pmvedj2umtesh8fdpv2j6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_EJyQF7sJm7EEbMTOkWjAZKlJyi0HU7Y"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "600028622491-jtnc3q95gq8pmvedj2umtesh8fdpv2j6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
