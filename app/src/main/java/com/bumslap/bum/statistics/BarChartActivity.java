@@ -1,8 +1,11 @@
 package com.bumslap.bum.statistics;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 
 import com.bumslap.bum.R;
 import com.github.mikephil.charting.charts.BarChart;
@@ -21,6 +24,7 @@ public class BarChartActivity extends AppCompatActivity {
     BarData BARDATA ;
     XAxis xAxis;
     int[] color = {Color.rgb(117,224,233)};
+    Button AmountStaBtn, SalesStaBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +49,12 @@ public class BarChartActivity extends AppCompatActivity {
         xAxis.setTextSize(1f);
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
         //xAxis.setLabelRotationAngle();
+
+        AmountStaBtn = (Button)findViewById(R.id.AmountStastisticBtn);
+        SalesStaBtn = (Button)findViewById(R.id.SalesStatisticBtn);
+
+        AmountStaBtn.setOnClickListener(StatisticsClick);
+        SalesStaBtn.setOnClickListener(StatisticsClick);
     }
 
     public void AddValuesToBARENTRY(){
@@ -76,4 +86,21 @@ public class BarChartActivity extends AppCompatActivity {
         BarEntryLabels.add("22");
         BarEntryLabels.add("24");
     }
+
+    View.OnClickListener StatisticsClick = new View.OnClickListener() {
+        Intent mvStaIntent;
+        @Override
+        public void onClick(View view) {
+            switch (view.getId()){
+                case R.id.AmountStastisticBtn :
+                    mvStaIntent = new Intent(getApplication(), PieChartDataActivity.class);
+                    startActivity(mvStaIntent);
+                    break;
+                case R.id.SalesStatisticBtn :
+                    mvStaIntent = new Intent(getApplication(), BarChartActivity.class);
+                    startActivity(mvStaIntent);
+                    break;
+            }
+        }
+    };
 }

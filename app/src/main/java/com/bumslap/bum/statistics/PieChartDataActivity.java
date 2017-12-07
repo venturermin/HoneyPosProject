@@ -1,10 +1,13 @@
 package com.bumslap.bum.statistics;
 
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -25,7 +28,7 @@ import java.util.ArrayList;
 
 public class PieChartDataActivity extends AppCompatActivity {
     static final String[] LIST_MENU = {"Steak x 8", "Juice x 1", "Cola x 2"};
-
+    Button AmountStaBtn, SalesStaBtn;
     PieChart mChart;
     private int[] yValues = {8,1,1};
     private String[] xValues = {"Steak","Juice","Cola"};
@@ -84,6 +87,11 @@ public class PieChartDataActivity extends AppCompatActivity {
         // setting sample Data for Pie Chart
         setDataForPieChart();
 
+        AmountStaBtn = (Button)findViewById(R.id.AmountStastisticBtn);
+        SalesStaBtn = (Button)findViewById(R.id.SalesStatisticBtn);
+
+        AmountStaBtn.setOnClickListener(StatisticsClick);
+        SalesStaBtn.setOnClickListener(StatisticsClick);
 
     }
 
@@ -156,6 +164,21 @@ public class PieChartDataActivity extends AppCompatActivity {
             return mFormat.format(value) + ""; // e.g. append a dollar-sign
         }
 
-
     }
+    View.OnClickListener StatisticsClick = new View.OnClickListener() {
+        Intent mvStaIntent;
+        @Override
+        public void onClick(View view) {
+            switch (view.getId()){
+                case R.id.AmountStastisticBtn :
+                    mvStaIntent = new Intent(getApplication(), PieChartDataActivity.class);
+                    startActivity(mvStaIntent);
+                    break;
+                case R.id.SalesStatisticBtn :
+                    mvStaIntent = new Intent(getApplication(), BarChartActivity.class);
+                    startActivity(mvStaIntent);
+                    break;
+            }
+        }
+    };
 }

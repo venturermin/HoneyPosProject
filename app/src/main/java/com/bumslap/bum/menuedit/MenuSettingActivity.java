@@ -11,7 +11,7 @@ import com.bumslap.bum.R;
 
 
 public class MenuSettingActivity extends AppCompatActivity {
-
+    Button MenuSetBtn, CostSetBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,16 +19,28 @@ public class MenuSettingActivity extends AppCompatActivity {
         ImageView BTNMenuUpdate = (ImageView)findViewById(R.id.imageView);
         BTNMenuUpdate.setOnClickListener(updatemenu);
 
-        Button BTNMenuUpdate2 = (Button)findViewById(R.id.button);
-        BTNMenuUpdate2.setOnClickListener(updatemenu2);
+        Button MenuSetBtn = (Button)findViewById(R.id.MenuSetBtn);
+        Button CostSetBtn = (Button)findViewById(R.id.CostSetBtn);
+        MenuSetBtn.setOnClickListener(MenuCostClick);
+        CostSetBtn.setOnClickListener(MenuCostClick);
 
     }
 
-    Button.OnClickListener updatemenu2 = new View.OnClickListener() {
+    Button.OnClickListener MenuCostClick = new View.OnClickListener() {
+        Intent mvSettingIntent;
         @Override
         public void onClick(View view) {
-            Intent intent = new Intent(getApplicationContext(), MenuUpdateActivity.class);
-            startActivity(intent);
+            switch (view.getId()){
+                case R.id.MenuSetBtn:
+                    mvSettingIntent = new Intent(getApplicationContext(), MenuSettingActivity.class);
+                    startActivity(mvSettingIntent);
+                    break;
+                case R.id.CostSetBtn:
+                    mvSettingIntent = new Intent(getApplicationContext(), CostSettingActivity.class);
+                    startActivity(mvSettingIntent);
+                    break;
+            }
+
         }
     };
 
