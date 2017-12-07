@@ -1,11 +1,16 @@
 package com.bumslap.bum.POSproject;
 
+import android.content.Context;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
+import com.bumslap.bum.DB.DBforAnalysis;
 import com.bumslap.bum.R;
 
 
@@ -14,6 +19,9 @@ public class MainActivity extends AppCompatActivity {
     ImageButton BtnPrepare;
     ImageButton BtnAnalysis;
     ImageButton BtnSetting;
+    SQLiteDatabase mdb;
+    DBforAnalysis dbHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
         BtnSetting = (ImageButton)findViewById(R.id.button_Setting);
         BtnSetting.setOnClickListener(BtnClick);
 
+        dbHelper = new DBforAnalysis(this, "ddd.db", null,1);
+        mdb = dbHelper.getWritableDatabase();
     }
 
     ImageButton.OnClickListener BtnClick = new View.OnClickListener() {
@@ -57,3 +67,4 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 }
+

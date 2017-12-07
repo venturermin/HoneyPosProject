@@ -34,18 +34,16 @@ public class DBforAnalysis extends SQLiteOpenHelper{
         //String도 가능하지만, StringBuffer 가 Query 만들기 더 편하다.
         StringBuffer sb = new StringBuffer();
         sb.append(" CREATE TABLE MENU_TABLE ( ");
-        sb.append(" _ID INTEGER PRIMARY KEY AUTOINCREMENT, ");
+        sb.append(" MENU_ID INTEGER PRIMARY KEY AUTOINCREMENT, ");
         sb.append(" MENU_NAME TEXT, ");
         sb.append(" MENU_IMAGE TEXT, ");
-        sb.append(" MENU_PRICE, ");
-        sb.append(" MENU_COST ) ");
+        sb.append(" MENU_PRICE INTEGER,");
+        sb.append(" MENU_COST INTEGER); ");
 
         // SQLite Database로 쿼리 실행
         db.execSQL(sb.toString());
 
         Toast.makeText(context, "메뉴 정보 생성", Toast.LENGTH_LONG).show();
-
-
     }
 
     /**
@@ -56,7 +54,7 @@ public class DBforAnalysis extends SQLiteOpenHelper{
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
         Toast.makeText(context, "버전이 올라갔습니다.", Toast.LENGTH_SHORT).show();
     }
-
+/*
     public  void testDB(){
         SQLiteDatabase db = getReadableDatabase();
     }
@@ -109,5 +107,5 @@ public class DBforAnalysis extends SQLiteOpenHelper{
         }
 
         return menulist;
-    }
+    }*/
 }
