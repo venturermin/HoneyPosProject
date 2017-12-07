@@ -34,6 +34,7 @@ public class SignInActivity extends AppCompatActivity {
     EditText emailText;
     EditText PasswordText;
     Button SignUpBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

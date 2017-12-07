@@ -9,11 +9,13 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
 
+import com.bumslap.bum.DB.DBforAnalysis;
 import com.bumslap.bum.R;
 
 public class CostSettingActivity extends AppCompatActivity {
     ListView listView_cost;
     Button MenuSetBtn, CostSetBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

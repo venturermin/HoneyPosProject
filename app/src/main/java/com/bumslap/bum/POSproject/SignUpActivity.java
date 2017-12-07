@@ -69,14 +69,10 @@ public class SignUpActivity extends AppCompatActivity {
                 if(PasswordCheck.equals(confirmCheck)){
                     check.setVisibility(View.VISIBLE);
                     check.setImageResource(R.drawable.check_green);
-
-
-
                 }
                 else {
                     check.setVisibility(View.VISIBLE);
                     check.setImageResource(R.drawable.check_red);
-
                 }
             }
 

@@ -36,7 +36,7 @@ public class OrderActivity extends AppCompatActivity
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
-        setSupportActionBar(toolbar);
+        //setSupportActionBar(toolbar);
         //toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.reply));
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
