@@ -9,11 +9,26 @@ public class User {
     public String User_Name;
     public String User_StoreName;
     public String User_Password;
-    public Integer User_Gender;
-    public Integer User_PhoneNumber;
+    public String User_Gender;
+    public String User_PhoneNumber;
     public String User_Birthday;
     public String User_High_sales_per_hour;
     public String User_goal_gain;
+
+    public User(String user_Email, String user_Name, String user_StoreName, String user_Password, String user_Gender, String user_PhoneNumber, String user_Birthday, String user_High_sales_per_hour, String user_goal_gain) {
+        User_Email = user_Email;
+        User_Name = user_Name;
+        User_StoreName = user_StoreName;
+        User_Password = user_Password;
+        User_Gender = user_Gender;
+        User_PhoneNumber = user_PhoneNumber;
+        User_Birthday = user_Birthday;
+        User_High_sales_per_hour = user_High_sales_per_hour;
+        User_goal_gain = user_goal_gain;
+    }
+
+    public User() {
+    }
 
     public String getUser_Email(){
         return User_Email;
@@ -47,19 +62,19 @@ public class User {
         this.User_Password = User_Password;
     }
 
-    public Integer getUser_Gender(){
+    public String getUser_Gender(){
         return User_Gender;
     }
 
-    public void setUser_Gender(Integer User_Gender){
+    public void setUser_Gender(String User_Gender){
         this.User_Gender = User_Gender;
     }
 
-    public Integer getUser_PhoneNumber(){
+    public String getUser_PhoneNumber(){
         return User_PhoneNumber;
     }
 
-    public void setUser_PhoneNumber(Integer User_PhoneNumber){
+    public void setUser_PhoneNumber(String User_PhoneNumber){
         this.User_PhoneNumber = User_PhoneNumber;
     }
 
