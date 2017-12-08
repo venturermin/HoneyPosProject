@@ -9,8 +9,8 @@ public class Menu {
 
     private String Menu_name;
     private String Menu_image;
-    private int Menu_price;
-    private int Menu_cost;
+    private String Menu_price;
+    private String Menu_cost;
 
     public int getMenu_id(){
         return Menu_id;
@@ -24,11 +24,11 @@ public class Menu {
         return Menu_image;
     }
 
-    public int getMenu_price(){
+    public String getMenu_price(){
         return Menu_price;
     }
 
-    public int getMenu_cost(){
+    public String getMenu_cost(){
         return Menu_cost;
     }
 
@@ -44,11 +44,11 @@ public class Menu {
         this.Menu_image = Menu_image;
     }
 
-    public void setMenu_price(int Menu_price){
+    public void setMenu_price(String Menu_price){
         this.Menu_price = Menu_price;
     }
 
-    public void setMenu_cost(int Menu_cost){
+    public void setMenu_cost(String Menu_cost){
         this.Menu_cost = Menu_cost;
     }
 }
