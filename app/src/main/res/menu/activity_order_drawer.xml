@@ -23,7 +23,7 @@
             android:title="분석" />
         <item
             android:id="@+id/nav_usersetting"
-            android:icon="@drawable/setting"
+            android:icon="@drawable/key"
             android:title="설정" />
         <item
             android:id="@+id/nav_finish"

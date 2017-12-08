@@ -32,20 +32,35 @@ public class DBforAnalysis extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db){
         //String도 가능하지만, StringBuffer 가 Query 만들기 더 편하다.
-        StringBuffer sb = new StringBuffer();
-        sb.append(" CREATE TABLE MENU_TABLE ( ");
-        sb.append(" _ID INTEGER PRIMARY KEY AUTOINCREMENT, ");
-        sb.append(" MENU_NAME TEXT, ");
-        sb.append(" MENU_IMAGE TEXT, ");
-        sb.append(" MENU_PRICE, ");
-        sb.append(" MENU_COST ) ");
+        StringBuffer sbMenu = new StringBuffer();
+        sbMenu.append(" CREATE TABLE MENU_TABLE ( ");
+        sbMenu.append(" MENU_ID INTEGER PRIMARY KEY AUTOINCREMENT, ");
+        sbMenu.append(" MENU_NAME TEXT, ");
+        sbMenu.append(" MENU_IMAGE TEXT, ");
+        sbMenu.append(" MENU_PRICE TEXT,");
+        sbMenu.append(" MENU_COST TEXT); ");
 
         // SQLite Database로 쿼리 실행
-        db.execSQL(sb.toString());
+        db.execSQL(sbMenu.toString());
+
+        StringBuffer sbOrder = new StringBuffer();
+        sbOrder.append(" CREATE TABLE ORDER_TABLE ( ");
+        sbOrder.append(" ORDER_AMOUNT TEXT, ");
+        sbOrder.append(" ORDER_DATE TEXT, ");
+        sbOrder.append(" ORDER_TIME); ");
+        sbOrder.append(" ORDER_FK_MENUID INTEGER); ");
+
+        db.execSQL(sbOrder.toString());
+
+        StringBuffer sbCost = new StringBuffer();
+        sbCost.append(" CREATE TABLE COST_TABLE (");
+        sbCost.append(" COST_NAME TEXT, ");
+        sbCost.append(" COST_PRICE TEXT,");
+        sbCost.append(" COST_FK_MENUID INTEGER);");
+
+        db.execSQL(sbCost.toString());
 
         Toast.makeText(context, "메뉴 정보 생성", Toast.LENGTH_LONG).show();
-
-
     }
 
     /**
@@ -71,7 +86,7 @@ public class DBforAnalysis extends SQLiteOpenHelper{
         StringBuffer sb = new StringBuffer();
         sb.append(" INSERT INTO MENU_TABLE ( ");
         sb.append(" MENU_NAME, MENU_IMAGE, MENU_PRICE, MENU_COST ) ");
-        sb.append(" VALUES ( ?, ?, ?, ? ) ");
+        sb.append(" VALUES ( ?, ?, ?, ? ); ");
 
         db.execSQL(sb.toString(),
                 new Object[]{
@@ -102,8 +117,8 @@ public class DBforAnalysis extends SQLiteOpenHelper{
             menu.setMenu_id(cursor.getInt(0));
             menu.setMenu_name(cursor.getString(1));
             menu.setMenu_image(cursor.getString(2));
-            menu.setMenu_price(cursor.getInt((3)));
-            menu.setMenu_cost(cursor.getInt((4)));
+            menu.setMenu_price(cursor.getString((3)));
+            menu.setMenu_cost(cursor.getString((4)));
 
             menulist.add(menu);
         }
