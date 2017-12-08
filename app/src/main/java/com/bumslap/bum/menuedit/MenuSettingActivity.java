@@ -3,21 +3,45 @@ package com.bumslap.bum.menuedit;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
 import com.bumslap.bum.R;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 
 public class MenuSettingActivity extends AppCompatActivity {
     Button MenuSetBtn, CostSetBtn;
+    RecyclerView mRecyclerView;
+    RecyclerView.LayoutManager mLayoutManager;
+    RecyclerView.Adapter mAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_setting);
-        ImageView BTNMenuUpdate = (ImageView)findViewById(R.id.imageView);
-        BTNMenuUpdate.setOnClickListener(updatemenu);
+
+        ArrayList<HashMap<String, Object>> arrayList = new ArrayList<HashMap<String, Object>>();
+        HashMap<String, Object> hashMap = null;
+        hashMap = new HashMap<String, Object>();
+        hashMap.put("title", "rollrice");
+        hashMap.put("detail", "3,000원");
+        hashMap.put("image", R.drawable.rollrice);
+        arrayList.add(hashMap);
+
+        mRecyclerView = (RecyclerView)findViewById(R.id.recycler_view);
+        //mRecyclerView.setHasFixedSize(true);
+
+        mLayoutManager = new GridLayoutManager(this,2);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mAdapter = new MyAdapter(arrayList);
+        mRecyclerView.setAdapter(mAdapter);
+
 
         Button MenuSetBtn = (Button)findViewById(R.id.MenuSetBtn);
         Button CostSetBtn = (Button)findViewById(R.id.CostSetBtn);

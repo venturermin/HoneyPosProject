@@ -5,12 +5,22 @@ package com.bumslap.bum.DB;
  */
 
 public class Menu {
-    private int Menu_id;
-
+    private int Menu_id ;
     private String Menu_name;
     private String Menu_image;
     private String Menu_price;
     private String Menu_cost;
+
+    public Menu() {
+    }
+
+    public Menu(int menu_id, String menu_name, String menu_image, String menu_price, String menu_cost) {
+        Menu_id = menu_id;
+        Menu_name = menu_name;
+        Menu_image = menu_image;
+        Menu_price = menu_price;
+        Menu_cost = menu_cost;
+    }
 
     public int getMenu_id(){
         return Menu_id;

@@ -17,6 +17,7 @@ public class MenuUpdateActivity extends AppCompatActivity {
     EditText UpdateMenuName, UpdateMenuPrice, UpdateMenuCost;
     ImageView UpdateMenuImage;
     private DBforAnalysis dbforAnalysis;
+    Menu menu;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,10 +42,10 @@ public class MenuUpdateActivity extends AppCompatActivity {
             String MenuCost = UpdateMenuCost.getText().toString();
 
             if(dbforAnalysis == null){
-                dbforAnalysis = new DBforAnalysis(getApplicationContext(), "Test", null, 1);
+                dbforAnalysis = new DBforAnalysis(getApplicationContext(), "test.db", null, 1);
             }
 
-            Menu menu = new Menu();
+            menu = new Menu();
             menu.setMenu_name(MenuName);
             menu.setMenu_price(MenuPrice);
             menu.setMenu_cost(MenuCost);

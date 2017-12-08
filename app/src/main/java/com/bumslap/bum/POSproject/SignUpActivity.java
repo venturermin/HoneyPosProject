@@ -115,7 +115,7 @@ public class SignUpActivity extends AppCompatActivity {
         user.setUser_Name(editText_name.getText().toString());
         user.setUser_StoreName(editText_store_name.getText().toString());
         user.setUser_Email(editText_email.getText().toString());
-        user.setUser_PhoneNumber(Integer.parseInt(editText_phonenumber.getText().toString()));
+        user.setUser_PhoneNumber(editText_phonenumber.getText().toString());
 
         //클래스로 싸서 처리한다.
 

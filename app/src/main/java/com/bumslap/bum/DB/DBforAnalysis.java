@@ -122,7 +122,6 @@ public class DBforAnalysis extends SQLiteOpenHelper{
 
             menulist.add(menu);
         }
-
         return menulist;
     }
 }

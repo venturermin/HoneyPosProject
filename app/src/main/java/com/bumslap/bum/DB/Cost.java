@@ -7,8 +7,18 @@ package com.bumslap.bum.DB;
 
 public class Cost {
     public String Cost_name;
-    public Integer Cost_price;
+    public String Cost_price;
     public Integer Cost_FK_menuId;
+
+    public Cost() {
+    }
+
+    public Cost(String cost_name, String cost_price, Integer cost_FK_menuId) {
+
+        Cost_name = cost_name;
+        Cost_price = cost_price;
+        Cost_FK_menuId = cost_FK_menuId;
+    }
 
     public String getCost_name(){
         return Cost_name;
@@ -18,11 +28,11 @@ public class Cost {
         this.Cost_name = Cost_name;
     }
 
-    public Integer getCost_price(){
+    public String getCost_price(){
         return Cost_price;
     }
 
-    public void setCost_price(Integer Cost_price){
+    public void setCost_price(String Cost_price){
         this.Cost_price = Cost_price;
     }
 
