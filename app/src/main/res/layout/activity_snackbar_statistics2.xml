@@ -4,8 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    tools:context="com.bumslap.bum.statistics.SnackbarStatistics2Activity">
+    android:layout_height="wrap_content" >
 
     <Button
         android:id="@+id/AmountStastisticBtn"
@@ -24,11 +23,10 @@
         android:id="@+id/SalesStatisticBtn"
         android:layout_width="190dp"
         android:layout_height="wrap_content"
-        android:background="@color/colorAccent"
+        android:background="@android:color/transparent"
         android:text="매출 통계"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/AmountStastisticBtn"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="197dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

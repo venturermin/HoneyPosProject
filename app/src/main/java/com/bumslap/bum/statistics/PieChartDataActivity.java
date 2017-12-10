@@ -4,6 +4,7 @@ package com.bumslap.bum.statistics;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.GestureDetector;
@@ -32,13 +33,14 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 
-public class PieChartDataActivity extends AppCompatActivity implements GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
+public class PieChartDataActivity extends AppCompatActivity implements GestureDetector.OnGestureListener {
     static final String[] LIST_MENU = {"Steak x 8", "Juice x 1", "Cola x 2"};
     Button AmountStaBtn, SalesStaBtn;
     PieChart mChart;
     private int[] yValues = {8,1,1};
     private String[] xValues = {"Steak","Juice","Cola"};
     private GestureDetector gestureDetector;
+    Intent mvStaIntent;
     Button AmountStastisticBtn, SalesStatisticBtn;
 
     // colors for different sections in pieChart
@@ -149,21 +151,6 @@ public class PieChartDataActivity extends AppCompatActivity implements GestureDe
     }
 
     @Override
-    public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
-        return false;
-    }
-
-    @Override
-    public boolean onDoubleTap(MotionEvent motionEvent) {
-        return false;
-    }
-
-    @Override
-    public boolean onDoubleTapEvent(MotionEvent motionEvent) {
-        return false;
-    }
-
-    @Override
     public boolean onDown(MotionEvent motionEvent) {
         return false;
     }
@@ -195,7 +182,7 @@ public class PieChartDataActivity extends AppCompatActivity implements GestureDe
             // Create the Snackbar
             LayoutInflater mInflater = (LayoutInflater)getSystemService(LAYOUT_INFLATER_SERVICE);
             View view = findViewById(R.id.pie_statistics_layout);
-            LinearLayout.LayoutParams objLayoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            ConstraintLayout.LayoutParams objLayoutParams = new ConstraintLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             Snackbar snackbar = Snackbar.make(view, "", Snackbar.LENGTH_LONG);
             // Get the Snackbar's layout view
             Snackbar.SnackbarLayout layout = (Snackbar.SnackbarLayout) snackbar.getView();
@@ -205,22 +192,20 @@ public class PieChartDataActivity extends AppCompatActivity implements GestureDe
             // Inflate our custom view
             View snackView = getLayoutInflater().inflate(R.layout.activity_snackbar_statistics2, null);
             // Configure the view
-            Button AmountStastisticBtn = (Button) snackView.findViewById(R.id.AmountStastisticBtn);
+            AmountStastisticBtn = (Button) snackView.findViewById(R.id.AmountStastisticBtn);
 
             AmountStastisticBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent mvStaIntent;
                     mvStaIntent = new Intent(getApplication(), PieChartDataActivity.class);
                     startActivity(mvStaIntent);
                 }
             });
 
-            Button SalesStatisticBtn = (Button) snackView.findViewById(R.id.SalesStatisticBtn);
+            SalesStatisticBtn = (Button) snackView.findViewById(R.id.SalesStatisticBtn);
             SalesStatisticBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent mvStaIntent;
                     mvStaIntent = new Intent(getApplication(), BarChartActivity.class);
                     startActivity(mvStaIntent);
                 }
