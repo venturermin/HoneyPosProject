@@ -8,7 +8,6 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.bumslap.bum.R;
-import java.util.ArrayList;
 
 public class SnackbarStatisticsActivity extends AppCompatActivity {
     Button AmountStastisticBtn, SalesStatisticBtn;

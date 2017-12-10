@@ -7,11 +7,12 @@
     android:layout_height="wrap_content"
     tools:context="com.bumslap.bum.statistics.SnackbarStatistics2Activity">
 
-
     <Button
         android:id="@+id/AmountStastisticBtn"
         android:layout_width="190dp"
         android:layout_height="47dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginTop="1dp"
         android:background="@android:color/transparent"
         android:text="수량 분석"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -22,13 +23,12 @@
     <Button
         android:id="@+id/SalesStatisticBtn"
         android:layout_width="190dp"
-        android:layout_height="47dp"
-        android:background="@android:color/transparent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
         android:text="매출 통계"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/AmountStastisticBtn"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="197dp" />
 </android.support.constraint.ConstraintLayout>

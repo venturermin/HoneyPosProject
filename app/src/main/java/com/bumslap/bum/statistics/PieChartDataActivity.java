@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.GestureDetector;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -191,25 +192,46 @@ public class PieChartDataActivity extends AppCompatActivity implements GestureDe
     public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent1, float v, float v1) {
         float diffY = motionEvent1.getY() - motionEvent.getY();
         if (diffY < 0) {
+            // Create the Snackbar
+            LayoutInflater mInflater = (LayoutInflater)getSystemService(LAYOUT_INFLATER_SERVICE);
+            View view = findViewById(R.id.pie_statistics_layout);
             LinearLayout.LayoutParams objLayoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            Snackbar snackbar =  Snackbar.make(getWindow().getDecorView().getRootView(), "", Snackbar.LENGTH_LONG);
-
+            Snackbar snackbar = Snackbar.make(view, "", Snackbar.LENGTH_LONG);
+            // Get the Snackbar's layout view
             Snackbar.SnackbarLayout layout = (Snackbar.SnackbarLayout) snackbar.getView();
-            layout.setPadding(0, 0, 0, 0);
+            layout.setPadding(0,0,0,0);
 
-            View snackView = getLayoutInflater().inflate(R.layout.activity_snackbar_statistics2, null);;
 
-            AmountStastisticBtn = (Button)snackView.findViewById(R.id.AmountStastisticBtn);
-            SalesStatisticBtn = (Button)snackView.findViewById(R.id.SalesStatisticBtn);
+            // Inflate our custom view
+            View snackView = getLayoutInflater().inflate(R.layout.activity_snackbar_statistics2, null);
+            // Configure the view
+            Button AmountStastisticBtn = (Button) snackView.findViewById(R.id.AmountStastisticBtn);
 
-            AmountStastisticBtn.setOnClickListener(StatisticsClick);
-            SalesStatisticBtn.setOnClickListener(StatisticsClick);
+            AmountStastisticBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent mvStaIntent;
+                    mvStaIntent = new Intent(getApplication(), PieChartDataActivity.class);
+                    startActivity(mvStaIntent);
+                }
+            });
 
+            Button SalesStatisticBtn = (Button) snackView.findViewById(R.id.SalesStatisticBtn);
+            SalesStatisticBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent mvStaIntent;
+                    mvStaIntent = new Intent(getApplication(), BarChartActivity.class);
+                    startActivity(mvStaIntent);
+                }
+            });
+
+            // Add the view to the Snackbar's layout
             layout.addView(snackView, objLayoutParams);
-
-            snackbar.setAction("", StatisticsClick).show();
+            // Show the Snackbar
+            snackbar.show();
         }
-        return false;
+        return true;
     }
 
     @Override
@@ -233,20 +255,4 @@ public class PieChartDataActivity extends AppCompatActivity implements GestureDe
         }
 
     }
-    View.OnClickListener StatisticsClick = new View.OnClickListener() {
-        Intent mvStaIntent;
-        @Override
-        public void onClick(View view) {
-            switch (view.getId()){
-                case R.id.AmountStastisticBtn :
-                    mvStaIntent = new Intent(getApplication(), PieChartDataActivity.class);
-                    startActivity(mvStaIntent);
-                    break;
-                case R.id.SalesStatisticBtn :
-                    mvStaIntent = new Intent(getApplication(), BarChartActivity.class);
-                    startActivity(mvStaIntent);
-                    break;
-            }
-        }
-    };
 }
