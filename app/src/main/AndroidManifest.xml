@@ -14,6 +14,10 @@
         <activity android:name="com.bumslap.bum.menuedit.MenuUpdateActivity" />
         <activity android:name="com.bumslap.bum.menuedit.MenuSettingActivity" />
         <activity android:name="com.bumslap.bum.menuedit.CostSettingActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name="com.bumslap.bum.settings.UserSettingActivity" />
         <activity android:name="com.bumslap.bum.POSproject.SignInActivity">
@@ -24,10 +28,7 @@
             <activity android:name="com.bumslap.bum.statistics.PieChartActivity" />
             <activity android:name="com.bumslap.bum.statistics.SalesStatus2Activity" />
         <activity android:name="com.bumslap.bum.POSproject.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
     </application>
 

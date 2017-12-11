@@ -50,8 +50,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int viewType) {
-        HashMap<String, Object> hashMap = arrayList.get(viewType);
+    public void onBindViewHolder(ViewHolder holder, int position) {
+        HashMap<String, Object> hashMap = arrayList.get(position);
         holder.mImageView.setImageResource((Integer) hashMap.get("image"));
         holder.mTextViewTitle.setText((String) hashMap.get("title"));
         holder.mTextViewDetail.setText((String) hashMap.get("detail"));
