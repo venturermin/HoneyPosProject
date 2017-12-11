@@ -122,6 +122,7 @@ public class DBforAnalysis extends SQLiteOpenHelper{
 
             menulist.add(menu);
         }
+        cursor.close();
         return menulist;
     }
 
@@ -140,8 +141,8 @@ public class DBforAnalysis extends SQLiteOpenHelper{
             //menu.setMenu_image(cursor.getString(1));
             menu.setMenu_price(cursor.getString((2)));
             menu.setMenu_cost(cursor.getString((3)));
-
         }
+        cursor.close();
         return menu;
     }
 }
