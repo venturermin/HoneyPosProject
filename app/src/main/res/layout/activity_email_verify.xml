@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.bumslap.bum.POSproject.EmailVerifyActivity"
+    tools:layout_editor_absoluteY="81dp">
+
+
+    <EditText
+        android:id="@+id/email_verfify"
+        android:layout_width="0dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="122dp"
+        android:background="@drawable/stroke_test"
+        android:ems="10"
+
+        android:fontFamily="serif"
+        android:hint="email"
+        android:inputType="textPersonName"
+        android:paddingLeft="50dp"
+        android:textColor="@color/textColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/email_text_verify"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/email_text_verify"
+        android:layout_width="70dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="122dp"
+
+        android:background="@android:color/background_light"
+        android:fontFamily="serif"
+        android:gravity="center"
+        android:text="email"
+        android:textColor="@color/textColor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/EmailcheckBtn"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="32dp"
+        android:background="@android:color/background_light"
+        android:fontFamily="serif"
+        android:onClick="onClickedEmail"
+        android:text="verify my E-mail Address"
+        android:textColor="@color/textColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email_verfify" />
+
+
+    <ImageView
+        android:id="@+id/checkEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/email_verfify"
+        app:layout_constraintEnd_toEndOf="@+id/email_verfify"
+        app:layout_constraintTop_toTopOf="@+id/email_verfify"
+        app:srcCompat="@drawable/check_green" />
+
+    <Button
+        android:id="@+id/finishBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@android:color/background_light"
+        android:fontFamily="serif"
+        android:onClick="onClickedFinish"
+        android:text="start honeyPOS!"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EmailcheckBtn" />
+
+
+</android.support.constraint.ConstraintLayout>

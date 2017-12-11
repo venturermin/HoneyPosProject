@@ -4,6 +4,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
@@ -104,16 +105,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/store_text" />
 
-        <CheckBox
-            android:id="@+id/checkbox_signup"
+        <Button
+            android:id="@+id/EmailcheckBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             android:layout_marginTop="12dp"
             android:fontFamily="serif"
-            android:text="I agree with email Information policy"
+            android:text="verify my E-mail Address"
             android:textColor="@color/textColor"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/email" />
 
         <EditText
@@ -130,7 +131,7 @@
             android:textColor="@color/textColor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/password_text"
-            app:layout_constraintTop_toBottomOf="@+id/checkbox_signup" />
+            app:layout_constraintTop_toBottomOf="@+id/EmailcheckBtn" />
 
         <TextView
             android:id="@+id/DateofBirth"
@@ -156,7 +157,7 @@
             android:text="password"
             android:textColor="@color/textColor"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/checkbox_signup" />
+            app:layout_constraintTop_toBottomOf="@+id/EmailcheckBtn" />
 
         <TextView
             android:id="@+id/passwordConfirm_text"
@@ -250,7 +251,7 @@
             android:background="@android:color/background_light"
             android:fontFamily="serif"
             android:onClick="onClickedSend"
-            android:text="Send"
+            android:text="Send and verify Email"
             android:textColor="@color/textColor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -343,6 +344,19 @@
             app:layout_constraintEnd_toEndOf="@+id/passwordConfirm"
             app:layout_constraintTop_toBottomOf="@+id/password"
             app:srcCompat="@drawable/check_red" />
+
+        <ImageView
+            android:id="@+id/checkEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="37dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="32dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/password"
+            app:layout_constraintEnd_toStartOf="@+id/EmailcheckBtn"
+            app:layout_constraintTop_toBottomOf="@+id/email"
+            app:srcCompat="@drawable/check_green" />
 
 
     </android.support.constraint.ConstraintLayout>

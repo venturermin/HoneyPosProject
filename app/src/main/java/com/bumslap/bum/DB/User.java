@@ -5,15 +5,15 @@ package com.bumslap.bum.DB;
  */
 
 public class User {
-    public String User_Email;
-    public String User_Name;
-    public String User_StoreName;
-    public String User_Password;
-    public String User_Gender;
-    public String User_PhoneNumber;
-    public String User_Birthday;
-    public String User_High_sales_per_hour;
-    public String User_goal_gain;
+    private String User_Email;
+    private String User_Name;
+    private String User_StoreName;
+    private String User_Password;
+    private String User_Gender;
+    private String User_PhoneNumber;
+    private String User_Birthday;
+    private String User_High_sales_per_hour;
+    private String User_goal_gain;
 
     public User(String user_Email, String user_Name, String user_StoreName, String user_Password, String user_Gender, String user_PhoneNumber, String user_Birthday, String user_High_sales_per_hour, String user_goal_gain) {
         User_Email = user_Email;

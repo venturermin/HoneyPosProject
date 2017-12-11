@@ -6,9 +6,9 @@ package com.bumslap.bum.DB;
  */
 
 public class Cost {
-    public String Cost_name;
-    public String Cost_price;
-    public Integer Cost_FK_menuId;
+    private String Cost_name;
+    private String Cost_price;
+    private Integer Cost_FK_menuId;
 
     public Cost() {
     }
