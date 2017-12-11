@@ -11,6 +11,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.bumslap.bum.DB.DBforAnalysis;
+import com.bumslap.bum.DB.Menu;
 import com.bumslap.bum.R;
 
 
@@ -21,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     ImageButton BtnSetting;
     SQLiteDatabase mdb;
     DBforAnalysis dbHelper;
-
+    Menu menu;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,8 +40,11 @@ public class MainActivity extends AppCompatActivity {
         BtnSetting = (ImageButton)findViewById(R.id.button_Setting);
         BtnSetting.setOnClickListener(BtnClick);
 
-        dbHelper = new DBforAnalysis(this, "dddd.db", null,1);
+        dbHelper = new DBforAnalysis(this, "test.db", null,1);
         mdb = dbHelper.getWritableDatabase();
+
+        menu = new Menu();
+        dbHelper.addMenu(menu);
     }
 
     ImageButton.OnClickListener BtnClick = new View.OnClickListener() {

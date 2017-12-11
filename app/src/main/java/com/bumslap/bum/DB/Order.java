@@ -6,16 +6,26 @@ package com.bumslap.bum.DB;
  */
 
 public class Order {
-    public Integer Order_amount;
+    public String Order_amount;
     public String Order_date;
     public String Order_time;
     public Integer Order_FK_menuId;
 
-    public Integer getOrder_amount(){
+    public Order() {
+    }
+
+    public Order(String order_amount, String order_date, String order_time, Integer order_FK_menuId) {
+        Order_amount = order_amount;
+        Order_date = order_date;
+        Order_time = order_time;
+        Order_FK_menuId = order_FK_menuId;
+    }
+
+    public String getOrder_amount(){
         return Order_amount;
     }
 
-    public void setOrder_amount(Integer Order_amount){
+    public void setOrder_amount(String Order_amount){
         this.Order_amount = Order_amount;
     }
 

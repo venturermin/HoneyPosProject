@@ -1,16 +1,28 @@
 package com.bumslap.bum.DB;
 
+import java.net.URI;
+
 /**
  * Created by oyoun on 17. 12. 7.
  */
 
 public class Menu {
-    private int Menu_id;
-
+    private int Menu_id ;
     private String Menu_name;
-    private String Menu_image;
+    private URI Menu_image;
     private String Menu_price;
     private String Menu_cost;
+
+    public Menu() {
+    }
+
+    public Menu(int menu_id, String menu_name, URI menu_image, String menu_price, String menu_cost) {
+        Menu_id = menu_id;
+        Menu_name = menu_name;
+        Menu_image = menu_image;
+        Menu_price = menu_price;
+        Menu_cost = menu_cost;
+    }
 
     public int getMenu_id(){
         return Menu_id;
@@ -20,7 +32,7 @@ public class Menu {
         return Menu_name;
     }
 
-    public String getMenu_image(){
+    public URI getMenu_image(){
         return Menu_image;
     }
 
@@ -40,7 +52,7 @@ public class Menu {
         this.Menu_name = Menu_name;
     }
 
-    public void setMenu_image(String Menu_image){
+    public void setMenu_image(URI Menu_image){
         this.Menu_image = Menu_image;
     }
 

@@ -36,8 +36,8 @@ public class DBforAnalysis extends SQLiteOpenHelper{
         sbMenu.append(" CREATE TABLE MENU_TABLE ( ");
         sbMenu.append(" MENU_ID INTEGER PRIMARY KEY AUTOINCREMENT, ");
         sbMenu.append(" MENU_NAME TEXT, ");
-        sbMenu.append(" MENU_IMAGE TEXT, ");
-        sbMenu.append(" MENU_PRICE TEXT,");
+        sbMenu.append(" MENU_IMAGE BLOB, ");
+        sbMenu.append(" MENU_PRICE TEXT, ");
         sbMenu.append(" MENU_COST TEXT); ");
 
         // SQLite Database로 쿼리 실행
@@ -47,7 +47,7 @@ public class DBforAnalysis extends SQLiteOpenHelper{
         sbOrder.append(" CREATE TABLE ORDER_TABLE ( ");
         sbOrder.append(" ORDER_AMOUNT TEXT, ");
         sbOrder.append(" ORDER_DATE TEXT, ");
-        sbOrder.append(" ORDER_TIME); ");
+        sbOrder.append(" ORDER_TIME, ");
         sbOrder.append(" ORDER_FK_MENUID INTEGER); ");
 
         db.execSQL(sbOrder.toString());
@@ -116,13 +116,32 @@ public class DBforAnalysis extends SQLiteOpenHelper{
             menu = new Menu();
             menu.setMenu_id(cursor.getInt(0));
             menu.setMenu_name(cursor.getString(1));
-            menu.setMenu_image(cursor.getString(2));
+            //menu.setMenu_image(cursor.getString(2));
             menu.setMenu_price(cursor.getString((3)));
             menu.setMenu_cost(cursor.getString((4)));
 
             menulist.add(menu);
         }
-
         return menulist;
+    }
+
+    public Menu getMenuById(int Menu_Id){
+
+        StringBuffer sbGetMenu = new StringBuffer();
+        sbGetMenu.append(" SELECT MENU_NAME, MENU_IMAGE, MENU_PRICE, MENU_COST FROM MENU_TABLE WHERE MENU_ID = ? ");
+
+        //읽기 전용 DB 객체 생성.
+        SQLiteDatabase dbRead = getReadableDatabase();
+        Cursor cursor = dbRead.rawQuery(sbGetMenu.toString(), new String[]{Menu_Id + ""});
+
+        Menu menu = new Menu();
+        if(cursor.moveToNext()){
+            menu.setMenu_name(cursor.getString(0));
+            //menu.setMenu_image(cursor.getString(1));
+            menu.setMenu_price(cursor.getString((2)));
+            menu.setMenu_cost(cursor.getString((3)));
+
+        }
+        return menu;
     }
 }
