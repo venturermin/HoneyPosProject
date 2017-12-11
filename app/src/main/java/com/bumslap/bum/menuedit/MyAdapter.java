@@ -18,6 +18,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     ArrayList<HashMap<String, Object>> arrayList;
 
+   // public void addItem(HashMap<String,Object> hashmap){
+    //    this.arrayList.add(hashmap);
+    //    notifyItemInserted(position);
+    //}
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -50,8 +54,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int viewType) {
-        HashMap<String, Object> hashMap = arrayList.get(viewType);
+    public void onBindViewHolder(ViewHolder holder, int position) {
+        HashMap<String, Object> hashMap = arrayList.get(position);
         holder.mImageView.setImageResource((Integer) hashMap.get("image"));
         holder.mTextViewTitle.setText((String) hashMap.get("title"));
         holder.mTextViewDetail.setText((String) hashMap.get("detail"));
