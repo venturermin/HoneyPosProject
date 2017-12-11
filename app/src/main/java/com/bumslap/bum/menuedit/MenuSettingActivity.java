@@ -37,7 +37,7 @@ public class MenuSettingActivity extends AppCompatActivity {
         mRecyclerView = (RecyclerView)findViewById(R.id.recycler_view);
         //mRecyclerView.setHasFixedSize(true);
 
-        mLayoutManager = new GridLayoutManager(this,2);
+        mLayoutManager = new GridLayoutManager(this,3);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mAdapter = new MyAdapter(arrayList);
         mRecyclerView.setAdapter(mAdapter);
