@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.media.Image;
 import android.net.Uri;
 import android.provider.MediaStore;
@@ -21,7 +22,9 @@ import android.widget.Toast;
 import com.bumslap.bum.DB.DBforAnalysis;
 import com.bumslap.bum.DB.Menu;
 import com.bumslap.bum.R;
+import com.bumslap.bum.order.OrderActivity;
 
+import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
@@ -33,13 +36,15 @@ public class MenuUpdateActivity extends AppCompatActivity {
     int IMAGE_CAPTURE =1 ;
     Context context = this;
 
-    private DBforAnalysis dbforAnalysis;
+    public static DBforAnalysis dbforAnalysis;
     Menu menu;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_update);
         setTitle("메뉴 등록");
+
+        dbforAnalysis = new DBforAnalysis(getApplicationContext(), "menu.db", null,1);
 
         UpdateBTN = (Button)findViewById(R.id.UpdateBtn);
         UpdateBTN.setOnClickListener(UpdateMenu);
@@ -130,26 +135,34 @@ public class MenuUpdateActivity extends AppCompatActivity {
     Button.OnClickListener UpdateMenu = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            dbforAnalysis = new DBforAnalysis(getApplicationContext(), "menu.db", null,1);
+
+
             String MenuName = UpdateMenuName.getText().toString();
             String MenuPrice = UpdateMenuPrice.getText().toString();
             String MenuCost = UpdateMenuCost.getText().toString();
-            String MenuImage = UpdateMenuImage.toString();
+            byte[] MenuImage = imageViewToByte(UpdateMenuImage);
 
-            if(dbforAnalysis == null){
+            if (dbforAnalysis == null) {
                 dbforAnalysis = new DBforAnalysis(getApplicationContext(), "test.db", null, 1);
             }
-
             menu = new Menu();
             menu.setMenu_name(MenuName);
             menu.setMenu_price(MenuPrice);
             menu.setMenu_cost(MenuCost);
-            //menu.setMenu_image(MenuImage);
+            menu.setMenu_image(MenuImage);
 
             dbforAnalysis.addMenu(menu);
 
-            Intent intent = new Intent(getApplicationContext(), TestDBselectActivity.class);
+            Intent intent = new Intent(getApplicationContext(), OrderActivity.class);
             startActivity(intent);
         }
     };
+
+    private byte[] imageViewToByte(ImageView image) {
+        Bitmap bitmap = ((BitmapDrawable)image.getDrawable()).getBitmap();
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        byte[] byteArray = stream.toByteArray();
+        return byteArray;
+    }
 }

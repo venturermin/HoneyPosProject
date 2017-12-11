@@ -22,6 +22,11 @@ public class DBforAnalysis extends SQLiteOpenHelper{
         this.context = context;
     }
 
+    public Cursor getData(String sql){
+        SQLiteDatabase database = getReadableDatabase();
+        return database.rawQuery(sql, null);
+    }
+
 
 
     /**
@@ -116,7 +121,7 @@ public class DBforAnalysis extends SQLiteOpenHelper{
             menu = new Menu();
             menu.setMenu_id(cursor.getInt(0));
             menu.setMenu_name(cursor.getString(1));
-            //menu.setMenu_image(cursor.getString(2));
+            menu.setMenu_image(cursor.getBlob(2));
             menu.setMenu_price(cursor.getString((3)));
             menu.setMenu_cost(cursor.getString((4)));
 
@@ -138,7 +143,7 @@ public class DBforAnalysis extends SQLiteOpenHelper{
         Menu menu = new Menu();
         if(cursor.moveToNext()){
             menu.setMenu_name(cursor.getString(0));
-            //menu.setMenu_image(cursor.getString(1));
+            menu.setMenu_image(cursor.getBlob(1));
             menu.setMenu_price(cursor.getString((2)));
             menu.setMenu_cost(cursor.getString((3)));
         }

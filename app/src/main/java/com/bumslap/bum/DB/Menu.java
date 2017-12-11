@@ -9,19 +9,21 @@ import java.net.URI;
 public class Menu {
     private int Menu_id ;
     private String Menu_name;
-    private URI Menu_image;
+    private byte[] Menu_image;
     private String Menu_price;
     private String Menu_cost;
 
-    public Menu() {
+
+    public Menu(int menu_id, String menu_name, byte[] menu_image, String menu_price, String menu_cost) {
+        this.Menu_id = menu_id;
+        this.Menu_name = menu_name;
+        this.Menu_image = menu_image;
+        this.Menu_price = menu_price;
+        this.Menu_cost = menu_cost;
     }
 
-    public Menu(int menu_id, String menu_name, URI menu_image, String menu_price, String menu_cost) {
-        Menu_id = menu_id;
-        Menu_name = menu_name;
-        Menu_image = menu_image;
-        Menu_price = menu_price;
-        Menu_cost = menu_cost;
+    public Menu() {
+
     }
 
     public int getMenu_id(){
@@ -32,7 +34,7 @@ public class Menu {
         return Menu_name;
     }
 
-    public URI getMenu_image(){
+    public byte[] getMenu_image(){
         return Menu_image;
     }
 
@@ -52,7 +54,7 @@ public class Menu {
         this.Menu_name = Menu_name;
     }
 
-    public void setMenu_image(URI Menu_image){
+    public void setMenu_image(byte[] Menu_image){
         this.Menu_image = Menu_image;
     }
 

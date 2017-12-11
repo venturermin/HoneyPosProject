@@ -1,14 +1,11 @@
 package com.bumslap.bum.POSproject;
 
-import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import com.bumslap.bum.DB.DBforAnalysis;
 import com.bumslap.bum.DB.Menu;

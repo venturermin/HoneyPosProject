@@ -8,9 +8,11 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.bumslap.bum.DB.User;
 import com.bumslap.bum.R;
 
 
@@ -19,6 +21,14 @@ public class SignUpActivity extends AppCompatActivity {
     EditText passwordConfirm;
     TextView passwordMatching;
     ImageView check;
+    SignInActivity signInActivity;
+    EditText editText_name;
+    EditText editText_store_name;
+    EditText editText_email;
+    EditText editText_password;
+    RadioGroup radioGroup_sex;
+    EditText editText_phonenumber;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +90,43 @@ public class SignUpActivity extends AppCompatActivity {
             public void afterTextChanged(Editable s) {
             }
         });
+    }// end of onCreate
+
+    protected void onResume(){
+
+        super.onResume();
+
+        editText_name = findViewById(R.id.name);
+        editText_store_name = findViewById(R.id.nameOfStore);
+        editText_email = findViewById(R.id.email);
+        editText_phonenumber = findViewById(R.id.phoneNumber);
+        radioGroup_sex = findViewById(R.id.radio);
+        editText_password = findViewById(R.id.password);
+
+        signInActivity = new SignInActivity();
+
+
+    }
+    public void onClickedSend(View v){
+        User user = new User();
+        String name = editText_name.getText().toString();
+        String email = editText_email.getText().toString();
+        String password = editText_password.getText().toString();
+        user.setUser_Name(editText_name.getText().toString());
+        user.setUser_StoreName(editText_store_name.getText().toString());
+        user.setUser_Email(editText_email.getText().toString());
+        user.setUser_PhoneNumber(editText_phonenumber.getText().toString());
+
+        //클래스로 싸서 처리한다.
+
+
+
+       // signInActivity.CreateUser(email,name);
+
+       // finish();
+
+
+
     }
 
 

@@ -1,8 +1,11 @@
 package com.bumslap.bum.DB;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -10,20 +13,25 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumslap.bum.R;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by oyoun on 17. 12. 8.
  *
- *  작동하지 않는 클래스임.
+ *
  */
 
 public class MenuListAdapter extends BaseAdapter {
 
-    private List menulist;
+    private ArrayList<Menu> menulist;
     private Context context;
+    private int layout;
 
-    public MenuListAdapter(List menulist, Context context){
+    public MenuListAdapter( Context context, int layout, ArrayList<Menu> menulist){
+        this.layout = layout;
         this.menulist = menulist;
         this.context = context;
     }
@@ -43,58 +51,40 @@ public class MenuListAdapter extends BaseAdapter {
         return position;
     }
 
+    private class ViewHolder{
+        ImageView MenuImage;
+        TextView MenuName, MenuPrice, MenuCost;
+    }
+
     @Override
-    public View getView(int position, View converView, ViewGroup parent) {
-        Holder holder = null;
+    public View getView(int position, View view, ViewGroup viewGroup) {
 
-        if (converView == null) {
+        View row = view;
+        ViewHolder holder = new ViewHolder();
 
-            converView = new LinearLayout(context);
-            ((LinearLayout) converView).setOrientation(LinearLayout.HORIZONTAL);
+        if(row == null){
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            row = inflater.inflate(layout, null);
 
-            TextView menu_id = new TextView(context);
-            menu_id.setPadding(10, 0, 20, 0);
-            menu_id.setTextColor(Color.rgb(0, 0, 0));
-
-            TextView menu_name = new TextView(context);
-            menu_name.setPadding(20, 0, 20, 0);
-            menu_name.setTextColor(Color.rgb(0, 0, 0));
-
-            TextView menu_price = new TextView(context);
-            menu_price.setPadding(20, 0, 20, 0);
-            menu_price.setTextColor(Color.rgb(0, 0, 0));
-
-            TextView menu_cost = new TextView(context);
-            menu_cost.setPadding(20, 0, 20, 0);
-            menu_cost.setTextColor(Color.rgb(0, 0, 0));
-
-
-            ((LinearLayout) converView).addView(menu_id);
-            ((LinearLayout) converView).addView(menu_name);
-            ((LinearLayout) converView).addView(menu_price);
-            ((LinearLayout) converView).addView(menu_cost);
-
-
-            converView.setTag(holder);
-        } else {
-            holder = (Holder) converView.getTag();
+            holder.MenuName = (TextView)row.findViewById(R.id.menushowname);
+            holder.MenuPrice = (TextView)row.findViewById(R.id.menushowprice);
+            holder.MenuImage = (ImageView)row.findViewById(R.id.menushowimage);
+            row.setTag(holder);
+        }
+        else{
+            holder = (ViewHolder) row.getTag();
         }
 
-        Menu menu = (Menu) getItem(position);
-        holder.menu_id.setText(menu.getMenu_id() + "");
-        holder.menu_name.setText(menu.getMenu_name() + "");
-        holder.menu_price.setText(menu.getMenu_price() + "");
-        holder.menu_cost.setText(menu.getMenu_cost() + "");
+        Menu menu = menulist.get(position);
 
-        return converView;
+        holder.MenuName.setText(menu.getMenu_name());
+        holder.MenuPrice.setText(menu.getMenu_price());
+
+        byte[] Menubyteimage = menu.getMenu_image();
+        Bitmap bitmap = BitmapFactory.decodeByteArray(Menubyteimage, 0, Menubyteimage.length);
+        holder.MenuImage.setImageBitmap(bitmap);
+
+        return row;
     }
 }
 
-class Holder {
-    public TextView menu_id;
-    public TextView menu_name;
-    public TextView menu_price;
-    public TextView menu_cost;
-    //public ImageView menu_Image;
-
-}
