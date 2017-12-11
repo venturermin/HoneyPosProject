@@ -24,6 +24,15 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.kakao.auth.ISessionCallback;
+import com.kakao.auth.Session;
+import com.kakao.network.ErrorResult;
+import com.kakao.usermgmt.LoginButton;
+import com.kakao.usermgmt.UserManagement;
+import com.kakao.usermgmt.callback.MeResponseCallback;
+import com.kakao.usermgmt.response.model.UserProfile;
+import com.kakao.util.exception.KakaoException;
+import com.kakao.util.helper.log.Logger;
 
 public class SignInActivity extends AppCompatActivity {
     private final int RC_SIGN_IN = 1;
@@ -34,16 +43,30 @@ public class SignInActivity extends AppCompatActivity {
     EditText emailText;
     EditText PasswordText;
     Button SignUpBtn;
+    SessionCallback callback;
+    LoginButton loginButton_kakao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
+
+
         mAuth = FirebaseAuth.getInstance();
+
         signInButton = (SignInButton) findViewById(R.id.google_signin);
         emailText = (EditText) findViewById(R.id.EmailText);
         PasswordText = (EditText) findViewById(R.id.PasswordText);
         SignUpBtn = (Button) findViewById(R.id.SignInBtn);
+
+        callback = new SessionCallback();                  // 이 두개의 함수 중요함
+        Session.getCurrentSession().addCallback(callback);
+
+
+        loginButton_kakao = findViewById(R.id.kakao_login);
+
+
+
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)// gso 잘 이해되지 않는다
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -53,8 +76,13 @@ public class SignInActivity extends AppCompatActivity {
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso); //signinclient  잘 이해되지 않는다
     }
 
+
+
     protected void onResume(){
         super.onResume();
+
+
+
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,6 +121,8 @@ public class SignInActivity extends AppCompatActivity {
     }//firebaseAuthwith Google!
 
 
+
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {//인텐트로 보낸 해당 고객정보를 다시받아온다.
         super.onActivityResult(requestCode, resultCode, data);
@@ -110,11 +140,29 @@ public class SignInActivity extends AppCompatActivity {
                 // ...
             }
         }
+        Log.d("myLog", "onActivityResult11 " + "onActivityResult11");
+
+
+
+        if (Session.getCurrentSession().handleActivityResult(requestCode,
+
+                resultCode, data)) {
+
+            Log.d("myLog", "onActivityResult " + "onActivityResult");
+
+            return;
+
+        }
+
+
+
+
+
     }//onActivityResult
 
 
 
-    private void CreateUser(final String email, final String password){
+    protected void CreateUser(final String email, final String password){
 
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -189,5 +237,115 @@ public class SignInActivity extends AppCompatActivity {
         Intent intentSingup = new Intent(getApplicationContext(), SignUpActivity.class);
         startActivity(intentSingup);
     }
+
+
+    private class SessionCallback implements ISessionCallback {
+
+
+        @Override
+
+        public void onSessionOpened() {
+
+            Log.d("myLog", "onSessionOpened " + "onSessionOpened");
+
+            redirectSignupActivity();
+
+        }
+
+
+        @Override
+
+        public void onSessionOpenFailed(KakaoException exception) {
+
+            Log.d("myLog", "onSessionOpenFailed " + "onSessionOpenFailed");
+
+
+            if (exception != null) {
+
+                Logger.e(exception);
+
+            }
+
+        }
+    }
+
+
+        @Override
+
+        protected void onDestroy() {
+
+            super.onDestroy();
+
+            Session.getCurrentSession().removeCallback(callback);
+
+        }
+
+
+        protected void redirectSignupActivity() {
+
+            Log.d("myLog", "redirectSignupActivity " + "redirectSignupActivity");
+
+            requestMe();
+
+            final Intent intent = new Intent(this, MainActivity.class);
+
+            startActivity(intent);
+
+            finish();
+
+        }
+
+
+        private void requestMe() {
+
+            UserManagement.requestMe(new MeResponseCallback() {
+
+                @Override
+
+                public void onFailure(ErrorResult errorResult) {
+
+                    String message = "failed to get user info. msg=" + errorResult;
+
+
+                }
+
+
+                @Override
+
+                public void onSessionClosed(ErrorResult errorResult) {
+
+                }
+
+
+                @Override
+
+                public void onSuccess(UserProfile userProfile) {
+
+                   /* Log.d("myLog", "userProfile" + userProfile.getId());
+
+                    Log.d("myLog", "userProfile" + userProfile.getNickname());
+
+                    Log.d("myLog",
+
+                            "userProfile" + userProfile.getThumbnailImagePath());*/
+                    redirectSignupActivity();
+
+                }
+
+
+                @Override
+
+                public void onNotSignedUp() {
+
+                }
+
+            });
+
+
+    }// end of session
+
+
+
+
 
 }//end of class

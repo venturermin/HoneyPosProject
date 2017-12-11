@@ -2,6 +2,7 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/pie_statistics_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.bumslap.bum.statistics.PieChartDataActivity">
@@ -21,7 +22,7 @@
         android:layout_width="0dp"
         android:layout_height="138dp"
         android:layout_marginBottom="9dp"
-        app:layout_constraintBottom_toTopOf="@+id/AmountStastisticBtn"
+        app:layout_constraintBottom_toTopOf="@+id/txtOne"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,26 +53,6 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/graph_title" />
-
-    <Button
-        android:id="@+id/SalesStatisticBtn"
-        android:layout_width="190dp"
-        android:layout_height="47dp"
-        android:background="@android:color/transparent"
-        android:text="매출 통계"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <Button
-        android:id="@+id/AmountStastisticBtn"
-        android:layout_width="190dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="4dp"
-        android:background="@color/colorAccent"
-        android:text="수량 분석"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/SalesStatisticBtn"
-        app:layout_constraintStart_toStartOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>
