@@ -20,8 +20,8 @@ android {
 
 dependencies {
 
-        compile fileTree(dir: 'libs', include: ['*.jar']) //kakao 관련
-       compile group: project.KAKAO_SDK_GROUP, name: 'usermgmt', version: project.KAKAO_SDK_VERSION
+    compile fileTree(dir: 'libs', include: ['*.jar']) //kakao 관련
+    compile group: project.KAKAO_SDK_GROUP, name: 'usermgmt', version: project.KAKAO_SDK_VERSION
 
 
     implementation 'com.android.support:appcompat-v7:26.1.0'
@@ -35,6 +35,7 @@ dependencies {
     compile 'com.google.firebase:firebase-core:11.6.0'
     compile 'com.android.support:design:26.1.0'
     implementation 'com.android.support:cardview-v7:26.1.0'
+    implementation 'com.android.support:recyclerview-v7:26.1.0'
 }
 apply plugin: 'com.google.gms.google-services'
 
