@@ -85,6 +85,7 @@ public class DBforAnalysis extends SQLiteOpenHelper{
     public void addMenu(Menu menu){
 
         //사용가능한 데이터 베이스 가져오기.
+
         SQLiteDatabase db = getWritableDatabase();
 
         //Menu Data insert(id는 자동 증가)

@@ -6,10 +6,10 @@ package com.bumslap.bum.DB;
  */
 
 public class Order {
-    public String Order_amount;
-    public String Order_date;
-    public String Order_time;
-    public Integer Order_FK_menuId;
+    private String Order_amount;
+    private String Order_date;
+    private String Order_time;
+    private Integer Order_FK_menuId;
 
     public Order() {
     }
