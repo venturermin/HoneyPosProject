@@ -3,6 +3,7 @@ package com.bumslap.bum.menuedit;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
@@ -34,25 +35,32 @@ public class MenuSettingActivity extends AppCompatActivity implements GestureDet
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_setting);
-
-        ArrayList<HashMap<String, Object>> arrayList = new ArrayList<HashMap<String, Object>>();
-        HashMap<String, Object> hashMap = null;
-        hashMap = new HashMap<String, Object>();
-        hashMap.put("title", "rollrice");
-        hashMap.put("detail", "3,000원");
-        hashMap.put("image", R.drawable.rollrice);
-        arrayList.add(hashMap);
-
-        mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        //mRecyclerView.setHasFixedSize(true);
-
-        mLayoutManager = new GridLayoutManager(this, 2);
-        mRecyclerView.setLayoutManager(mLayoutManager);
-        mAdapter = new MyAdapter(arrayList);
-        mRecyclerView.setAdapter(mAdapter);
-
         this.gestureDetector = new GestureDetector(this,this);
 
+        FloatingActionButton floatingActionButton =
+
+                (FloatingActionButton)findViewById(R.id.addItemAction);
+
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final ArrayList<HashMap<String, Object>> arrayList = new ArrayList<HashMap<String, Object>>();
+                HashMap<String, Object> hashMap = null;
+                hashMap = new HashMap<String, Object>();
+                hashMap.put("title", "rollrice");
+                hashMap.put("detail", "3,000원");
+                hashMap.put("image", R.drawable.rollrice);
+                arrayList.add(hashMap);
+                mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+                //mRecyclerView.setHasFixedSize(true);
+
+                mLayoutManager = new GridLayoutManager(getApplicationContext(), 2);
+                mRecyclerView.setLayoutManager(mLayoutManager);
+                mAdapter = new MyAdapter(arrayList);
+                mRecyclerView.setAdapter(mAdapter);
+
+            }
+        });
     }
 
     ImageView.OnClickListener updatemenu = new View.OnClickListener() {
