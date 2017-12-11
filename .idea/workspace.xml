@@ -9,147 +9,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ad45ed27-7205-43c1-b497-318457cddf1c" name="Default" comment="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.gradle/4.1/fileHashes/fileHashes.bin&#10;#&#9;.gradle/4.1/fileHashes/fileHashes.lock&#10;#&#9;.gradle/4.1/fileHashes/resourceHashesCache.bin&#10;#&#9;.gradle/4.1/javaCompile/classAnalysis.bin&#10;#&#9;.gradle/4.1/javaCompile/jarAnalysis.bin&#10;#&#9;.gradle/4.1/javaCompile/javaCompile.lock&#10;#&#9;.gradle/4.1/javaCompile/taskHistory.bin&#10;#&#9;.gradle/4.1/javaCompile/taskJars.bin&#10;#&#9;.gradle/4.1/taskHistory/fileSnapshots.bin&#10;#&#9;.gradle/4.1/taskHistory/taskHistory.bin&#10;#&#9;.gradle/4.1/taskHistory/taskHistory.lock&#10;#&#9;.idea/libraries/__local_aars____home_bum_Lastproject_HoneyPosProject_app_libs_activation_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/__local_aars____home_bum_Lastproject_HoneyPosProject_app_libs_additionnal_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/__local_aars____home_bum_Lastproject_HoneyPosProject_app_libs_mail_1_4_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/__local_aars____home_jaein_honeyPOs_HoneyPosProject_app_libs_activation_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/__local_aars____home_jaein_honeyPOs_HoneyPosProject_app_libs_additionnal_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/__local_aars____home_jaein_honeyPOs_HoneyPosProject_app_libs_mail_1_4_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/__local_aars____home_oyoun_Develope_project_HoneyPosProject_app_libs_activation_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/__local_aars____home_oyoun_Develope_project_HoneyPosProject_app_libs_additionnal_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/__local_aars____home_oyoun_Develope_project_HoneyPosProject_app_libs_mail_1_4_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/android_arch_lifecycle_runtime_1_0_0.xml&#10;#&#9;.idea/libraries/com_android_support_animated_vector_drawable_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_appcompat_v7_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_cardview_v7_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_constraint_constraint_layout_1_0_2.xml&#10;#&#9;.idea/libraries/com_android_support_design_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_recyclerview_v7_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_support_compat_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_support_core_ui_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_support_core_utils_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_support_fragment_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_support_media_compat_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_support_v4_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_support_vector_drawable_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_test_espresso_espresso_core_3_0_1.xml&#10;#&#9;.idea/libraries/com_android_support_test_espresso_espresso_idling_resource_3_0_1.xml&#10;#&#9;.idea/libraries/com_android_support_test_rules_1_0_1.xml&#10;#&#9;.idea/libraries/com_android_support_test_runner_1_0_1.xml&#10;#&#9;.idea/libraries/com_android_support_transition_26_1_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_auth_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_auth_api_phone_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_auth_api_phone_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_auth_base_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_auth_base_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_base_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_base_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_basement_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_basement_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_tasks_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_tasks_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_analytics_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_analytics_impl_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_analytics_impl_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_analytics_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_auth_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_auth_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_common_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_common_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_core_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_database_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_database_connection_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_database_connection_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_database_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_iid_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_iid_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_kakao_sdk_auth_1_1_7.xml&#10;#&#9;.idea/libraries/com_kakao_sdk_network_1_1_7.xml&#10;#&#9;.idea/libraries/com_kakao_sdk_usermgmt_1_1_7.xml&#10;#&#9;.idea/libraries/com_kakao_sdk_util_1_1_7.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;app/src/main/java/com/bumslap/bum/DB/DBforAnalysis.java&#10;#&#9;build/android-profile/profile-2017-12-11-18-07-26-232.json&#10;#&#9;local.properties">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-19-06-59-693.rawproto" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/__local_aars____home_oyoun_Develope_project_HoneyPosProject_app_libs_mpandroidchartlibrary_2_2_4_jar_unspecified_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/DB/MenuListAdapter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/order_menu_item.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-19-06-59-693.json" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-08-12-24-08-646.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-08-12-24-08-646.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-08-12-26-26-816.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-08-12-26-26-816.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-08-12-26-31-882.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-08-12-26-31-882.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-08-12-30-20-471.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-08-12-30-20-471.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-08-13-54-03-361.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-08-13-54-03-361.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-08-13-54-41-846.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-08-13-54-41-846.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-08-13-54-49-336.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-08-13-54-49-336.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-08-13-59-05-531.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-08-13-59-05-531.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-09-00-57-353.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-09-00-57-353.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-09-01-22-361.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-09-01-22-361.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-09-23-49-785.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-09-23-49-785.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-09-23-51-949.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-09-23-51-949.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-09-28-41-677.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-09-28-41-677.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-09-28-43-209.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-09-28-43-209.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-09-38-14-824.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-09-38-14-824.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-09-40-22-206.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-09-40-22-206.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-10-10-56-570.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-10-10-56-570.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-10-11-20-133.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-10-11-20-133.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-10-14-30-203.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-10-14-30-203.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-10-48-39-610.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-10-48-39-610.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-10-49-54-596.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-10-49-54-596.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-10-50-32-357.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-10-50-32-357.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-10-55-54-884.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-10-55-54-884.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-11-01-34-492.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-11-01-34-492.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-14-46-04-046.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-14-46-04-046.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-14-47-37-678.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-14-47-37-678.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-15-00-02-397.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-15-00-02-397.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-15-03-14-600.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-15-03-14-600.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-15-11-14-729.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-15-11-14-729.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-15-14-02-749.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-15-14-02-749.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-15-15-32-145.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-15-15-32-145.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-15-22-59-874.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-15-22-59-874.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-15-24-54-638.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-15-24-54-638.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-17-49-01-464.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-17-49-01-464.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-17-49-36-779.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-17-49-36-779.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-17-55-30-516.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-17-55-30-516.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-18-01-21-430.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-18-01-21-430.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-18-01-27-352.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-18-01-27-352.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-18-02-52-561.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-18-02-52-561.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-18-04-38-565.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-18-04-38-565.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-18-05-06-292.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-18-05-06-292.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-18-05-10-471.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-18-05-10-471.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-18-05-30-683.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-18-05-30-683.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-18-05-42-807.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-18-05-42-807.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-18-07-26-232.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-18-07-26-232.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-18-08-52-026.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-18-08-52-026.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-18-09-57-685.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-18-09-57-685.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-18-10-48-383.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-18-10-48-383.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-18-13-24-711.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-18-13-24-711.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-18-14-30-942.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-18-14-30-942.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-18-21-28-717.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-18-21-28-717.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-18-25-16-744.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-18-25-16-744.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-18-25-28-513.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-18-25-28-513.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-18-26-03-082.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-18-26-03-082.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-18-26-19-595.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-18-26-19-595.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-18-26-36-280.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-18-26-36-280.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-18-27-19-496.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-18-27-19-496.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-18-30-08-447.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-12-11-18-30-08-447.rawproto" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskHistory.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/DB/DBforAnalysis.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/DB/DBforAnalysis.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/DB/Menu.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/DB/Menu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/menuedit/MenuUpdateActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/menuedit/MenuUpdateActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/order/OrderActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/order/OrderActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_menu_update.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_menu_update.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/cardview_layout.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/cardview_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_order.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_order.xml" />
-    </list>
+    <list default="true" id="ad45ed27-7205-43c1-b497-318457cddf1c" name="Default" comment="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.gradle/4.1/fileHashes/fileHashes.bin&#10;#&#9;.gradle/4.1/fileHashes/fileHashes.lock&#10;#&#9;.gradle/4.1/fileHashes/resourceHashesCache.bin&#10;#&#9;.gradle/4.1/javaCompile/classAnalysis.bin&#10;#&#9;.gradle/4.1/javaCompile/jarAnalysis.bin&#10;#&#9;.gradle/4.1/javaCompile/javaCompile.lock&#10;#&#9;.gradle/4.1/javaCompile/taskHistory.bin&#10;#&#9;.gradle/4.1/javaCompile/taskJars.bin&#10;#&#9;.gradle/4.1/taskHistory/fileSnapshots.bin&#10;#&#9;.gradle/4.1/taskHistory/taskHistory.bin&#10;#&#9;.gradle/4.1/taskHistory/taskHistory.lock&#10;#&#9;.idea/libraries/__local_aars____home_bum_Lastproject_HoneyPosProject_app_libs_activation_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/__local_aars____home_bum_Lastproject_HoneyPosProject_app_libs_additionnal_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/__local_aars____home_bum_Lastproject_HoneyPosProject_app_libs_mail_1_4_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/__local_aars____home_jaein_honeyPOs_HoneyPosProject_app_libs_activation_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/__local_aars____home_jaein_honeyPOs_HoneyPosProject_app_libs_additionnal_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/__local_aars____home_jaein_honeyPOs_HoneyPosProject_app_libs_mail_1_4_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/__local_aars____home_oyoun_Develope_project_HoneyPosProject_app_libs_activation_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/__local_aars____home_oyoun_Develope_project_HoneyPosProject_app_libs_additionnal_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/__local_aars____home_oyoun_Develope_project_HoneyPosProject_app_libs_mail_1_4_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/android_arch_lifecycle_runtime_1_0_0.xml&#10;#&#9;.idea/libraries/com_android_support_animated_vector_drawable_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_appcompat_v7_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_cardview_v7_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_constraint_constraint_layout_1_0_2.xml&#10;#&#9;.idea/libraries/com_android_support_design_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_recyclerview_v7_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_support_compat_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_support_core_ui_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_support_core_utils_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_support_fragment_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_support_media_compat_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_support_v4_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_support_vector_drawable_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_test_espresso_espresso_core_3_0_1.xml&#10;#&#9;.idea/libraries/com_android_support_test_espresso_espresso_idling_resource_3_0_1.xml&#10;#&#9;.idea/libraries/com_android_support_test_rules_1_0_1.xml&#10;#&#9;.idea/libraries/com_android_support_test_runner_1_0_1.xml&#10;#&#9;.idea/libraries/com_android_support_transition_26_1_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_auth_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_auth_api_phone_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_auth_api_phone_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_auth_base_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_auth_base_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_base_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_base_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_basement_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_basement_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_tasks_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_tasks_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_analytics_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_analytics_impl_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_analytics_impl_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_analytics_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_auth_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_auth_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_common_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_common_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_core_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_database_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_database_connection_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_database_connection_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_database_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_iid_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_iid_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_kakao_sdk_auth_1_1_7.xml&#10;#&#9;.idea/libraries/com_kakao_sdk_network_1_1_7.xml&#10;#&#9;.idea/libraries/com_kakao_sdk_usermgmt_1_1_7.xml&#10;#&#9;.idea/libraries/com_kakao_sdk_util_1_1_7.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;app/src/main/java/com/bumslap/bum/DB/DBforAnalysis.java&#10;#&#9;build/android-profile/profile-2017-12-11-18-07-26-232.json&#10;#&#9;local.properties" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <ignored path="$PROJECT_DIR$/app/build/intermediates/assets/" />
@@ -220,7 +80,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="396">
               <caret line="36" column="43" lean-forward="false" selection-start-line="36" selection-start-column="43" selection-end-line="36" selection-end-column="43" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -241,7 +103,12 @@
             <state relative-caret-position="918">
               <caret line="57" column="54" lean-forward="false" selection-start-line="56" selection-start-column="35" selection-end-line="57" selection-end-column="54" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#843#844#0" expanded="false" />
+                <element signature="e#877#878#0" expanded="false" />
+                <element signature="e#927#928#0" expanded="false" />
+                <element signature="e#961#962#0" expanded="false" />
+                <element signature="e#1011#1012#0" expanded="false" />
+                <element signature="e#1035#1036#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -252,16 +119,32 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="666">
               <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#3288#3289#0" expanded="false" />
+                <element signature="e#3316#3317#0" expanded="false" />
+                <element signature="e#3463#3464#0" expanded="false" />
+                <element signature="e#3491#3492#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DBforAnalysis.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/DB/DBforAnalysis.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="347">
+              <caret line="152" column="55" lean-forward="false" selection-start-line="152" selection-start-column="55" selection-end-line="152" selection-end-column="55" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DBforAnalysis.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/DB/DBforAnalysis.java">
+      <file leaf-file-name="OrderActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/order/OrderActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="139" column="33" lean-forward="true" selection-start-line="139" selection-start-column="33" selection-end-line="139" selection-end-column="33" />
+            <state relative-caret-position="486">
+              <caret line="61" column="0" lean-forward="true" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -297,7 +180,20 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="162">
               <caret line="9" column="29" lean-forward="false" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
-              <folding />
+              <folding>
+                <element signature="e#440#441#0" expanded="false" />
+                <element signature="e#472#473#0" expanded="false" />
+                <element signature="e#521#522#0" expanded="false" />
+                <element signature="e#563#564#0" expanded="false" />
+                <element signature="e#599#600#0" expanded="false" />
+                <element signature="e#632#633#0" expanded="false" />
+                <element signature="e#683#684#0" expanded="false" />
+                <element signature="e#727#728#0" expanded="false" />
+                <element signature="e#768#769#0" expanded="false" />
+                <element signature="e#805#806#0" expanded="false" />
+                <element signature="e#865#866#0" expanded="false" />
+                <element signature="e#917#918#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -2301,6 +2197,28 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="order" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HoneyPosProject" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bum" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="menuedit" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -2425,7 +2343,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1512983548471" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1512983744515" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2473,7 +2391,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1512983548471" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1512983744516" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2635,7 +2553,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1512983548473" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1512983744521" />
       </method>
     </configuration>
     <list size="1">
@@ -2957,13 +2875,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/statistics/SalesStatus2Activity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
       <provider editor-type-id="android-designer2">
         <state />
@@ -3240,6 +3151,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="318">
           <caret line="3769" column="48" lean-forward="false" selection-start-line="3769" selection-start-column="48" selection-end-line="3769" selection-end-column="48" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3276,7 +3188,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="9" column="29" lean-forward="false" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
-          <folding />
+          <folding>
+            <element signature="e#440#441#0" expanded="false" />
+            <element signature="e#472#473#0" expanded="false" />
+            <element signature="e#521#522#0" expanded="false" />
+            <element signature="e#563#564#0" expanded="false" />
+            <element signature="e#599#600#0" expanded="false" />
+            <element signature="e#632#633#0" expanded="false" />
+            <element signature="e#683#684#0" expanded="false" />
+            <element signature="e#727#728#0" expanded="false" />
+            <element signature="e#768#769#0" expanded="false" />
+            <element signature="e#805#806#0" expanded="false" />
+            <element signature="e#865#866#0" expanded="false" />
+            <element signature="e#917#918#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -3315,7 +3240,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="666">
           <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#3288#3289#0" expanded="false" />
+            <element signature="e#3316#3317#0" expanded="false" />
+            <element signature="e#3463#3464#0" expanded="false" />
+            <element signature="e#3491#3492#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -3323,7 +3254,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
           <caret line="36" column="43" lean-forward="false" selection-start-line="36" selection-start-column="43" selection-end-line="36" selection-end-column="43" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -3340,7 +3273,12 @@
         <state relative-caret-position="918">
           <caret line="57" column="54" lean-forward="false" selection-start-line="56" selection-start-column="35" selection-end-line="57" selection-end-column="54" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#843#844#0" expanded="false" />
+            <element signature="e#877#878#0" expanded="false" />
+            <element signature="e#927#928#0" expanded="false" />
+            <element signature="e#961#962#0" expanded="false" />
+            <element signature="e#1011#1012#0" expanded="false" />
+            <element signature="e#1035#1036#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3355,8 +3293,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/DB/DBforAnalysis.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="139" column="33" lean-forward="true" selection-start-line="139" selection-start-column="33" selection-end-line="139" selection-end-column="33" />
+        <state relative-caret-position="347">
+          <caret line="152" column="55" lean-forward="false" selection-start-line="152" selection-start-column="55" selection-end-line="152" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/order/OrderActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="61" column="0" lean-forward="true" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
           <folding />
         </state>
       </provider>
