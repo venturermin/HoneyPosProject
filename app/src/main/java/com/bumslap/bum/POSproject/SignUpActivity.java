@@ -1,6 +1,5 @@
 package com.bumslap.bum.POSproject;
 
-import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -14,13 +13,12 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumslap.bum.DB.User;
+import com.bumslap.bum.POSproject.SignFuntion.ModalFuntion;
 import com.bumslap.bum.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -34,9 +32,9 @@ public class SignUpActivity extends AppCompatActivity {
 
     EditText password;
     EditText passwordConfirm;
-    TextView passwordMatching;
+
     ImageView check;
-    SignInActivity signInActivity;
+
     EditText editText_name;
     EditText editText_store_name;
     EditText editText_email;
@@ -180,25 +178,35 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     protected void CreateUser(final String email, final String password){
+        if(!email.equals("") && !password.equals("")) {
 
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Toast.makeText(getApplicationContext(),"회원가입 완료",Toast.LENGTH_LONG).show();
 
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Toast.makeText(getApplicationContext(),"회원가입 실패하였습니다.",Toast.LENGTH_LONG).show();
-                            Log.d("state", "createUserWithEmail:failure", task.getException());
+            mAuth.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                // Sign in success, update UI with the signed-in user's information
+                                Toast.makeText(getApplicationContext(),"회원가입 완료",Toast.LENGTH_LONG).show();
 
+                            } else {
+                                // If sign in fails, display a message to the user.
+                                Toast.makeText(getApplicationContext(),"회원가입 실패하였습니다.",Toast.LENGTH_LONG).show();
+                                Log.d("state", "createUserWithEmail:failure", task.getException());
+
+                            }
+
+                            // ...
                         }
+                    });
 
-                        // ...
-                    }
-                });
+
+        }
+        else {
+            Toast.makeText(getApplicationContext(),"Not Available",Toast.LENGTH_LONG).show();
+        }
+
+
     }//create Users
 
 
@@ -209,7 +217,10 @@ public class SignUpActivity extends AppCompatActivity {
        /* final String email = editText_email.getText().toString();
 
 */
+        ModalFuntion modalFuntion = new ModalFuntion(this);
+        modalFuntion.show(this);
 
+/*
         User user = new User();
 
         String email = editText_email.getText().toString();
@@ -237,7 +248,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         CreateUser(email,password);
         Intent intent = new Intent(SignUpActivity.this, EmailVerifyActivity.class);
-        startActivity(intent);
+        startActivity(intent);*/
 
 
 

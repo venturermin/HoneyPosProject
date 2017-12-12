@@ -1,5 +1,7 @@
 package com.bumslap.bum.DB;
 
+import java.net.URI;
+
 /**
  * Created by oyoun on 17. 12. 7.
  */
@@ -7,19 +9,21 @@ package com.bumslap.bum.DB;
 public class Menu {
     private int Menu_id ;
     private String Menu_name;
-    private String Menu_image;
+    private byte[] Menu_image;
     private String Menu_price;
     private String Menu_cost;
 
-    public Menu() {
+
+    public Menu(int menu_id, String menu_name, byte[] menu_image, String menu_price, String menu_cost) {
+        this.Menu_id = menu_id;
+        this.Menu_name = menu_name;
+        this.Menu_image = menu_image;
+        this.Menu_price = menu_price;
+        this.Menu_cost = menu_cost;
     }
 
-    public Menu(int menu_id, String menu_name, String menu_image, String menu_price, String menu_cost) {
-        Menu_id = menu_id;
-        Menu_name = menu_name;
-        Menu_image = menu_image;
-        Menu_price = menu_price;
-        Menu_cost = menu_cost;
+    public Menu() {
+
     }
 
     public int getMenu_id(){
@@ -30,7 +34,7 @@ public class Menu {
         return Menu_name;
     }
 
-    public String getMenu_image(){
+    public byte[] getMenu_image(){
         return Menu_image;
     }
 
@@ -50,7 +54,7 @@ public class Menu {
         this.Menu_name = Menu_name;
     }
 
-    public void setMenu_image(String Menu_image){
+    public void setMenu_image(byte[] Menu_image){
         this.Menu_image = Menu_image;
     }
 

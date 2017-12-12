@@ -10,9 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumslap.bum.POSproject.SignFuntion.FontFuntion;
 import com.bumslap.bum.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -54,9 +54,7 @@ public class SignInActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
-        mTypeface = Typeface.createFromAsset(getAssets(), "fonts/NanumSquareRoundL.ttf");
-        ViewGroup root = (ViewGroup) findViewById(android.R.id.content);
-        setGlobalFont(root);
+
 
 
 
@@ -84,20 +82,15 @@ public class SignInActivity extends AppCompatActivity {
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso); //signinclient  잘 이해되지 않는다
     }
 
-    void setGlobalFont(ViewGroup root) {
-        for (int i = 0; i < root.getChildCount(); i++) {
-            View child = root.getChildAt(i);
-            if (child instanceof TextView)
-                ((TextView)child).setTypeface(mTypeface);
-            else if (child instanceof ViewGroup)
-                setGlobalFont((ViewGroup)child);
-        }
-    }
+
 
 
     protected void onResume(){
         super.onResume();
-
+        FontFuntion fontFuntion = new FontFuntion();
+        mTypeface = Typeface.createFromAsset(getAssets(), "fonts/NanumSquareRoundL.ttf");
+        ViewGroup root = (ViewGroup) findViewById(android.R.id.content);
+        fontFuntion.setGlobalFont(root,mTypeface);
 
 
         signInButton.setOnClickListener(new View.OnClickListener() {
@@ -242,15 +235,8 @@ public class SignInActivity extends AppCompatActivity {
     }
 
     public void onClickedSignUp(View v){
-        /*
-        if(!emailText.getText().toString().equals("") && !PasswordText.getText().toString().equals("")) {
-            String email = emailText.getText().toString();
-            String password = PasswordText.getText().toString();
-            CreateUser(email, password);
-        }
-        else {
-            Toast.makeText(getApplicationContext(),"Not Available",Toast.LENGTH_LONG).show();
-        }*/
+
+
         Intent intentSingup = new Intent(getApplicationContext(), SignUpActivity.class);
         startActivity(intentSingup);
     }

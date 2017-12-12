@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/gridview_menu"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:cardCornerRadius="12dp">
+
+    <ImageView
+        android:id="@+id/menushowimage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        app:srcCompat="@drawable/rollrice" />
+
+    <TextView
+        android:id="@+id/menushowname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/menushowimage"
+        android:layout_below="@+id/menushowimage"
+        android:layout_marginEnd="19dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/menushowprice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/menushowname"
+        android:layout_below="@+id/menushowname"
+        android:text="TextView" />
+</RelativeLayout>

@@ -99,6 +99,27 @@ public class DBforAnalysis extends SQLiteOpenHelper{
         Toast.makeText(context, "Menu 등록 완료.", Toast.LENGTH_LONG).show();
     }
 
+
+    public void addCost(Cost cost){
+
+        //사용가능한 데이터 베이스 가져오기.
+
+        SQLiteDatabase db = getWritableDatabase();
+
+        //Menu Data insert(id는 자동 증가)
+        StringBuffer sb = new StringBuffer();
+        sb.append(" INSERT INTO COST_TABLE ( ");
+        sb.append(" COST_NAME, COST_PRICE, COST_FK_MENUID  ) ");
+        sb.append(" VALUES ( ?, ?, ? ); ");
+
+        db.execSQL(sb.toString(),
+                new Object[]{
+                        cost.getCost_name(),
+                        cost.getCost_price(),
+                        cost.getCost_FK_menuId(),
+                });
+    }
+
     public List getAllMenuData() {
 
         StringBuffer sb = new StringBuffer();
@@ -117,12 +138,37 @@ public class DBforAnalysis extends SQLiteOpenHelper{
             menu = new Menu();
             menu.setMenu_id(cursor.getInt(0));
             menu.setMenu_name(cursor.getString(1));
-            menu.setMenu_image(cursor.getString(2));
+            menu.setMenu_image(cursor.getBlob(2));
             menu.setMenu_price(cursor.getString((3)));
             menu.setMenu_cost(cursor.getString((4)));
 
             menulist.add(menu);
         }
         return menulist;
+    }
+
+    public ArrayList getAllCostData() {
+
+        StringBuffer sb = new StringBuffer();
+        sb.append(" SELECT COST_NAME, COST_PRICE, COST_FK_MENUID FROM COST_TABLE ");
+
+        //읽기 전용 DB 객체를 생성
+        SQLiteDatabase db = getReadableDatabase();
+
+        Cursor cursor = db.rawQuery(sb.toString(), null);
+
+        ArrayList costlist = new ArrayList();
+        Cost cost = null;
+
+        // moveToNext 다음에 데이터가 없으면 false, 있으면 true
+        while( cursor.moveToNext() ) {
+            cost = new Cost();
+            cost.setCost_name(cursor.getString(0));
+            cost.setCost_price(cursor.getString(1));
+            cost.setCost_FK_menuId(cursor.getInt(2));
+
+            costlist.add(0, cost);
+        }
+        return costlist;
     }
 }
