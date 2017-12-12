@@ -1,6 +1,7 @@
 package com.bumslap.bum.POSproject;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +9,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -52,13 +54,16 @@ public class SignUpActivity extends AppCompatActivity {
 
     Button nextBtn;
     ImageView checkEmailAddress;
-
+    private Typeface mTypeface;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+        mTypeface = Typeface.createFromAsset(getAssets(), "fonts/NanumSquareRoundL.ttf");
+        ViewGroup root = (ViewGroup) findViewById(android.R.id.content);
+        setGlobalFont(root);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -69,6 +74,7 @@ public class SignUpActivity extends AppCompatActivity {
 
 
         password = (EditText) findViewById(R.id.password);
+
         passwordConfirm = (EditText) findViewById(R.id.passwordConfirm);
 
         check = findViewById(R.id.check);
@@ -102,9 +108,32 @@ public class SignUpActivity extends AppCompatActivity {
         });
     }// end of onCreate
 
+
+
+    void setGlobalFont(ViewGroup root) {
+        for (int i = 0; i < root.getChildCount(); i++) {
+            View child = root.getChildAt(i);
+            if (child instanceof TextView)
+                ((TextView)child).setTypeface(mTypeface);
+            else if (child instanceof ViewGroup)
+                setGlobalFont((ViewGroup)child);
+        }
+    }
+
+
+
     protected void onResume(){
 
         super.onResume();
+
+
+
+
+
+
+
+
+
         nextBtn = findViewById(R.id.nextBtn);
        // nextBtn.setEnabled(false);
 
@@ -134,8 +163,11 @@ public class SignUpActivity extends AppCompatActivity {
 
 
         editText_name = findViewById(R.id.name);
+
+
         editText_store_name = findViewById(R.id.nameOfStore);
         editText_email = findViewById(R.id.email);
+
         editText_phonenumber = findViewById(R.id.phoneNumber);
 
         editText_password = findViewById(R.id.password);

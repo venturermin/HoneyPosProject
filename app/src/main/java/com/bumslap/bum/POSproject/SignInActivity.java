@@ -1,13 +1,16 @@
 package com.bumslap.bum.POSproject;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumslap.bum.R;
@@ -45,11 +48,16 @@ public class SignInActivity extends AppCompatActivity {
     Button SignUpBtn;
     SessionCallback callback;
     LoginButton loginButton_kakao;
+    Typeface mTypeface;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
+        mTypeface = Typeface.createFromAsset(getAssets(), "fonts/NanumSquareRoundL.ttf");
+        ViewGroup root = (ViewGroup) findViewById(android.R.id.content);
+        setGlobalFont(root);
+
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -76,6 +84,15 @@ public class SignInActivity extends AppCompatActivity {
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso); //signinclient  잘 이해되지 않는다
     }
 
+    void setGlobalFont(ViewGroup root) {
+        for (int i = 0; i < root.getChildCount(); i++) {
+            View child = root.getChildAt(i);
+            if (child instanceof TextView)
+                ((TextView)child).setTypeface(mTypeface);
+            else if (child instanceof ViewGroup)
+                setGlobalFont((ViewGroup)child);
+        }
+    }
 
 
     protected void onResume(){
@@ -328,7 +345,7 @@ public class SignInActivity extends AppCompatActivity {
                     Log.d("myLog",
 
                             "userProfile" + userProfile.getThumbnailImagePath());*/
-                    redirectSignupActivity();
+
 
                 }
 
