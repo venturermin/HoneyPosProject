@@ -45,9 +45,6 @@ public class OrderActivity extends AppCompatActivity
     ArrayList<com.bumslap.bum.DB.Menu> Menulist;
     com.bumslap.bum.DB.MenuListAdapter menuListAdapter = null;
 
-
-
-
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

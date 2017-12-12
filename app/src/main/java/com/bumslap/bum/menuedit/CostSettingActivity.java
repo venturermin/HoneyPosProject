@@ -1,13 +1,11 @@
 package com.bumslap.bum.menuedit;
 
 import android.content.Intent;
-import android.media.Image;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -15,21 +13,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Spinner;
 
 import com.bumslap.bum.DB.Cost;
 import com.bumslap.bum.DB.DBforAnalysis;
 import com.bumslap.bum.R;
-import com.bumslap.bum.statistics.BarChartActivity;
-import com.bumslap.bum.statistics.PieChartDataActivity;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class CostSettingActivity extends AppCompatActivity implements GestureDetector.OnGestureListener {
     Button MenuSetBtn, CostSetBtn;
@@ -37,13 +28,11 @@ public class CostSettingActivity extends AppCompatActivity implements GestureDet
     private GestureDetector gestureDetector;
     ListView LIstViewIngradient;
     FloatingActionButton floatingActionButton_cost;
-    ArrayList<HashMap<String, String>> list,list2;
-    HashMap<String, String> firIngradient;
     DBforAnalysis dBforAnalysis;
     Button button_save;
     IngradientAdapter IngradientAdapter;
     ArrayList<Cost> costlist;
-
+    Spinner spinnerMenu;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +47,7 @@ public class CostSettingActivity extends AppCompatActivity implements GestureDet
                 "피자", "짜장면", "라면", "숯불 김밥"
         };
 
-        Spinner spinnerMenu = (Spinner)findViewById(R.id.spinnerMenu);
+        spinnerMenu = (Spinner)findViewById(R.id.spinnerMenu);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(
                 this,
                 android.R.layout.simple_spinner_dropdown_item,
@@ -72,36 +61,33 @@ public class CostSettingActivity extends AppCompatActivity implements GestureDet
         dBforAnalysis = new DBforAnalysis(this,"test.db", null,1);
         costlist = new ArrayList<>();
 
-        // Cost cost = new Cost();
         costlist = dBforAnalysis.getAllCostData();
         IngradientAdapter = new IngradientAdapter(this, costlist);
-
-
-        //int sizeOfCost = costlist.size();
-
-        /*
-        for (int i=0;i<sizeOfCost; i++){
-            Cost firIngradient = new Cost();
-            firIngradient.getCost_name();
-            firIngradient.getCost_price();
-            costlist.add(firIngradient);
-        }*/
-
+        LIstViewIngradient.setAdapter(IngradientAdapter);
         IngradientAdapter.notifyDataSetChanged();
 
-        button_save = (Button)findViewById(R.id.button_save);
+
+
+        button_save = (Button)findViewById(R.id.button_edit);
         button_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                /*
                 String Name = IngradientAdapter.IngradientName.getText().toString();
                 String Price = IngradientAdapter.IngradientPrice.getText().toString();
                 Integer menu_ID = 3;
                 //costclass.setCost_name(Name);
                 //costclass.setCost_name(Price);
-                //DBforAnalysis.addCost(InsertCost);
+                //DBforAnalysis.addCost(InsertCost);*/
             }
         });
     }
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev){
+        super.dispatchTouchEvent(ev);
+        return gestureDetector.onTouchEvent(ev);
+    }
+
     @Override
     public boolean onDown(MotionEvent motionEvent) {
         return false;
@@ -133,7 +119,6 @@ public class CostSettingActivity extends AppCompatActivity implements GestureDet
             // Get the Snackbar's layout view
             Snackbar.SnackbarLayout layout = (Snackbar.SnackbarLayout) snackbar.getView();
             layout.setPadding(0,0,0,0);
-
 
             // Inflate our custom view
             View snackView = getLayoutInflater().inflate(R.layout.activity_snackbar_setting, null);
@@ -174,11 +159,15 @@ public class CostSettingActivity extends AppCompatActivity implements GestureDet
     View.OnClickListener AddIngradient = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-           Cost firIngradient = new Cost();
+            Cost firIngradient = new Cost();
+            String menu = spinnerMenu.getSelectedItem().toString();
             firIngradient.setCost_name("");
             firIngradient.setCost_price("");
             costlist.add(firIngradient);
+            dBforAnalysis.addCost(menu);
             IngradientAdapter.notifyDataSetChanged();
+
+
         }
     };
 }

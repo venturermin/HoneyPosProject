@@ -5,27 +5,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.bumslap.bum.BuildConfig;
 import com.bumslap.bum.DB.Cost;
-import com.bumslap.bum.DB.DBforAnalysis;
 import com.bumslap.bum.R;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-
 /**
  * Created by jaein on 12/11/17.
  */
 
 public class IngradientAdapter extends BaseAdapter{
-
     ArrayList<Cost> list;
     Activity activity;
-    EditText IngradientName;
-    EditText IngradientPrice;
+    EditText IngradientName, IngradientPrice;
+    ViewHolder holder;
     public IngradientAdapter(Activity activity, ArrayList<Cost> list){
         super();
         this.activity = activity;
@@ -47,33 +44,42 @@ public class IngradientAdapter extends BaseAdapter{
         return 0;
     }
 
+    public class ViewHolder{
+        EditText HIngradientName, HIngradientPrice;
+    }
+
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
+
         LayoutInflater inflater = activity.getLayoutInflater();
+        holder = new ViewHolder();
         if(view == null){
             view = inflater.inflate(R.layout.listview_cost, null);
-            IngradientName = (EditText) view.findViewById(R.id.EditText_Ingradientname);
-            IngradientPrice = (EditText) view.findViewById(R.id.EditText_Ingradientprice);
-
-
-            for(int f = 0; f<=i; f++) {
-                Cost firIngradient = new Cost();
-                IngradientName.setText(list.get(i).getCost_name());
-                IngradientPrice.setText(list.get(i).getCost_price());
-            }
-
+            holder.HIngradientName = (EditText) view.findViewById(R.id.EditText_Ingradientname);
+            holder.HIngradientPrice = (EditText) view.findViewById(R.id.EditText_Ingradientprice);
+            view.setTag(holder);
+        } else{
+            holder = (ViewHolder) view.getTag();
         }
+        Cost cost = list.get(i);
+        holder.HIngradientName.setText(list.get(i).getCost_name());
+        holder.HIngradientPrice.setText(list.get(i).getCost_price());
+
+
         return view;
+
+
     }
+
     //리스트 삭제
-    /*
-    View.OnClickListener click = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            Integer index = (Integer) view.getTag();
-            list.remove(index.intValue());
-            notifyDataSetChanged();
-        }
-    };*/
+   /*
+   View.OnClickListener click = new View.OnClickListener() {
+       @Override
+       public void onClick(View view) {
+           Integer index = (Integer) view.getTag();
+           list.remove(index.intValue());
+           notifyDataSetChanged();
+       }
+   };*/
 
 }

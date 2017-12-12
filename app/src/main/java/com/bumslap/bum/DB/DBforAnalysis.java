@@ -100,23 +100,33 @@ public class DBforAnalysis extends SQLiteOpenHelper{
     }
 
 
-    public void addCost(Cost cost){
-
+    public void addCost(String menu){
         //사용가능한 데이터 베이스 가져오기.
 
         SQLiteDatabase db = getWritableDatabase();
+        Integer menu_Id;
+
+        if(menu == "피자"){
+            menu_Id = 1;
+        }
+        else if (menu == "짜장면") {
+            menu_Id = 2;
+        }
+        else if (menu == "라면"){
+            menu_Id = 3;
+        }else {
+            menu_Id = 4;
+        }
 
         //Menu Data insert(id는 자동 증가)
         StringBuffer sb = new StringBuffer();
         sb.append(" INSERT INTO COST_TABLE ( ");
         sb.append(" COST_NAME, COST_PRICE, COST_FK_MENUID  ) ");
-        sb.append(" VALUES ( ?, ?, ? ); ");
+        sb.append(" VALUES ( '', '' , ? ); ");
 
         db.execSQL(sb.toString(),
                 new Object[]{
-                        cost.getCost_name(),
-                        cost.getCost_price(),
-                        cost.getCost_FK_menuId(),
+                    menu_Id
                 });
     }
 
@@ -134,7 +144,7 @@ public class DBforAnalysis extends SQLiteOpenHelper{
         Menu menu = null;
 
         // moveToNext 다음에 데이터가 없으면 false, 있으면 true
-        while( cursor.moveToNext() ) {
+       /* while( cursor.moveToNext() ) {
             menu = new Menu();
             menu.setMenu_id(cursor.getInt(0));
             menu.setMenu_name(cursor.getString(1));
@@ -143,7 +153,7 @@ public class DBforAnalysis extends SQLiteOpenHelper{
             menu.setMenu_cost(cursor.getString((4)));
 
             menulist.add(menu);
-        }
+        }*/
         return menulist;
     }
 
@@ -160,8 +170,6 @@ public class DBforAnalysis extends SQLiteOpenHelper{
         ArrayList<Cost> costlist = new ArrayList<>();
 
         Cost cost = null;
-
-
         // moveToNext 다음에 데이터가 없으면 false, 있으면 true
         while( cursor.moveToNext() ) {
             cost = new Cost();
