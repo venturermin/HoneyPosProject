@@ -7,9 +7,11 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumslap.bum.DB.Cost;
+import com.bumslap.bum.DB.DBforAnalysis;
 import com.bumslap.bum.R;
 
 import java.util.ArrayList;
@@ -21,11 +23,11 @@ import java.util.HashMap;
 
 public class IngradientAdapter extends BaseAdapter{
 
-    ArrayList<HashMap<String, String>> list;
+    ArrayList<Cost> list;
     Activity activity;
     EditText IngradientName;
     EditText IngradientPrice;
-    public IngradientAdapter(Activity activity, ArrayList<HashMap<String ,String >> list){
+    public IngradientAdapter(Activity activity, ArrayList<Cost> list){
         super();
         this.activity = activity;
         this.list = list;
@@ -46,19 +48,28 @@ public class IngradientAdapter extends BaseAdapter{
         return 0;
     }
 
+    private class ViewHolder{
+
+        EditText IngradientName, IngradientPrice;
+    }
+
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
+
         LayoutInflater inflater = activity.getLayoutInflater();
+        ViewHolder holder = new ViewHolder();
         if(view == null){
             view = inflater.inflate(R.layout.listview_cost, null);
-            IngradientName = (EditText) view.findViewById(R.id.EditText_Ingradientname);
-            IngradientPrice = (EditText) view.findViewById(R.id.EditText_Ingradientprice);
+            holder.IngradientName = (EditText) view.findViewById(R.id.EditText_Ingradientname);
+            holder.IngradientPrice = (EditText) view.findViewById(R.id.EditText_Ingradientprice);
+            view.setTag(holder);
+
+            } else{
+            holder = (ViewHolder) view.getTag();
         }
-        for(int f = 0; f<=i; f++) {
-            HashMap<String, String> map = list.get(f);
-            IngradientName.setText(map.get("IngradientName"));
-            IngradientPrice.setText(map.get("IngradientPrice"));
-        }
+        Cost cost = list.get(i);
+        holder.IngradientName.setText(list.get(i).getCost_name());
+        holder.IngradientPrice.setText(list.get(i).getCost_price());
         return view;
     }
     //리스트 삭제

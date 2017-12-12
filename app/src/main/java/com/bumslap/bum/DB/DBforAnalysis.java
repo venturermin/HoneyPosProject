@@ -22,11 +22,6 @@ public class DBforAnalysis extends SQLiteOpenHelper{
         this.context = context;
     }
 
-    public Cursor getData(String sql){
-        SQLiteDatabase database = getReadableDatabase();
-        return database.rawQuery(sql, null);
-    }
-
 
 
     /**
@@ -41,8 +36,8 @@ public class DBforAnalysis extends SQLiteOpenHelper{
         sbMenu.append(" CREATE TABLE MENU_TABLE ( ");
         sbMenu.append(" MENU_ID INTEGER PRIMARY KEY AUTOINCREMENT, ");
         sbMenu.append(" MENU_NAME TEXT, ");
-        sbMenu.append(" MENU_IMAGE BLOB, ");
-        sbMenu.append(" MENU_PRICE TEXT, ");
+        sbMenu.append(" MENU_IMAGE TEXT, ");
+        sbMenu.append(" MENU_PRICE TEXT,");
         sbMenu.append(" MENU_COST TEXT); ");
 
         // SQLite Database로 쿼리 실행
@@ -52,14 +47,14 @@ public class DBforAnalysis extends SQLiteOpenHelper{
         sbOrder.append(" CREATE TABLE ORDER_TABLE ( ");
         sbOrder.append(" ORDER_AMOUNT TEXT, ");
         sbOrder.append(" ORDER_DATE TEXT, ");
-        sbOrder.append(" ORDER_TIME, ");
+        sbOrder.append(" ORDER_TIME); ");
         sbOrder.append(" ORDER_FK_MENUID INTEGER); ");
 
         db.execSQL(sbOrder.toString());
 
         StringBuffer sbCost = new StringBuffer();
         sbCost.append(" CREATE TABLE COST_TABLE (");
-        sbCost.append(" COST_NAME TEXT, ");
+        sbCost.append(" COST_NAME TEXT PRIMARY KEY, ");
         sbCost.append(" COST_PRICE TEXT,");
         sbCost.append(" COST_FK_MENUID INTEGER);");
 
@@ -104,6 +99,27 @@ public class DBforAnalysis extends SQLiteOpenHelper{
         Toast.makeText(context, "Menu 등록 완료.", Toast.LENGTH_LONG).show();
     }
 
+
+    public void addCost(Cost cost){
+
+        //사용가능한 데이터 베이스 가져오기.
+
+        SQLiteDatabase db = getWritableDatabase();
+
+        //Menu Data insert(id는 자동 증가)
+        StringBuffer sb = new StringBuffer();
+        sb.append(" INSERT INTO COST_TABLE ( ");
+        sb.append(" COST_NAME, COST_PRICE, COST_FK_MENUID  ) ");
+        sb.append(" VALUES ( ?, ?, ? ); ");
+
+        db.execSQL(sb.toString(),
+                new Object[]{
+                        cost.getCost_name(),
+                        cost.getCost_price(),
+                        cost.getCost_FK_menuId(),
+                });
+    }
+
     public List getAllMenuData() {
 
         StringBuffer sb = new StringBuffer();
@@ -118,8 +134,8 @@ public class DBforAnalysis extends SQLiteOpenHelper{
         Menu menu = null;
 
         // moveToNext 다음에 데이터가 없으면 false, 있으면 true
-        while( cursor.moveToNext() ) {
-            //menu = new Menu();
+        /*while( cursor.moveToNext() ) {
+            menu = new Menu();
             menu.setMenu_id(cursor.getInt(0));
             menu.setMenu_name(cursor.getString(1));
             menu.setMenu_image(cursor.getBlob(2));
@@ -128,28 +144,35 @@ public class DBforAnalysis extends SQLiteOpenHelper{
 
             menulist.add(menu);
         }
-        cursor.close();
+        */
         return menulist;
     }
-/*
-    public Menu getMenuById(int Menu_Id){
 
-        StringBuffer sbGetMenu = new StringBuffer();
-        sbGetMenu.append(" SELECT MENU_NAME, MENU_IMAGE, MENU_PRICE, MENU_COST FROM MENU_TABLE WHERE MENU_ID = ? ");
+    public ArrayList<Cost> getAllCostData() {
 
-        //읽기 전용 DB 객체 생성.
-        SQLiteDatabase dbRead = getReadableDatabase();
-        Cursor cursor = dbRead.rawQuery(sbGetMenu.toString(), new String[]{Menu_Id + ""});
+        StringBuffer sb = new StringBuffer();
+        sb.append(" SELECT COST_NAME, COST_PRICE, COST_FK_MENUID FROM COST_TABLE ");
 
-        Menu menu = //new Menu();
-        if(cursor.moveToNext()){
-            menu.setMenu_name(cursor.getString(0));
-            menu.setMenu_image(cursor.getBlob(1));
-            menu.setMenu_price(cursor.getString((2)));
-            menu.setMenu_cost(cursor.getString((3)));
+        //읽기 전용 DB 객체를 생성
+        SQLiteDatabase db = getReadableDatabase();
+
+        Cursor cursor = db.rawQuery(sb.toString(), null);
+
+        ArrayList<Cost> costlist = new ArrayList<>();
+
+        Cost cost = null;
+
+
+        // moveToNext 다음에 데이터가 없으면 false, 있으면 true
+        while( cursor.moveToNext() ) {
+            cost = new Cost();
+            cost.setCost_name(cursor.getString(0));
+            cost.setCost_price(cursor.getString(1));
+            cost.setCost_FK_menuId(cursor.getInt(2));
+            costlist.add(cost);
         }
+
         cursor.close();
-        return menu;
+        return costlist;
     }
-    */
 }

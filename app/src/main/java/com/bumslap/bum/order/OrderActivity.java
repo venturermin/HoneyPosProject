@@ -17,9 +17,13 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumslap.bum.DB.DBforAnalysis;
 import com.bumslap.bum.DB.MenuListAdapter;
@@ -31,6 +35,8 @@ import com.bumslap.bum.menuedit.MenuUpdateActivity;
 import com.bumslap.bum.settings.UserSettingActivity;
 import com.bumslap.bum.statistics.BarChartActivity;
 import com.bumslap.bum.statistics.SalesStatus2Activity;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -44,6 +50,8 @@ public class OrderActivity extends AppCompatActivity
     GridView gridView;
     ArrayList<com.bumslap.bum.DB.Menu> Menulist;
     com.bumslap.bum.DB.MenuListAdapter menuListAdapter = null;
+    //TextView currentgain;
+
 
 
 
@@ -83,9 +91,22 @@ public class OrderActivity extends AppCompatActivity
             byte[] image = cursor.getBlob(4);
 
             Menulist.add(new com.bumslap.bum.DB.Menu(id, name, image, price, cost));
-
         }
         menuListAdapter.notifyDataSetChanged();
+
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id){
+                Object tv = adapterView.getAdapter().getItem(position);
+                TextView menuname = (TextView)findViewById(R.id.menushowname);
+
+                CharSequence Menu = Menulist.get(position).getMenu_name();
+                CharSequence Price = Menulist.get(position).getMenu_price();
+
+                Toast.makeText(getApplicationContext(),""+position+"  "+Menu+" "+Price,Toast.LENGTH_LONG).show();
+                //currentgain.setText(text.toString());
+            }
+        });
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
