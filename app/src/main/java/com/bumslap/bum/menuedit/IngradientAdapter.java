@@ -10,6 +10,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.bumslap.bum.DB.Cost;
+import com.bumslap.bum.DB.DBforAnalysis;
 import com.bumslap.bum.R;
 
 import java.util.ArrayList;
@@ -21,11 +22,11 @@ import java.util.HashMap;
 
 public class IngradientAdapter extends BaseAdapter{
 
-    ArrayList<HashMap<String, String>> list;
+    ArrayList<Cost> list;
     Activity activity;
     EditText IngradientName;
     EditText IngradientPrice;
-    public IngradientAdapter(Activity activity, ArrayList<HashMap<String ,String >> list){
+    public IngradientAdapter(Activity activity, ArrayList<Cost> list){
         super();
         this.activity = activity;
         this.list = list;
@@ -53,11 +54,14 @@ public class IngradientAdapter extends BaseAdapter{
             view = inflater.inflate(R.layout.listview_cost, null);
             IngradientName = (EditText) view.findViewById(R.id.EditText_Ingradientname);
             IngradientPrice = (EditText) view.findViewById(R.id.EditText_Ingradientprice);
-        }
-        for(int f = 0; f<=i; f++) {
-            HashMap<String, String> map = list.get(f);
-            IngradientName.setText(map.get("IngradientName"));
-            IngradientPrice.setText(map.get("IngradientPrice"));
+
+
+            for(int f = 0; f<=i; f++) {
+                Cost firIngradient = new Cost();
+                IngradientName.setText(list.get(i).getCost_name());
+                IngradientPrice.setText(list.get(i).getCost_price());
+            }
+
         }
         return view;
     }

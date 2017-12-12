@@ -10,17 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".POSproject.SignUpActivity">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
         </activity>
         <activity android:name=".order.OrderActivity" />
         <activity android:name=".menuedit.MenuUpdateActivity" />
         <activity android:name=".menuedit.MenuSettingActivity" />
         <activity android:name=".menuedit.CostSettingActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".settings.UserSettingActivity" />
         <activity android:name=".POSproject.SignInActivity" />

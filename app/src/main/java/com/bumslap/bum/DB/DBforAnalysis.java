@@ -54,7 +54,7 @@ public class DBforAnalysis extends SQLiteOpenHelper{
 
         StringBuffer sbCost = new StringBuffer();
         sbCost.append(" CREATE TABLE COST_TABLE (");
-        sbCost.append(" COST_NAME TEXT, ");
+        sbCost.append(" COST_NAME TEXT PRIMARY KEY, ");
         sbCost.append(" COST_PRICE TEXT,");
         sbCost.append(" COST_FK_MENUID INTEGER);");
 
@@ -147,7 +147,7 @@ public class DBforAnalysis extends SQLiteOpenHelper{
         return menulist;
     }
 
-    public ArrayList getAllCostData() {
+    public ArrayList<Cost> getAllCostData() {
 
         StringBuffer sb = new StringBuffer();
         sb.append(" SELECT COST_NAME, COST_PRICE, COST_FK_MENUID FROM COST_TABLE ");
@@ -157,8 +157,10 @@ public class DBforAnalysis extends SQLiteOpenHelper{
 
         Cursor cursor = db.rawQuery(sb.toString(), null);
 
-        ArrayList costlist = new ArrayList();
+        ArrayList<Cost> costlist = new ArrayList<>();
+
         Cost cost = null;
+
 
         // moveToNext 다음에 데이터가 없으면 false, 있으면 true
         while( cursor.moveToNext() ) {
@@ -166,9 +168,10 @@ public class DBforAnalysis extends SQLiteOpenHelper{
             cost.setCost_name(cursor.getString(0));
             cost.setCost_price(cursor.getString(1));
             cost.setCost_FK_menuId(cursor.getInt(2));
-
-            costlist.add(0, cost);
+            costlist.add(cost);
         }
+
+        cursor.close();
         return costlist;
     }
 }
