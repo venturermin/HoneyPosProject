@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         dbHelper = new DBforAnalysis(this, "test.db", null,1);
         mdb = dbHelper.getWritableDatabase();
 
-        menu = new Menu();
+
         dbHelper.addMenu(menu);
     }
 

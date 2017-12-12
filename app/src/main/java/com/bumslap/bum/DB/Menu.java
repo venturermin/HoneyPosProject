@@ -22,9 +22,6 @@ public class Menu {
         this.Menu_cost = menu_cost;
     }
 
-    public Menu() {
-
-    }
 
     public int getMenu_id(){
         return Menu_id;
