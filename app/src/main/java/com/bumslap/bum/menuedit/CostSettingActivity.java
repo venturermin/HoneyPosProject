@@ -68,7 +68,7 @@ public class CostSettingActivity extends AppCompatActivity implements GestureDet
         list = new ArrayList<HashMap<String, String>>();
         dBforAnalysis = new DBforAnalysis(this, "test.db", null,1);
         ArrayList costlist = new ArrayList();
-        costlist = dBforAnalysis.getAllCostData();
+        //costlist = dBforAnalysis.getAllCostData();
         Cost cost = new Cost();
 
         for(int i = 0; i <costlist.size(); i++) {
