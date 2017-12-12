@@ -9,12 +9,18 @@
     tools:showIn="@layout/app_bar_order">
 
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/menurecyclerview"
-        android:layout_width="207dp"
-        android:layout_height="match_parent"
-        app:layoutManager="GridLayoutManager"
-        app:spanCount="2" />
+    <RelativeLayout
+        android:layout_width="226dp"
+        android:layout_height="match_parent">
+
+        <GridView
+            android:id="@+id/gridview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:columnWidth="80dp"
+            android:gravity="center"
+            android:numColumns="auto_fit" />
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

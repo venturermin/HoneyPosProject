@@ -119,7 +119,7 @@ public class DBforAnalysis extends SQLiteOpenHelper{
 
         // moveToNext 다음에 데이터가 없으면 false, 있으면 true
         while( cursor.moveToNext() ) {
-            menu = new Menu();
+            //menu = new Menu();
             menu.setMenu_id(cursor.getInt(0));
             menu.setMenu_name(cursor.getString(1));
             menu.setMenu_image(cursor.getBlob(2));
@@ -131,7 +131,7 @@ public class DBforAnalysis extends SQLiteOpenHelper{
         cursor.close();
         return menulist;
     }
-
+/*
     public Menu getMenuById(int Menu_Id){
 
         StringBuffer sbGetMenu = new StringBuffer();
@@ -141,7 +141,7 @@ public class DBforAnalysis extends SQLiteOpenHelper{
         SQLiteDatabase dbRead = getReadableDatabase();
         Cursor cursor = dbRead.rawQuery(sbGetMenu.toString(), new String[]{Menu_Id + ""});
 
-        Menu menu = new Menu();
+        Menu menu = //new Menu();
         if(cursor.moveToNext()){
             menu.setMenu_name(cursor.getString(0));
             menu.setMenu_image(cursor.getBlob(1));
@@ -151,4 +151,5 @@ public class DBforAnalysis extends SQLiteOpenHelper{
         cursor.close();
         return menu;
     }
+    */
 }
