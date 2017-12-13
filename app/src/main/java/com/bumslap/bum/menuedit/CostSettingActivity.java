@@ -1,20 +1,29 @@
 package com.bumslap.bum.menuedit;
 
+import android.content.Context;
 import android.content.Intent;
+import android.database.CursorJoiner;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.view.GestureDetector;
+import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumslap.bum.DB.Cost;
 import com.bumslap.bum.DB.DBforAnalysis;
@@ -26,13 +35,12 @@ public class CostSettingActivity extends AppCompatActivity implements GestureDet
     Button MenuSetBtn, CostSetBtn;
     Intent mvSetIntent;
     private GestureDetector gestureDetector;
-    ListView LIstViewIngradient;
     FloatingActionButton floatingActionButton_cost;
     DBforAnalysis dBforAnalysis;
-    Button button_save;
     IngradientAdapter IngradientAdapter;
-    ArrayList<Cost> costlist;
     Spinner spinnerMenu;
+    RecyclerView recyclerView;
+    CostAdapter costAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,32 +63,7 @@ public class CostSettingActivity extends AppCompatActivity implements GestureDet
         spinnerMenu.setAdapter(adapter);
         spinnerMenu.setSelection(0);
 
-        //listview_ingradient
-        LIstViewIngradient = (ListView) findViewById(R.id.listView_Ingradient);
 
-        dBforAnalysis = new DBforAnalysis(this,"test.db", null,1);
-        costlist = new ArrayList<>();
-
-        costlist = dBforAnalysis.getAllCostData();
-        IngradientAdapter = new IngradientAdapter(this, costlist);
-        LIstViewIngradient.setAdapter(IngradientAdapter);
-        IngradientAdapter.notifyDataSetChanged();
-
-
-
-        button_save = (Button)findViewById(R.id.button_edit);
-        button_save.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                /*
-                String Name = IngradientAdapter.IngradientName.getText().toString();
-                String Price = IngradientAdapter.IngradientPrice.getText().toString();
-                Integer menu_ID = 3;
-                //costclass.setCost_name(Name);
-                //costclass.setCost_name(Price);
-                //DBforAnalysis.addCost(InsertCost);*/
-            }
-        });
     }
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev){
@@ -89,9 +72,7 @@ public class CostSettingActivity extends AppCompatActivity implements GestureDet
     }
 
     @Override
-    public boolean onDown(MotionEvent motionEvent) {
-        return false;
-    }
+    public boolean onDown(MotionEvent motionEvent) { return false; }
 
     @Override
     public void onShowPress(MotionEvent motionEvent) { }
@@ -159,16 +140,29 @@ public class CostSettingActivity extends AppCompatActivity implements GestureDet
     View.OnClickListener AddIngradient = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
+            //DB추가
             Cost firIngradient = new Cost();
             String menu = spinnerMenu.getSelectedItem().toString();
+
             firIngradient.setCost_name("");
             firIngradient.setCost_price("");
-            costlist.add(firIngradient);
-            dBforAnalysis.addCost(menu);
+            Integer menu_Id;
+
+            if(menu == "피자"){
+                menu_Id = 1;
+            }
+            else if (menu == "짜장면") {
+                menu_Id = 2;
+            }
+            else if (menu == "라면"){
+                menu_Id = 3;
+            }else {
+                menu_Id = 4;
+            }
+            firIngradient.setCost_FK_menuId(menu_Id);;
+            dBforAnalysis.addCost(firIngradient);
             IngradientAdapter.notifyDataSetChanged();
-
-
         }
     };
-}
 
+}

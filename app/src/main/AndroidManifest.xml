@@ -13,7 +13,9 @@
 
         </activity>
         <activity android:name=".order.OrderActivity" />
-        <activity android:name=".menuedit.MenuUpdateActivity" />
+        <activity android:name=".menuedit.MenuUpdateActivity" >
+
+        </activity>
         <activity android:name=".menuedit.MenuSettingActivity" />
         <activity android:name=".menuedit.CostSettingActivity">
             <intent-filter>
