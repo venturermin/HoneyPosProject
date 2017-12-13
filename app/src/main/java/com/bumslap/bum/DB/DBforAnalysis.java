@@ -13,15 +13,14 @@ import java.util.List;
  * Created by oyoun on 17. 12. 6.
  */
 
-public class DBforAnalysis extends SQLiteOpenHelper{
+public class DBforAnalysis extends SQLiteOpenHelper {
 
     private Context context;
 
-    public DBforAnalysis(Context context, String name, SQLiteDatabase.CursorFactory factory, int version){
+    public DBforAnalysis(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
         this.context = context;
     }
-
 
 
     /**
@@ -30,7 +29,7 @@ public class DBforAnalysis extends SQLiteOpenHelper{
      */
 
     @Override
-    public void onCreate(SQLiteDatabase db){
+    public void onCreate(SQLiteDatabase db) {
         //String도 가능하지만, StringBuffer 가 Query 만들기 더 편하다.
         StringBuffer sbMenu = new StringBuffer();
         sbMenu.append(" CREATE TABLE MENU_TABLE ( ");
@@ -54,7 +53,7 @@ public class DBforAnalysis extends SQLiteOpenHelper{
 
         StringBuffer sbCost = new StringBuffer();
         sbCost.append(" CREATE TABLE COST_TABLE (");
-        sbCost.append(" COST_NAME TEXT, ");
+        sbCost.append(" COST_NAME TEXT PRIMARY KEY, ");
         sbCost.append(" COST_PRICE TEXT,");
         sbCost.append(" COST_FK_MENUID INTEGER);");
 
@@ -68,16 +67,16 @@ public class DBforAnalysis extends SQLiteOpenHelper{
      */
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         Toast.makeText(context, "버전이 올라갔습니다.", Toast.LENGTH_SHORT).show();
     }
 
-    public  void testDB(){
+    public void testDB() {
         SQLiteDatabase db = getReadableDatabase();
     }
 
     //DB 에 데이터를 넣을 메소드 생성
-    public void addMenu(Menu menu){
+    public void addMenu(Menu menu) {
 
         //사용가능한 데이터 베이스 가져오기.
 
@@ -89,18 +88,11 @@ public class DBforAnalysis extends SQLiteOpenHelper{
         sb.append(" MENU_NAME, MENU_IMAGE, MENU_PRICE, MENU_COST ) ");
         sb.append(" VALUES ( ?, ?, ?, ? ); ");
 
-        db.execSQL(sb.toString(),
-                new Object[]{
-                        menu.getMenu_name(),
-                        menu.getMenu_image(),
-                        menu.getMenu_price(),
-                        menu.getMenu_cost()
-                });
-        Toast.makeText(context, "Menu 등록 완료.", Toast.LENGTH_LONG).show();
+
     }
 
 
-    public void addCost(Cost cost){
+    public void addCost(Cost cost) {
 
         //사용가능한 데이터 베이스 가져오기.
 
@@ -134,7 +126,7 @@ public class DBforAnalysis extends SQLiteOpenHelper{
         Menu menu = null;
 
         // moveToNext 다음에 데이터가 없으면 false, 있으면 true
-        while( cursor.moveToNext() ) {
+        /*while( cursor.moveToNext() ) {
             menu = new Menu();
             menu.setMenu_id(cursor.getInt(0));
             menu.setMenu_name(cursor.getString(1));
@@ -143,32 +135,37 @@ public class DBforAnalysis extends SQLiteOpenHelper{
             menu.setMenu_cost(cursor.getString((4)));
 
             menulist.add(menu);
-        }
+        }*/
         return menulist;
     }
 
-    public ArrayList getAllCostData() {
+        public ArrayList<Cost> getAllCostData () {
 
-        StringBuffer sb = new StringBuffer();
-        sb.append(" SELECT COST_NAME, COST_PRICE, COST_FK_MENUID FROM COST_TABLE ");
+            StringBuffer sb = new StringBuffer();
+            sb.append(" SELECT COST_NAME, COST_PRICE, COST_FK_MENUID FROM COST_TABLE ");
 
-        //읽기 전용 DB 객체를 생성
-        SQLiteDatabase db = getReadableDatabase();
+            //읽기 전용 DB 객체를 생성
+            SQLiteDatabase db = getReadableDatabase();
 
-        Cursor cursor = db.rawQuery(sb.toString(), null);
+            Cursor cursor = db.rawQuery(sb.toString(), null);
 
-        ArrayList costlist = new ArrayList();
-        Cost cost = null;
+            ArrayList<Cost> costlist = new ArrayList<>();
 
-        // moveToNext 다음에 데이터가 없으면 false, 있으면 true
-        while( cursor.moveToNext() ) {
-            cost = new Cost();
-            cost.setCost_name(cursor.getString(0));
-            cost.setCost_price(cursor.getString(1));
-            cost.setCost_FK_menuId(cursor.getInt(2));
+            Cost cost = null;
 
-            costlist.add(0, cost);
+
+            // moveToNext 다음에 데이터가 없으면 false, 있으면 true
+            while (cursor.moveToNext()) {
+                cost = new Cost();
+                cost.setCost_name(cursor.getString(0));
+                cost.setCost_price(cursor.getString(1));
+                cost.setCost_FK_menuId(cursor.getInt(2));
+                costlist.add(cost);
+            }
+
+            cursor.close();
+            return costlist;
         }
-        return costlist;
     }
-}
+
+

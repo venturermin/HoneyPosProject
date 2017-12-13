@@ -1,7 +1,9 @@
 package com.bumslap.bum.order;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
@@ -9,8 +11,6 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,11 +18,11 @@ import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.ListView;
 
-import com.bumslap.bum.DB.DBforAnalysis;
 import com.bumslap.bum.DB.MenuListAdapter;
 import com.bumslap.bum.POSproject.MainActivity;
 import com.bumslap.bum.R;
 import com.bumslap.bum.menuedit.MenuSettingActivity;
+import com.bumslap.bum.menuedit.MenuUpdateActivity;
 import com.bumslap.bum.settings.UserSettingActivity;
 import com.bumslap.bum.statistics.BarChartActivity;
 import com.bumslap.bum.statistics.SalesStatus2Activity;
@@ -34,14 +34,13 @@ public class OrderActivity extends AppCompatActivity
 
     Intent intent;
     GridView gridView;
-    RecyclerView oRecyclerView;
     ArrayList<com.bumslap.bum.DB.Menu> Menulist;
     com.bumslap.bum.DB.MenuListAdapter menuListAdapter = null;
-    RecyclerView.LayoutManager mLayoutManager;
-    DBforAnalysis dbforAnalysis;
 
 
 
+
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,21 +56,32 @@ public class OrderActivity extends AppCompatActivity
         //toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.reply));
 
 
-        oRecyclerView = (RecyclerView)findViewById(R.id.menurecyclerview);
+        gridView = (GridView) findViewById(R.id.gridview);
         //mRecyclerView.setHasFixedSize(true);
 
         Menulist = new ArrayList<>();
-        mLayoutManager = new GridLayoutManager(this,2);
-        oRecyclerView.setLayoutManager(mLayoutManager);
+        //mLayoutManager = new GridLayoutManager(this,2);
+        //oRecyclerView.setLayoutManager(mLayoutManager);
         menuListAdapter = new MenuListAdapter(this, R.layout.order_menu_item, Menulist);
         gridView.setAdapter(menuListAdapter);
 
+        Cursor cursor = MenuUpdateActivity.dbforAnalysis.getData("SELECT * FROM MENU_TABLE");
+        Menulist.clear();
+        while (cursor.moveToNext()){
+            int id = cursor.getInt(0);
+            String name = cursor.getString(1);
+            String price = cursor.getString(2);
+            String cost = cursor.getString(3);
+            byte[] image = cursor.getBlob(4);
 
-        dbforAnalysis.getAllMenuData();
+            Menulist.add(new com.bumslap.bum.DB.Menu(id, name, image, price, cost));
+
+        }
+        menuListAdapter.notifyDataSetChanged();
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 

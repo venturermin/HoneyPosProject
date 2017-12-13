@@ -1,8 +1,11 @@
 package com.bumslap.bum.POSproject;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -13,12 +16,14 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumslap.bum.POSproject.SignFuntion.ModalFuntion;
+import com.bumslap.bum.DB.User;
+import com.bumslap.bum.POSproject.SignFuntion.FontFuntion;
 import com.bumslap.bum.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -61,22 +66,20 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
         mTypeface = Typeface.createFromAsset(getAssets(), "fonts/NanumSquareRoundL.ttf");
         ViewGroup root = (ViewGroup) findViewById(android.R.id.content);
-        setGlobalFont(root);
-
-        mAuth = FirebaseAuth.getInstance();
-
-//set the default according to value
 
 
+        FontFuntion fontFuntion = new FontFuntion();
 
+        fontFuntion.setGlobalFont(root,mTypeface);
 
 
         password = (EditText) findViewById(R.id.password);
 
         passwordConfirm = (EditText) findViewById(R.id.passwordConfirm);
 
-        check = findViewById(R.id.check);
-        check.setVisibility(View.INVISIBLE);
+
+
+//set the default according to value
 
 
         passwordConfirm.addTextChangedListener(new TextWatcher() {
@@ -126,10 +129,12 @@ public class SignUpActivity extends AppCompatActivity {
 
 
 
+        mAuth = FirebaseAuth.getInstance();
 
 
 
-
+        check = findViewById(R.id.check);
+        check.setVisibility(View.INVISIBLE);
 
 
         nextBtn = findViewById(R.id.nextBtn);
@@ -214,41 +219,55 @@ public class SignUpActivity extends AppCompatActivity {
 
     public void onClickedSend(View v){
 
-       /* final String email = editText_email.getText().toString();
 
-*/
-        ModalFuntion modalFuntion = new ModalFuntion(this);
-        modalFuntion.show(this);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("회원가입");
+        builder.setMessage("해당 정보로 가입 하시겠습니까?");
+        builder.setPositiveButton("예",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        User user = new User();
+
+                        String email = editText_email.getText().toString();
+                        String password = editText_password.getText().toString();
+
+                        int id = radioGroup.getCheckedRadioButtonId();
+                        //getCheckedRadioButtonId() 의 리턴값은 선택된 RadioButton 의 id 값.
+                        RadioButton radioButton = (RadioButton) findViewById(id);
+
+
+                        user.setUser_Name(editText_name.getText().toString());
+                        user.setUser_StoreName(editText_store_name.getText().toString());
+                        user.setUser_Email(editText_email.getText().toString());
+                        user.setUser_Password(password);
+                        user.setUser_Gender(radioButton.getText().toString());
+                        user.setUser_PhoneNumber(editText_phonenumber.getText().toString());
+                        user.setUser_Birthday(yearSpinner.getSelectedItem().toString()+monthSpinner.getSelectedItem().toString()+daySpinner.getSelectedItem().toString());
+
+                        Toast.makeText(SignUpActivity.this,editText_name.getText().toString()+editText_store_name.getText().toString()+editText_email.getText().toString()+
+                                password+radioButton.getText().toString()+editText_phonenumber.getText().toString()+yearSpinner.getSelectedItem().toString()+monthSpinner.getSelectedItem().toString()+daySpinner.getSelectedItem().toString(),Toast.LENGTH_LONG).show();
+
+                        mDatabaseRef.child("signUpInfos").push().setValue(user);
+
+                        //클래스로 싸서 처리한다.
+
+                        CreateUser(email,password);
+                        Intent intent = new Intent(SignUpActivity.this, EmailVerifyActivity.class);
+                        startActivity(intent);
+                    }
+                });
+        builder.setNegativeButton("아니오",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        //Toast.makeText(getApplicationContext(),"아니오를 선택했습니다.",Toast.LENGTH_LONG).show();
+                    }
+                });
+        builder.show();
+    }
 
 /*
-        User user = new User();
-
-        String email = editText_email.getText().toString();
-        String password = editText_password.getText().toString();
-
-        int id = radioGroup.getCheckedRadioButtonId();
-        //getCheckedRadioButtonId() 의 리턴값은 선택된 RadioButton 의 id 값.
-        RadioButton radioButton = (RadioButton) findViewById(id);
-
-
-        user.setUser_Name(editText_name.getText().toString());
-        user.setUser_StoreName(editText_store_name.getText().toString());
-        user.setUser_Email(editText_email.getText().toString());
-        user.setUser_Password(password);
-        user.setUser_Gender(radioButton.getText().toString());
-        user.setUser_PhoneNumber(editText_phonenumber.getText().toString());
-        user.setUser_Birthday(yearSpinner.getSelectedItem().toString()+monthSpinner.getSelectedItem().toString()+daySpinner.getSelectedItem().toString());
-
-        Toast.makeText(SignUpActivity.this,editText_name.getText().toString()+editText_store_name.getText().toString()+editText_email.getText().toString()+
-                password+radioButton.getText().toString()+editText_phonenumber.getText().toString()+yearSpinner.getSelectedItem().toString()+monthSpinner.getSelectedItem().toString()+daySpinner.getSelectedItem().toString(),Toast.LENGTH_LONG).show();
-
-        mDatabaseRef.child("signUpInfos").push().setValue(user);
-
-        //클래스로 싸서 처리한다.
-
-        CreateUser(email,password);
-        Intent intent = new Intent(SignUpActivity.this, EmailVerifyActivity.class);
-        startActivity(intent);*/
+        */
 
 
 
@@ -302,7 +321,7 @@ public class SignUpActivity extends AppCompatActivity {
     }// end of Gmail*/
 
 
-}
+
 
 
 

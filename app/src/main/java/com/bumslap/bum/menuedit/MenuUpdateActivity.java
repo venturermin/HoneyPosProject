@@ -7,19 +7,18 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
-import android.media.Image;
 import android.net.Uri;
+import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.bumslap.bum.DB.DBforAnalysis;
+import com.bumslap.bum.DB.DBHelper;
 import com.bumslap.bum.DB.Menu;
 import com.bumslap.bum.R;
 import com.bumslap.bum.order.OrderActivity;
@@ -33,35 +32,46 @@ public class MenuUpdateActivity extends AppCompatActivity {
     EditText UpdateMenuName, UpdateMenuPrice, UpdateMenuCost;
     ImageView UpdateMenuImage;
     FloatingActionButton UpdateMenuImageBTN;
-    int IMAGE_CAPTURE =1 ;
+    int IMAGE_CAPTURE = 1;
     Context context = this;
 
-    public static DBforAnalysis dbforAnalysis;
+    public static DBHelper dbforAnalysis;
+
     Menu menu;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_update);
         setTitle("메뉴 등록");
 
-        dbforAnalysis = new DBforAnalysis(getApplicationContext(), "menu.db", null,1);
+        init();
 
-        UpdateBTN = (Button)findViewById(R.id.UpdateBtn);
-        UpdateBTN.setOnClickListener(UpdateMenu);
+        dbforAnalysis = new DBHelper(getApplicationContext(), "menu2.db", null, 1);
+        dbforAnalysis.queryData("CREATE TABLE IF NOT EXISTS MENU_TABLE (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME VARCHAR, PRICE VARCHAR, COST VARCHAR, IMAGE BLOG)");
 
-        UpdateMenuImage = (ImageView)findViewById(R.id.UpdateMenuImage);
-        UpdateMenuName = (EditText)findViewById(R.id.UpdateMenuName);
-        UpdateMenuPrice = (EditText)findViewById(R.id.UpdateMenuPrice);
-        UpdateMenuCost = (EditText)findViewById(R.id.UpdateMenuCost);
-
-        UpdateMenuImageBTN = (FloatingActionButton)findViewById(R.id.UpdateMenuImageBTN);
         UpdateMenuImageBTN.setOnClickListener(changeimage);
+        UpdateBTN.setOnClickListener(UpdateMenu);
+    }
+
+    private void init() {
+        UpdateBTN = (Button) findViewById(R.id.UpdateBtn);
+
+
+        UpdateMenuImage = (ImageView) findViewById(R.id.UpdateMenuImage);
+        UpdateMenuName = (EditText) findViewById(R.id.UpdateMenuName);
+        UpdateMenuPrice = (EditText) findViewById(R.id.UpdateMenuPrice);
+        UpdateMenuCost = (EditText) findViewById(R.id.UpdateMenuCost);
+
+        UpdateMenuImageBTN = (FloatingActionButton) findViewById(R.id.UpdateMenuImageBTN);
+
 
     }
+
     Button.OnClickListener changeimage = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            final CharSequence[] items = { "Camera", "Gallery"};
+            final CharSequence[] items = {"Camera", "Gallery"};
             android.app.AlertDialog.Builder alertDialogBuilder = new android.app.AlertDialog.Builder(
                     context);
 
@@ -74,15 +84,15 @@ public class MenuUpdateActivity extends AppCompatActivity {
 
                             // 프로그램을 종료한다
                             Toast.makeText(getApplicationContext(), items[id] + " 요!? ", Toast.LENGTH_SHORT).show();
-                            switch (id){
+                            switch (id) {
                                 case 0:
-                                    if(getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_ANY)){
+                                    if (getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_ANY)) {
                                         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                                         startActivityForResult(intent, IMAGE_CAPTURE);
                                     }
                                     break;
                                 case 1:
-                                    int LOAD_IMAGE=101;
+                                    int LOAD_IMAGE = 101;
                                     Intent intent = new Intent();
                                     intent.setType("image/*");   //가져오려하는 종류
                                     intent.setAction(Intent.ACTION_GET_CONTENT);
@@ -102,20 +112,20 @@ public class MenuUpdateActivity extends AppCompatActivity {
 
         }
     };
+
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data){
-        UpdateMenuImage = (ImageView)findViewById(R.id.UpdateMenuImage);
-        if (requestCode == IMAGE_CAPTURE){
-            if(resultCode == RESULT_OK) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        UpdateMenuImage = (ImageView) findViewById(R.id.UpdateMenuImage);
+        if (requestCode == IMAGE_CAPTURE) {
+            if (resultCode == RESULT_OK) {
                 Bundle extras = data.getExtras();
                 Bitmap bitmap = (Bitmap) extras.get("data");
                 UpdateMenuImage.setImageBitmap(bitmap);
-            }else{
-                Toast.makeText(getApplicationContext(),"ok",Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(getApplicationContext(), "ok", Toast.LENGTH_LONG).show();
             }
 
-        }
-        else if(data != null){
+        } else if (data != null) {
             Uri selectedImage = data.getData();
             InputStream inputStream = null;
 
@@ -130,39 +140,34 @@ public class MenuUpdateActivity extends AppCompatActivity {
     }
 
 
-
-
     Button.OnClickListener UpdateMenu = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
+            try {
+                dbforAnalysis.insertData(
+                        UpdateMenuName.getText().toString().trim(),
+                        UpdateMenuPrice.getText().toString().trim(),
+                        UpdateMenuCost.getText().toString().trim(),
+                        imgaeViewToByte(UpdateMenuImage)
+                );
 
-
-            String MenuName = UpdateMenuName.getText().toString();
-            String MenuPrice = UpdateMenuPrice.getText().toString();
-            String MenuCost = UpdateMenuCost.getText().toString();
-            byte[] MenuImage = imageViewToByte(UpdateMenuImage);
-
-            if (dbforAnalysis == null) {
-                dbforAnalysis = new DBforAnalysis(getApplicationContext(), "test.db", null, 1);
+                Toast.makeText(getApplicationContext(), "메뉴 등록 완료", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getApplicationContext(), OrderActivity.class);
+                startActivity(intent);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            menu = new Menu();
-            menu.setMenu_name(MenuName);
-            menu.setMenu_price(MenuPrice);
-            menu.setMenu_cost(MenuCost);
-            menu.setMenu_image(MenuImage);
-
-            dbforAnalysis.addMenu(menu);
-
-            Intent intent = new Intent(getApplicationContext(), OrderActivity.class);
-            startActivity(intent);
         }
     };
 
-    private byte[] imageViewToByte(ImageView image) {
-        Bitmap bitmap = ((BitmapDrawable)image.getDrawable()).getBitmap();
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
-        byte[] byteArray = stream.toByteArray();
-        return byteArray;
+        private byte[] imgaeViewToByte(ImageView image) {
+            Bitmap bitmap = ((BitmapDrawable) image.getDrawable()).getBitmap();
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+            byte[] byteArray = stream.toByteArray();
+            return byteArray;
+
+        }
+
     }
-}
+

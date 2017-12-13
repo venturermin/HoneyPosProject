@@ -1,7 +1,5 @@
 package com.bumslap.bum.DB;
 
-import java.net.URI;
-
 /**
  * Created by oyoun on 17. 12. 7.
  */
@@ -22,15 +20,12 @@ public class Menu {
         this.Menu_cost = menu_cost;
     }
 
-    public Menu() {
-
-    }
 
     public int getMenu_id(){
         return Menu_id;
     }
 
-    public String getMenu_name(){
+   public String getMenu_name(){
         return Menu_name;
     }
 

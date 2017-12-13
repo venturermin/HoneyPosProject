@@ -43,7 +43,7 @@ public class MenuListAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position){
-        return this.menulist.get(position);
+        return menulist.get(position);
     }
 
     @Override

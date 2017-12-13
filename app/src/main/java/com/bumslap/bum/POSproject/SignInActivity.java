@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.bumslap.bum.POSproject.SignFuntion.FontFuntion;
@@ -49,12 +50,18 @@ public class SignInActivity extends AppCompatActivity {
     SessionCallback callback;
     LoginButton loginButton_kakao;
     Typeface mTypeface;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
+        progressBar = (ProgressBar) findViewById(R.id.progressRound);
+        progressBar.setVisibility(View.GONE);
+        /*progressBar = findViewById(R.id.progressBar1);
+        Drawable draw = getDrawable(R.drawable.progressbar_set);
 
+        progressBar.setProgressDrawable(draw);*/
 
 
 
@@ -107,7 +114,8 @@ public class SignInActivity extends AppCompatActivity {
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
 
-    private void firebaseAuthWithGoogle(GoogleSignInAccount acct) { //구글과 파이어베이스의 플랫폼이 달라 해당 메서드 이용.
+    private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
+        progressBar.setVisibility(View.VISIBLE);//구글과 파이어베이스의 플랫폼이 달라 해당 메서드 이용.
         Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
 
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
@@ -128,6 +136,7 @@ public class SignInActivity extends AppCompatActivity {
                         // ...
                     }
                 });
+        progressBar.setVisibility(View.GONE);
     }//firebaseAuthwith Google!
 
 
@@ -195,6 +204,7 @@ public class SignInActivity extends AppCompatActivity {
     }//create Users
 
     private void signInWithEmail(String email,String password) {
+        progressBar.setVisibility(View.VISIBLE);
         mAuth.signInWithEmailAndPassword(email,password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -216,7 +226,7 @@ public class SignInActivity extends AppCompatActivity {
                         }
 
                         // ...
-                    }
+                        progressBar.setVisibility(View.GONE);  }
                 });
     }// sign in with Email.
 
@@ -248,6 +258,7 @@ public class SignInActivity extends AppCompatActivity {
         @Override
 
         public void onSessionOpened() {
+            progressBar.setVisibility(View.VISIBLE);
 
             Log.d("myLog", "onSessionOpened " + "onSessionOpened");
 
@@ -323,6 +334,8 @@ public class SignInActivity extends AppCompatActivity {
                 @Override
 
                 public void onSuccess(UserProfile userProfile) {
+
+                    progressBar.setVisibility(View.GONE);
 
                    /* Log.d("myLog", "userProfile" + userProfile.getId());
 

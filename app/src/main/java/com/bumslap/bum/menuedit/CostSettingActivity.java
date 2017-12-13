@@ -37,9 +37,13 @@ public class CostSettingActivity extends AppCompatActivity implements GestureDet
     private GestureDetector gestureDetector;
     ListView LIstViewIngradient;
     FloatingActionButton floatingActionButton_cost;
-    ArrayList<HashMap<String, String>> list;
+    ArrayList<HashMap<String, String>> list,list2;
     HashMap<String, String> firIngradient;
     DBforAnalysis dBforAnalysis;
+    Button button_save;
+    IngradientAdapter IngradientAdapter;
+    ArrayList<Cost> costlist;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,27 +69,39 @@ public class CostSettingActivity extends AppCompatActivity implements GestureDet
         //listview_ingradient
         LIstViewIngradient = (ListView) findViewById(R.id.listView_Ingradient);
 
-        list = new ArrayList<HashMap<String, String>>();
-        dBforAnalysis = new DBforAnalysis(this, "test.db", null,1);
-        ArrayList costlist = new ArrayList();
+        dBforAnalysis = new DBforAnalysis(this,"test.db", null,1);
+        costlist = new ArrayList<>();
+
+        // Cost cost = new Cost();
         costlist = dBforAnalysis.getAllCostData();
-        Cost cost = new Cost();
+        IngradientAdapter = new IngradientAdapter(this, costlist);
 
-        for(int i = 0; i <costlist.size(); i++) {
-            cost = (Cost) costlist.get(i);
-            firIngradient = new HashMap<String, String>();
-            firIngradient.put("IngradientName", cost.getCost_name());
-            firIngradient.put("IngradientPrice", cost.getCost_price());
-            list.add(i,firIngradient);
-        }
-    }
-    @Override
-    public void onResume() {
-        super.onResume();
-        IngradientAdapter IngradientAdapter = new IngradientAdapter(this, list);
-        LIstViewIngradient.setAdapter(IngradientAdapter);
-    }
 
+        //int sizeOfCost = costlist.size();
+
+        /*
+        for (int i=0;i<sizeOfCost; i++){
+            Cost firIngradient = new Cost();
+            firIngradient.getCost_name();
+            firIngradient.getCost_price();
+            costlist.add(firIngradient);
+        }*/
+
+        IngradientAdapter.notifyDataSetChanged();
+
+        button_save = (Button)findViewById(R.id.button_save);
+        button_save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String Name = IngradientAdapter.IngradientName.getText().toString();
+                String Price = IngradientAdapter.IngradientPrice.getText().toString();
+                Integer menu_ID = 3;
+                //costclass.setCost_name(Name);
+                //costclass.setCost_name(Price);
+                //DBforAnalysis.addCost(InsertCost);
+            }
+        });
+    }
     @Override
     public boolean onDown(MotionEvent motionEvent) {
         return false;
@@ -158,11 +174,11 @@ public class CostSettingActivity extends AppCompatActivity implements GestureDet
     View.OnClickListener AddIngradient = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            firIngradient = new HashMap<String, String>();
-            firIngradient.put("IngradientName", "");
-            firIngradient.put("IngradientPrice", "");
-            list.add(firIngradient);
-            onResume();
+           Cost firIngradient = new Cost();
+            firIngradient.setCost_name("");
+            firIngradient.setCost_price("");
+            costlist.add(firIngradient);
+            IngradientAdapter.notifyDataSetChanged();
         }
     };
 }

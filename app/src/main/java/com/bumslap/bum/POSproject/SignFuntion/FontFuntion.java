@@ -12,7 +12,7 @@ import android.widget.TextView;
 public class FontFuntion {
 
 
-   public void setGlobalFont(ViewGroup root, Typeface mTypeface) {
+    public void setGlobalFont(ViewGroup root, Typeface mTypeface) {
         for (int i = 0; i < root.getChildCount(); i++) {
             View child = root.getChildAt(i);
             if (child instanceof TextView)
@@ -21,4 +21,5 @@ public class FontFuntion {
                 setGlobalFont((ViewGroup)child,mTypeface);
         }
     }
+
 }
