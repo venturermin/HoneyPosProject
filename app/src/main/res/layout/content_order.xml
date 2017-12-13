@@ -10,16 +10,16 @@
 
 
     <RelativeLayout
-        android:layout_width="226dp"
+        android:layout_width="277dp"
         android:layout_height="match_parent">
 
         <GridView
             android:id="@+id/gridview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:columnWidth="80dp"
+            android:columnWidth="100dp"
             android:gravity="center"
-            android:numColumns="auto_fit" />
+            android:numColumns="2" />
     </RelativeLayout>
 
     <LinearLayout
@@ -39,7 +39,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView8"
+                android:id="@+id/currentgainview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"

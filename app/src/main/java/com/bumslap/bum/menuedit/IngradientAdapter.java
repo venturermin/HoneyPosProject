@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumslap.bum.DB.Cost;
@@ -47,22 +48,28 @@ public class IngradientAdapter extends BaseAdapter{
         return 0;
     }
 
+    private class ViewHolder{
+
+        EditText IngradientName, IngradientPrice;
+    }
+
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
+
         LayoutInflater inflater = activity.getLayoutInflater();
+        ViewHolder holder = new ViewHolder();
         if(view == null){
             view = inflater.inflate(R.layout.listview_cost, null);
-            IngradientName = (EditText) view.findViewById(R.id.EditText_Ingradientname);
-            IngradientPrice = (EditText) view.findViewById(R.id.EditText_Ingradientprice);
+            holder.IngradientName = (EditText) view.findViewById(R.id.EditText_Ingradientname);
+            holder.IngradientPrice = (EditText) view.findViewById(R.id.EditText_Ingradientprice);
+            view.setTag(holder);
 
-
-            for(int f = 0; f<=i; f++) {
-                Cost firIngradient = new Cost();
-                IngradientName.setText(list.get(i).getCost_name());
-                IngradientPrice.setText(list.get(i).getCost_price());
-            }
-
+            } else{
+            holder = (ViewHolder) view.getTag();
         }
+        Cost cost = list.get(i);
+        holder.IngradientName.setText(list.get(i).getCost_name());
+        holder.IngradientPrice.setText(list.get(i).getCost_price());
         return view;
     }
     //리스트 삭제
