@@ -1,17 +1,31 @@
 package com.bumslap.bum.order;
 
 import android.annotation.SuppressLint;
+
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.database.Cursor;
+
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DefaultItemAnimator;
+
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,21 +33,26 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.ListView;
-import android.widget.TextView;
+
 import android.widget.Toast;
+
+
 
 import com.bumslap.bum.DB.MenuListAdapter;
 import com.bumslap.bum.POSproject.MainActivity;
 import com.bumslap.bum.R;
 import com.bumslap.bum.menuedit.MenuSettingActivity;
+
 import com.bumslap.bum.menuedit.MenuUpdateActivity;
 import com.bumslap.bum.settings.UserSettingActivity;
 import com.bumslap.bum.statistics.BarChartActivity;
 import com.bumslap.bum.statistics.SalesStatus2Activity;
 
-import org.w3c.dom.Text;
+
 
 import java.util.ArrayList;
+import java.util.List;
+
 
 public class OrderActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -42,8 +61,15 @@ public class OrderActivity extends AppCompatActivity
     GridView gridView;
     ArrayList<com.bumslap.bum.DB.Menu> Menulist;
     com.bumslap.bum.DB.MenuListAdapter menuListAdapter = null;
-    //TextView currentgain;
 
+    RecyclerView billRecyclerView;
+    RecyclerView.Adapter Adapter;
+    RecyclerView.LayoutManager layoutManager;
+    ArrayList<RealtimeOrder> Billordermenu;
+
+    ViewPager pager;
+    PageAdapter adapter;
+    String str_device;
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -54,19 +80,13 @@ public class OrderActivity extends AppCompatActivity
         setContentView(R.layout.activity_order);
         // setContentView()가 호출되기 전에 setRequestedOrientation()이 호출되어야 함
         setTitle("오늘도 달려 보세");
-
+        init();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
-        //setSupportActionBar(toolbar);
-        //toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.reply));
-
-
         gridView = (GridView) findViewById(R.id.gridview);
-        //mRecyclerView.setHasFixedSize(true);
 
         Menulist = new ArrayList<>();
-        //mLayoutManager = new GridLayoutManager(this,2);
-        //oRecyclerView.setLayoutManager(mLayoutManager);
+
         menuListAdapter = new MenuListAdapter(this, R.layout.order_menu_item, Menulist);
         gridView.setAdapter(menuListAdapter);
 
@@ -82,18 +102,38 @@ public class OrderActivity extends AppCompatActivity
             Menulist.add(new com.bumslap.bum.DB.Menu(id, name, image, price, cost));
         }
         menuListAdapter.notifyDataSetChanged();
+        Billordermenu = new ArrayList<>();
+
+
+        //binding.recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, true));
+        //binding.recyclerView.scrollToPosition(itemClass.size() - 1);
+
+        layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+
+        //billRecyclerView = (RecyclerView) findViewById(R.id.list_order);
+        //billRecyclerView.setLayoutManager(layoutManager);
+
+        pager = (ViewPager) findViewById(R.id.order_pager);
+
+
+        pager.setAdapter(adapter);
 
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id){
-                Object tv = adapterView.getAdapter().getItem(position);
-                TextView menuname = (TextView)findViewById(R.id.menushowname);
 
-                CharSequence Menu = Menulist.get(position).getMenu_name();
-                CharSequence Price = Menulist.get(position).getMenu_price();
+                String Menu = Menulist.get(position).getMenu_name().toString();
+                String Price = Menulist.get(position).getMenu_price().toString();
 
+                Billordermenu.add(new RealtimeOrder(Menu));
+
+                //billRecyclerView.setLayoutManager(layoutManager);
+                //billRecyclerView.setItemAnimator(new DefaultItemAnimator());
+               // Adapter = new BillAdapter(Billordermenu);
+               // billRecyclerView.setAdapter(Adapter);
+                //billRecyclerView.smoothScrollBy(200, 100);
                 Toast.makeText(getApplicationContext(),""+position+"  "+Menu+" "+Price,Toast.LENGTH_LONG).show();
-                //currentgain.setText(text.toString());
+
             }
         });
 
@@ -107,15 +147,275 @@ public class OrderActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
+    class PageAdapter extends FragmentPagerAdapter {
+        @Override
+        public float getPageWidth(int position) {
+            return 0.4f;
+        }
+        private List<Fragment> fragments;
+
+        public PageAdapter(FragmentManager fm, List<Fragment> fragments) {
+
+            super(fm);
+
+            this.fragments = fragments;
+
+        }
+
+        @Override
+
+        public Fragment getItem(int position) {
+
+            return this.fragments.get(position);
+
+        }
+
+        @Override
+
+        public int getCount() {
+
+            return this.fragments.size();
+
+        }
+
+    }
+    public int differentDensityAndScreenSize(Context context) {
+        int value = 20;
+        String str = "";
+        if ((context.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_SMALL) {
+            switch (context.getResources().getDisplayMetrics().densityDpi) {
+                case DisplayMetrics.DENSITY_LOW:
+                    str = "small-ldpi";
+                    // Log.e("small 1","small-ldpi");
+                    value = 20;
+                    break;
+                case DisplayMetrics.DENSITY_MEDIUM:
+                    str = "small-mdpi";
+                    // Log.e("small 1","small-mdpi");
+                    value = 20;
+                    break;
+                case DisplayMetrics.DENSITY_HIGH:
+                    str = "small-hdpi";
+                    // Log.e("small 1","small-hdpi");
+                    value = 20;
+                    break;
+                case DisplayMetrics.DENSITY_XHIGH:
+                    str = "small-xhdpi";
+                    // Log.e("small 1","small-xhdpi");
+                    value = 20;
+                    break;
+                case DisplayMetrics.DENSITY_XXHIGH:
+                    str = "small-xxhdpi";
+                    // Log.e("small 1","small-xxhdpi");
+                    value = 20;
+                    break;
+                case DisplayMetrics.DENSITY_XXXHIGH:
+                    str = "small-xxxhdpi";
+                    //Log.e("small 1","small-xxxhdpi");
+                    value = 20;
+                    break;
+                case DisplayMetrics.DENSITY_TV:
+                    str = "small-tvdpi";
+                    // Log.e("small 1","small-tvdpi");
+                    value = 20;
+                    break;
+                default:
+                    str = "small-unknown";
+                    value = 20;
+                    break;
+            }
+
+        } else if ((context.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_NORMAL) {
+            switch (context.getResources().getDisplayMetrics().densityDpi) {
+                case DisplayMetrics.DENSITY_LOW:
+                    str = "normal-ldpi";
+                    // Log.e("normal-ldpi 1","normal-ldpi");
+                    str_device = "normal-ldpi";
+                    value = 82;
+                    break;
+                case DisplayMetrics.DENSITY_MEDIUM:
+                    // Log.e("normal-mdpi 1","normal-mdpi");
+                    str = "normal-mdpi";
+                    value = 82;
+                    str_device = "normal-mdpi";
+                    break;
+                case DisplayMetrics.DENSITY_HIGH:
+                    // Log.e("normal-hdpi 1","normal-hdpi");
+                    str = "normal-hdpi";
+                    str_device = "normal-hdpi";
+                    value = 82;
+                    break;
+                case DisplayMetrics.DENSITY_XHIGH:
+                    //Log.e("normal-xhdpi 1","normal-xhdpi");
+                    str = "normal-xhdpi";
+                    str_device = "normal-xhdpi";
+                    value = 90;
+                    break;
+                case DisplayMetrics.DENSITY_XXHIGH:
+                    // Log.e("normal-xxhdpi 1","normal-xxhdpi");
+                    str = "normal-xxhdpi";
+                    str_device = "normal-xxhdpi";
+                    value = 96;
+                    break;
+                case DisplayMetrics.DENSITY_XXXHIGH:
+                    //Log.e("normal-xxxhdpi","normal-xxxhdpi");
+                    str = "normal-xxxhdpi";
+                    str_device = "normal-xxxhdpi";
+                    value = 96;
+                    break;
+                case DisplayMetrics.DENSITY_TV:
+                    //Log.e("DENSITY_TV 1","normal-mdpi");
+                    str = "normal-tvdpi";
+                    str_device = "normal-tvmdpi";
+                    value = 96;
+                    break;
+                default:
+                    // Log.e("normal-unknown","normal-unknown");
+                    str = "normal-unknown";
+                    str_device = "normal-unknown";
+                    value = 82;
+                    break;
+            }
+        } else if ((context.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_LARGE) {
+            switch (context.getResources().getDisplayMetrics().densityDpi) {
+                case DisplayMetrics.DENSITY_LOW:
+                    str = "large-ldpi";
+                    // Log.e("large-ldpi 1","normal-ldpi");
+                    value = 78;
+                    break;
+                case DisplayMetrics.DENSITY_MEDIUM:
+                    str = "large-mdpi";
+                    //Log.e("large-ldpi 1","normal-mdpi");
+                    value = 78;
+                    break;
+                case DisplayMetrics.DENSITY_HIGH:
+                    //Log.e("large-ldpi 1","normal-hdpi");
+                    str = "large-hdpi";
+                    value = 78;
+                    break;
+                case DisplayMetrics.DENSITY_XHIGH:
+                    // Log.e("large-ldpi 1","normal-xhdpi");
+                    str = "large-xhdpi";
+                    value = 125;
+                    break;
+                case DisplayMetrics.DENSITY_XXHIGH:
+                    //Log.e("large-ldpi 1","normal-xxhdpi");
+                    str = "large-xxhdpi";
+                    value = 125;
+                    break;
+                case DisplayMetrics.DENSITY_XXXHIGH:
+                    // Log.e("large-ldpi 1","normal-xxxhdpi");
+                    str = "large-xxxhdpi";
+                    value = 125;
+                    break;
+                case DisplayMetrics.DENSITY_TV:
+                    //Log.e("large-ldpi 1","normal-tvdpi");
+                    str = "large-tvdpi";
+                    value = 125;
+                    break;
+                default:
+                    str = "large-unknown";
+                    value = 78;
+                    break;
+            }
+
+        } else if ((context.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_XLARGE) {
+            switch (context.getResources().getDisplayMetrics().densityDpi) {
+                case DisplayMetrics.DENSITY_LOW:
+                    // Log.e("large-ldpi 1","normal-ldpi");
+                    str = "xlarge-ldpi";
+                    value = 125;
+                    break;
+                case DisplayMetrics.DENSITY_MEDIUM:
+                    // Log.e("large-ldpi 1","normal-mdpi");
+                    str = "xlarge-mdpi";
+                    value = 125;
+                    break;
+                case DisplayMetrics.DENSITY_HIGH:
+                    //Log.e("large-ldpi 1","normal-hdpi");
+                    str = "xlarge-hdpi";
+                    value = 125;
+                    break;
+                case DisplayMetrics.DENSITY_XHIGH:
+                    // Log.e("large-ldpi 1","normal-hdpi");
+                    str = "xlarge-xhdpi";
+                    value = 125;
+                    break;
+                case DisplayMetrics.DENSITY_XXHIGH:
+                    // Log.e("large-ldpi 1","normal-xxhdpi");
+                    str = "xlarge-xxhdpi";
+                    value = 125;
+                    break;
+                case DisplayMetrics.DENSITY_XXXHIGH:
+                    // Log.e("large-ldpi 1","normal-xxxhdpi");
+                    str = "xlarge-xxxhdpi";
+                    value = 125;
+                    break;
+                case DisplayMetrics.DENSITY_TV:
+                    //Log.e("large-ldpi 1","normal-tvdpi");
+                    str = "xlarge-tvdpi";
+                    value = 125;
+                    break;
+                default:
+                    str = "xlarge-unknown";
+                    value = 125;
+                    break;
+            }
+        }
+
+        return value;
+    }
+    private List<Fragment> getFragments() {
+
+        List<Fragment> fList = new ArrayList<Fragment>();
+
+        fList.add(PageFragment.create(1));
+        fList.add(PageFragment.create(2));
+        fList.add(PageFragment.create(3));
+        fList.add(PageFragment.create(4));
+
+        return fList;
+
+    }
+
+    private void init() {
+        pager = (ViewPager) findViewById(R.id.order_pager);
+        differentDensityAndScreenSize(getApplicationContext());
+        List<Fragment> fragments = getFragments();
+        pager.setAdapter(adapter);
+        pager.setClipToPadding(false);
+
+
+        if (str_device.equals("normal-hdpi")){
+            pager.setPadding(0, 0, 0, 0);
+        }else if (str_device.equals("normal-mdpi")){
+            pager.setPadding(0, 0, 0, 0);
+        }else if (str_device.equals("normal-xhdpi")){
+            pager.setPadding(0, 0, 0, 0);
+        }else if (str_device.equals("normal-xxhdpi")){
+            pager.setPadding(0, 0, 0, 0);
+        }else if (str_device.equals("normal-xxxhdpi")){
+            pager.setPadding(0, 0, 0, 0);
+        }else if (str_device.equals("normal-unknown")){
+            pager.setPadding(0, 0, 0, 0);
+        }else {
+
+        }
+
+        adapter = new PageAdapter(getSupportFragmentManager(), fragments);
+        pager.setPageTransformer(true, new ViewpagerTransformer());
+        pager.setAdapter(adapter);
+    }
     @Override
     public void onPause(){
         super.onPause();
         //listview 안 에 내 용 넣 기
         String[] Bills = new String[]{"Noodle : 1 개","Cat : 1 개","Noodle : 3 개\nCat : 2 개"};
-        ListView listView = (ListView)findViewById(R.id.list_order);
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.listview_order,Bills);
-        listView.setAdapter(arrayAdapter);
+        //ListView listView = (ListView)findViewById(R.id.list_order);
+        //ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.listview_order,Bills);
+        //listView.setAdapter(arrayAdapter);
     }
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

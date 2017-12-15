@@ -46,7 +46,6 @@ public class DBHelper extends SQLiteOpenHelper {
         statement.bindBlob(4, image);
 
         statement.executeInsert();
-
     }
 
     public Cursor getData(String sql){
