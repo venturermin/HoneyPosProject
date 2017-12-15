@@ -18,6 +18,7 @@ public class GlobalApplicationActivity extends Application {
         super.onCreate();
         obj = this;
         KakaoSDK.init( new KakaoSDKAdapterActivity());
+
     }
 
     public static GlobalApplicationActivity getGlobalApplicationContext() {

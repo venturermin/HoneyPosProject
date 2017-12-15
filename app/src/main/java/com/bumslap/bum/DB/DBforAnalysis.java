@@ -76,13 +76,12 @@ public class DBforAnalysis extends SQLiteOpenHelper{
         SQLiteDatabase db = getReadableDatabase();
     }
 
-
+    //DB Data add
     public void addCost(Cost cost){
         //사용가능한 데이터 베이스 가져오기.
 
         SQLiteDatabase db = getWritableDatabase();
         Integer menu_Id;
-
 
         //Menu Data insert(id는 자동 증가)
         StringBuffer sb = new StringBuffer();
@@ -98,7 +97,7 @@ public class DBforAnalysis extends SQLiteOpenHelper{
             });
     }
 
-
+    //DB Data Select
     public ArrayList<Cost> getAllCostData() {
 
         StringBuffer sb = new StringBuffer();
@@ -121,11 +120,11 @@ public class DBforAnalysis extends SQLiteOpenHelper{
             cost.setCost_FK_menuId(cursor.getInt(3));
             costlist.add(cost);
         }
-
         cursor.close();
         return costlist;
     }
 
+    //DB Data delete
     public void deleteCost(Integer i) {
         SQLiteDatabase db = getReadableDatabase();
         StringBuffer sb = new StringBuffer();
@@ -135,9 +134,22 @@ public class DBforAnalysis extends SQLiteOpenHelper{
                 new Object[]{
                     i
                 });
-
     }
-    public void updatecost(){
 
+    //DB Data update
+    public void updateCost(Cost cost) {
+        SQLiteDatabase db = getWritableDatabase();
+        StringBuffer sb = new StringBuffer();
+        sb.append("UPDATE COST_TABLE SET COST_NAME= ? , COST_PRICE= ? WHERE COST_ID= ?;");
+
+        ArrayList<Cost> costlist = new ArrayList<>();
+
+        db.execSQL(sb.toString(),
+                new Object[]{
+                    cost.getCost_name(),
+                    cost.getCost_price(),
+                    cost.getCost_id()
+                });
     }
+
 }

@@ -11,9 +11,6 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -25,12 +22,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumslap.bum.DB.DBforAnalysis;
 import com.bumslap.bum.DB.MenuListAdapter;
 import com.bumslap.bum.POSproject.MainActivity;
 import com.bumslap.bum.R;
 import com.bumslap.bum.menuedit.MenuSettingActivity;
-
 import com.bumslap.bum.menuedit.MenuUpdateActivity;
 import com.bumslap.bum.settings.UserSettingActivity;
 import com.bumslap.bum.statistics.BarChartActivity;
@@ -39,9 +34,6 @@ import com.bumslap.bum.statistics.SalesStatus2Activity;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-
-import static com.bumslap.bum.menuedit.MenuUpdateActivity.dbforAnalysis;
 
 public class OrderActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
