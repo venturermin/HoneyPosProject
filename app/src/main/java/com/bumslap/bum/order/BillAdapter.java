@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 import com.bumslap.bum.R;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 /**
@@ -19,6 +21,8 @@ import java.util.ArrayList;
 public class BillAdapter extends RecyclerView.Adapter<RecyclerViewHolder> {
     private ArrayList<RealtimeOrder> mItems;
     Context mContext;
+    int MenuAmount=0;
+
     public BillAdapter(ArrayList itemList) {
         mItems = itemList;
     }
@@ -35,7 +39,9 @@ public class BillAdapter extends RecyclerView.Adapter<RecyclerViewHolder> {
     @Override
     public void onBindViewHolder(RecyclerViewHolder holder, final int position) {
         // 해당 position 에 해당하는 데이터 결합
-        holder.mIndex.setText(mItems.get(position).getOrderMenuname());
+        RealtimeOrder realtimeOrder = mItems.get(position);
+        holder.mIndex.setText(String.valueOf(position +1));
+       // holder.mContent.setText(RealtimeOrder.toString());
 
     }
 
@@ -45,12 +51,16 @@ public class BillAdapter extends RecyclerView.Adapter<RecyclerViewHolder> {
         return mItems.size();
     }
 }
+
 class RecyclerViewHolder extends RecyclerView.ViewHolder {
     public TextView mIndex;
+    public TextView mContent;
 
     public RecyclerViewHolder(View itemView) {
         super(itemView);
         mIndex = (TextView) itemView.findViewById(R.id.billsList);
+        mContent = (TextView)itemView.findViewById(R.id.billamout);
+
 
     }
 }

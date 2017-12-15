@@ -37,8 +37,9 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 
-
+import com.bumslap.bum.DB.DBHelper;
 import com.bumslap.bum.DB.MenuListAdapter;
+import com.bumslap.bum.DB.Order;
 import com.bumslap.bum.POSproject.MainActivity;
 import com.bumslap.bum.R;
 import com.bumslap.bum.menuedit.MenuSettingActivity;
@@ -51,6 +52,7 @@ import com.bumslap.bum.statistics.SalesStatus2Activity;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -68,9 +70,15 @@ public class OrderActivity extends AppCompatActivity
     RecyclerView.LayoutManager layoutManager;
     ArrayList<RealtimeOrder> Billordermenu;
 
+
     ViewPager pager;
     PageAdapter adapter;
     String str_device;
+    public static DBHelper dbforAnalysis;
+
+    ArrayList<HashMap<String, Integer>> OrderList;
+    HashMap<String, Integer> Ordermap;
+
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -90,8 +98,8 @@ public class OrderActivity extends AppCompatActivity
 
         menuListAdapter = new MenuListAdapter(this, R.layout.order_menu_item, Menulist);
         gridView.setAdapter(menuListAdapter);
-
-        Cursor cursor = MenuUpdateActivity.dbforAnalysis.getData("SELECT * FROM MENU_TABLE");
+        dbforAnalysis = new DBHelper(getApplicationContext(), "menu2.db", null, 1);
+        Cursor cursor = dbforAnalysis.getData("SELECT * FROM MENU_TABLE");
         Menulist.clear();
         while (cursor.moveToNext()){
             int id = cursor.getInt(0);
@@ -119,21 +127,31 @@ public class OrderActivity extends AppCompatActivity
 
         pager.setAdapter(adapter);
 
+        OrderList = new ArrayList<HashMap<String, Integer>>();
+        Ordermap = null;
+        Ordermap = new HashMap<String, Integer>();
+
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id){
 
                 String Menu = Menulist.get(position).getMenu_name().toString();
                 String Price = Menulist.get(position).getMenu_price().toString();
-
                 Billordermenu.add(new RealtimeOrder(Menu));
+                int Amount;
 
                 //billRecyclerView.setLayoutManager(layoutManager);
                 //billRecyclerView.setItemAnimator(new DefaultItemAnimator());
-               // Adapter = new BillAdapter(Billordermenu);
+                Adapter = new BillAdapter(Billordermenu);
                // billRecyclerView.setAdapter(Adapter);
                 //billRecyclerView.smoothScrollBy(200, 100);
                 Toast.makeText(getApplicationContext(),""+position+"  "+Menu+" "+Price,Toast.LENGTH_LONG).show();
+                if(Ordermap.get(Menu)==null){
+                    Ordermap.put(Menu, 0);
+                }
+                Amount = Ordermap.get(Menu);
+                Ordermap.put(Menu, ++Amount);
+                OrderList.add(Ordermap);
 
             }
         });
@@ -229,50 +247,42 @@ public class OrderActivity extends AppCompatActivity
         } else if ((context.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_NORMAL) {
             switch (context.getResources().getDisplayMetrics().densityDpi) {
                 case DisplayMetrics.DENSITY_LOW:
-                    str = "normal-ldpi";
-                    // Log.e("normal-ldpi 1","normal-ldpi");
+
                     str_device = "normal-ldpi";
                     value = 82;
                     break;
                 case DisplayMetrics.DENSITY_MEDIUM:
-                    // Log.e("normal-mdpi 1","normal-mdpi");
-                    str = "normal-mdpi";
+
                     value = 82;
                     str_device = "normal-mdpi";
                     break;
                 case DisplayMetrics.DENSITY_HIGH:
-                    // Log.e("normal-hdpi 1","normal-hdpi");
-                    str = "normal-hdpi";
+
                     str_device = "normal-hdpi";
                     value = 82;
                     break;
                 case DisplayMetrics.DENSITY_XHIGH:
-                    //Log.e("normal-xhdpi 1","normal-xhdpi");
-                    str = "normal-xhdpi";
+
                     str_device = "normal-xhdpi";
                     value = 90;
                     break;
                 case DisplayMetrics.DENSITY_XXHIGH:
-                    // Log.e("normal-xxhdpi 1","normal-xxhdpi");
-                    str = "normal-xxhdpi";
+
                     str_device = "normal-xxhdpi";
                     value = 96;
                     break;
                 case DisplayMetrics.DENSITY_XXXHIGH:
-                    //Log.e("normal-xxxhdpi","normal-xxxhdpi");
-                    str = "normal-xxxhdpi";
+
                     str_device = "normal-xxxhdpi";
                     value = 96;
                     break;
                 case DisplayMetrics.DENSITY_TV:
-                    //Log.e("DENSITY_TV 1","normal-mdpi");
-                    str = "normal-tvdpi";
+
                     str_device = "normal-tvmdpi";
                     value = 96;
                     break;
                 default:
-                    // Log.e("normal-unknown","normal-unknown");
-                    str = "normal-unknown";
+
                     str_device = "normal-unknown";
                     value = 82;
                     break;
@@ -280,42 +290,35 @@ public class OrderActivity extends AppCompatActivity
         } else if ((context.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_LARGE) {
             switch (context.getResources().getDisplayMetrics().densityDpi) {
                 case DisplayMetrics.DENSITY_LOW:
-                    str = "large-ldpi";
-                    // Log.e("large-ldpi 1","normal-ldpi");
+
                     value = 78;
                     break;
                 case DisplayMetrics.DENSITY_MEDIUM:
-                    str = "large-mdpi";
-                    //Log.e("large-ldpi 1","normal-mdpi");
+
                     value = 78;
                     break;
                 case DisplayMetrics.DENSITY_HIGH:
-                    //Log.e("large-ldpi 1","normal-hdpi");
-                    str = "large-hdpi";
+
                     value = 78;
                     break;
                 case DisplayMetrics.DENSITY_XHIGH:
-                    // Log.e("large-ldpi 1","normal-xhdpi");
-                    str = "large-xhdpi";
+
                     value = 125;
                     break;
                 case DisplayMetrics.DENSITY_XXHIGH:
-                    //Log.e("large-ldpi 1","normal-xxhdpi");
-                    str = "large-xxhdpi";
+
                     value = 125;
                     break;
                 case DisplayMetrics.DENSITY_XXXHIGH:
-                    // Log.e("large-ldpi 1","normal-xxxhdpi");
-                    str = "large-xxxhdpi";
+
                     value = 125;
                     break;
                 case DisplayMetrics.DENSITY_TV:
-                    //Log.e("large-ldpi 1","normal-tvdpi");
-                    str = "large-tvdpi";
+
                     value = 125;
                     break;
                 default:
-                    str = "large-unknown";
+
                     value = 78;
                     break;
             }
@@ -323,42 +326,35 @@ public class OrderActivity extends AppCompatActivity
         } else if ((context.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_XLARGE) {
             switch (context.getResources().getDisplayMetrics().densityDpi) {
                 case DisplayMetrics.DENSITY_LOW:
-                    // Log.e("large-ldpi 1","normal-ldpi");
-                    str = "xlarge-ldpi";
+
                     value = 125;
                     break;
                 case DisplayMetrics.DENSITY_MEDIUM:
-                    // Log.e("large-ldpi 1","normal-mdpi");
-                    str = "xlarge-mdpi";
+
                     value = 125;
                     break;
                 case DisplayMetrics.DENSITY_HIGH:
-                    //Log.e("large-ldpi 1","normal-hdpi");
-                    str = "xlarge-hdpi";
+
                     value = 125;
                     break;
                 case DisplayMetrics.DENSITY_XHIGH:
-                    // Log.e("large-ldpi 1","normal-hdpi");
-                    str = "xlarge-xhdpi";
+
                     value = 125;
                     break;
                 case DisplayMetrics.DENSITY_XXHIGH:
-                    // Log.e("large-ldpi 1","normal-xxhdpi");
-                    str = "xlarge-xxhdpi";
+
                     value = 125;
                     break;
                 case DisplayMetrics.DENSITY_XXXHIGH:
-                    // Log.e("large-ldpi 1","normal-xxxhdpi");
-                    str = "xlarge-xxxhdpi";
+
                     value = 125;
                     break;
                 case DisplayMetrics.DENSITY_TV:
-                    //Log.e("large-ldpi 1","normal-tvdpi");
-                    str = "xlarge-tvdpi";
+
                     value = 125;
                     break;
                 default:
-                    str = "xlarge-unknown";
+
                     value = 125;
                     break;
             }

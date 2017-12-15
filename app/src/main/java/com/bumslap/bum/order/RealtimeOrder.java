@@ -9,10 +9,19 @@ import android.widget.ImageButton;
 public class RealtimeOrder {
 
     String OrderMenuname;
+    String OrderMenuAmount;
 
     public String getOrderMenuname() { return OrderMenuname; }
 
-    public RealtimeOrder(String OrderMenuname) { this.OrderMenuname=OrderMenuname; }
+    public String getOrderMenuAmount(){return OrderMenuAmount;}
+
+
+
+    public RealtimeOrder(String OrderMenuname) {
+        this.OrderMenuname=OrderMenuname;
+        //this.OrderMenuAmount = OrderMenuAmount;
+
+    }
 
 
 }

@@ -23,11 +23,7 @@
         </activity>
         <activity android:name=".settings.UserSettingActivity"></activity>
         <activity android:name=".POSproject.SignInActivity">
-            <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
         </activity>
         <activity android:name=".statistics.BarChartActivity"></activity>
         <activity android:name=".statistics.PieChartDataActivity"></activity>
@@ -36,7 +32,11 @@
         <activity android:name=".statistics.PieChartActivity" />
         <activity android:name=".statistics.SalesStatus2Activity" />
         <activity android:name=".POSproject.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <meta-data
