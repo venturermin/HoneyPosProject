@@ -44,10 +44,9 @@ public class Order {
         return Order_time;
     }
 
-    public void setOrder_Amount(String Order_amount){
+    public void setOrder_time(String Order_time){
         this.Order_time = Order_time;
     }
-
     public Integer getOrder_FK_menuId(){
         return Order_FK_menuId;
     }

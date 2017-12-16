@@ -29,6 +29,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -39,6 +40,7 @@ import android.widget.Toast;
 
 
 import com.bumslap.bum.DB.DBHelper;
+import com.bumslap.bum.DB.DBforAnalysis;
 import com.bumslap.bum.DB.MenuListAdapter;
 import com.bumslap.bum.DB.Order;
 import com.bumslap.bum.POSproject.MainActivity;
@@ -86,7 +88,9 @@ public class OrderActivity extends AppCompatActivity
     SimpleDateFormat CurrentDate;
     String CureentTime;
     int Order_Amount;
+    OrderListAdapter orderListAdapter;
 
+    DBforAnalysis newdbforAnalysis;
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -106,6 +110,9 @@ public class OrderActivity extends AppCompatActivity
         menuListAdapter = new MenuListAdapter(this, R.layout.order_menu_item, Menulist);
         gridView.setAdapter(menuListAdapter);
         dbforAnalysis = new DBHelper(getApplicationContext(), "menu2.db", null, 1);
+
+        newdbforAnalysis = new DBforAnalysis(this, "POS.db", null,1);
+
         Cursor cursor = dbforAnalysis.getData("SELECT * FROM MENU_TABLE");
         Menulist.clear();
         while (cursor.moveToNext()){
@@ -129,15 +136,52 @@ public class OrderActivity extends AppCompatActivity
         //billRecyclerView = (RecyclerView) findViewById(R.id.list_order);
         //billRecyclerView.setLayoutManager(layoutManager);
 
-        pager = (ViewPager) findViewById(R.id.order_pager);
+        //pager = (ViewPager) findViewById(R.id.order_pager);
 
 
+
+/*
+        pager.setOnTouchListener(new ViewPager.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                pager.SCROLL_INDICATOR_RIGHT.
+                return false;
+            }
+        });
+*/
+        ClickableViewPager viewPager = (ClickableViewPager)findViewById(R.id.order_pager);
         pager.setAdapter(adapter);
+        viewPager.setOnItemClickListener(new ClickableViewPager.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                int i = position;
+            }
+        });
+      /*
+      pager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+            int i = position;
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+*/
         OrderList = new ArrayList<HashMap<String, Integer>>();
         Ordermap = null;
         Ordermap = new HashMap<String, Integer>();
 
+        //pager.SimpleOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener(){
+
+        //});
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id){
@@ -166,6 +210,7 @@ public class OrderActivity extends AppCompatActivity
                 Order_Amount = Ordermap.get(Menu);
 
                 Order_menu_List = new ArrayList<>();
+                orderListAdapter = new OrderListAdapter(Order_menu_List, getApplicationContext());
 
             }
         });

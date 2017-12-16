@@ -19,6 +19,7 @@ public class DBforAnalysis extends SQLiteOpenHelper{
 
     private Context context;
     ArrayList<Cost> costlist;
+    ArrayList<Order> orderlist;
     public DBforAnalysis(Context context, String name, SQLiteDatabase.CursorFactory factory, int version){
         super(context, name, factory, version);
         this.context = context;
@@ -46,7 +47,8 @@ public class DBforAnalysis extends SQLiteOpenHelper{
         sbOrder.append(" CREATE TABLE ORDER_TABLE ( ");
         sbOrder.append(" ORDER_AMOUNT TEXT, ");
         sbOrder.append(" ORDER_DATE TEXT, ");
-        sbOrder.append(" ORDER_TIME); ");
+        sbOrder.append(" ORDER_TIME, ");
+        sbOrder.append(" ORDER_NUMBER, ");
         sbOrder.append(" ORDER_FK_MENUID INTEGER); ");
 
         db.execSQL(sbOrder.toString());
@@ -96,6 +98,25 @@ public class DBforAnalysis extends SQLiteOpenHelper{
             });
     }
 
+    public void addOrder(Order order){
+        //Order 데이터 베이스 추가.
+        SQLiteDatabase db = getWritableDatabase();
+
+        StringBuffer sb = new StringBuffer();
+        sb.append(" INSERT INTO ORDER_TABLE ( ");
+        sb.append(" ORDER_AMOUNT, ORDER_DATE, ORDER_TIME, ORDER_NUMBER, ORDER_FK_MENUID )");
+        sb.append(" VALUES (?, ?, ?, ?, ?); ");
+
+        db.execSQL(sb.toString(),
+                new Object[]{
+                        order.getOrder_amount(),
+                        order.getOrder_date(),
+                        order.getOrder_time(),
+                        order.getOrder_number(),
+                        order.getOrder_FK_menuId()
+                });
+    }
+
     //DB Data Select
     public ArrayList<Cost> getAllCostData() {
 
@@ -121,6 +142,33 @@ public class DBforAnalysis extends SQLiteOpenHelper{
         }
         cursor.close();
         return costlist;
+    }
+
+    public ArrayList<Order> getAllOrderData(){
+
+        StringBuffer sb = new StringBuffer();
+        sb.append(" SELECT ORDER_AMOUNT, ORDER_DATE, ORDER_TIME, ORDER_NUMBER, ORDER_FK_MENUID FROM ORDER_TABLE ");
+
+        //읽기 전용 DB 객체를 생성
+        SQLiteDatabase db = getReadableDatabase();
+
+        Cursor cursor = db.rawQuery(sb.toString(), null);
+
+        orderlist = new ArrayList<>();
+
+        Order order = null;
+        // moveToNext 다음에 데이터가 없으면 false, 있으면 true
+        while( cursor.moveToNext() ) {
+            order = new Order();
+            order.setOrder_amount(cursor.getString(0));
+            order.setOrder_date(cursor.getString(1));
+            order.setOrder_time(cursor.getString(2));
+            order.setOrder_number(cursor.getString(3));
+            order.setOrder_FK_menuId(4);
+            orderlist.add(order);
+        }
+        cursor.close();
+        return orderlist;
     }
 
     public ArrayList<String> getAllMnuData() {

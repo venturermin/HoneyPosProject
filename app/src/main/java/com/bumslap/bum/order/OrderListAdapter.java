@@ -27,7 +27,7 @@ public class OrderListAdapter extends BaseAdapter {
     private Context context;
     private int layout;
 
-    public OrderListAdapter( Context context, int layout, ArrayList<Order> OrderMenulist){
+    public OrderListAdapter( ArrayList<Order> OrderMenulist, Context context){
         this.layout = layout;
         this.OrderMenulist = OrderMenulist;
         this.context = context;
