@@ -20,6 +20,7 @@
         <activity android:name=".menuedit.MenuSettingActivity" />
         <activity android:name=".menuedit.CostSettingActivity">
 
+
         </activity>
         <activity android:name=".settings.UserSettingActivity"></activity>
         <activity android:name=".POSproject.SignInActivity">

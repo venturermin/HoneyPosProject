@@ -9,6 +9,7 @@ import android.content.res.Configuration;
 import android.database.Cursor;
 
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -50,8 +51,9 @@ import com.bumslap.bum.statistics.BarChartActivity;
 import com.bumslap.bum.statistics.SalesStatus2Activity;
 
 
-
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -64,7 +66,6 @@ public class OrderActivity extends AppCompatActivity
     ArrayList<com.bumslap.bum.DB.Menu> Menulist;
     com.bumslap.bum.DB.MenuListAdapter menuListAdapter = null;
 
-
     RecyclerView billRecyclerView;
     RecyclerView.Adapter Adapter;
     RecyclerView.LayoutManager layoutManager;
@@ -72,13 +73,19 @@ public class OrderActivity extends AppCompatActivity
 
 
     ViewPager pager;
-    PageAdapter adapter;
+    PagerAdapter adapter;
     String str_device;
     public static DBHelper dbforAnalysis;
 
     ArrayList<HashMap<String, Integer>> OrderList;
     HashMap<String, Integer> Ordermap;
 
+    ArrayList<Order> Order_menu_List;
+    long CurrentTimeCall;
+    Date CurrentDateCall;
+    SimpleDateFormat CurrentDate;
+    String CureentTime;
+    int Order_Amount;
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -88,7 +95,7 @@ public class OrderActivity extends AppCompatActivity
         // 화면을 landscape(가로) 화면으로 고정하고 싶은 경우
         setContentView(R.layout.activity_order);
         // setContentView()가 호출되기 전에 setRequestedOrientation()이 호출되어야 함
-        setTitle("오늘도 달려 보세");
+        //setTitle("오늘도 달려 보세");
         init();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
@@ -143,7 +150,7 @@ public class OrderActivity extends AppCompatActivity
                 //billRecyclerView.setLayoutManager(layoutManager);
                 //billRecyclerView.setItemAnimator(new DefaultItemAnimator());
                 Adapter = new BillAdapter(Billordermenu);
-               // billRecyclerView.setAdapter(Adapter);
+                // billRecyclerView.setAdapter(Adapter);
                 //billRecyclerView.smoothScrollBy(200, 100);
                 Toast.makeText(getApplicationContext(),""+position+"  "+Menu+" "+Price,Toast.LENGTH_LONG).show();
                 if(Ordermap.get(Menu)==null){
@@ -152,6 +159,13 @@ public class OrderActivity extends AppCompatActivity
                 Amount = Ordermap.get(Menu);
                 Ordermap.put(Menu, ++Amount);
                 OrderList.add(Ordermap);
+                CurrentTimeCall = System.currentTimeMillis();
+                CurrentDateCall = new Date(CurrentTimeCall);
+                CurrentDate = new SimpleDateFormat("yyyy-MM-dd");
+                CureentTime = CurrentDate.format(CurrentDateCall);
+                Order_Amount = Ordermap.get(Menu);
+
+                Order_menu_List = new ArrayList<>();
 
             }
         });
@@ -166,80 +180,42 @@ public class OrderActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
-    class PageAdapter extends FragmentPagerAdapter {
-        @Override
-        public float getPageWidth(int position) {
-            return 0.4f;
-        }
-        private List<Fragment> fragments;
 
-        public PageAdapter(FragmentManager fm, List<Fragment> fragments) {
-
-            super(fm);
-
-            this.fragments = fragments;
-
-        }
-
-        @Override
-
-        public Fragment getItem(int position) {
-
-            return this.fragments.get(position);
-
-        }
-
-        @Override
-
-        public int getCount() {
-
-            return this.fragments.size();
-
-        }
-
-    }
     public int differentDensityAndScreenSize(Context context) {
         int value = 20;
-        String str = "";
+
         if ((context.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_SMALL) {
             switch (context.getResources().getDisplayMetrics().densityDpi) {
                 case DisplayMetrics.DENSITY_LOW:
-                    str = "small-ldpi";
-                    // Log.e("small 1","small-ldpi");
+
                     value = 20;
                     break;
                 case DisplayMetrics.DENSITY_MEDIUM:
-                    str = "small-mdpi";
-                    // Log.e("small 1","small-mdpi");
+
                     value = 20;
                     break;
                 case DisplayMetrics.DENSITY_HIGH:
-                    str = "small-hdpi";
-                    // Log.e("small 1","small-hdpi");
+
                     value = 20;
                     break;
                 case DisplayMetrics.DENSITY_XHIGH:
-                    str = "small-xhdpi";
-                    // Log.e("small 1","small-xhdpi");
+
                     value = 20;
                     break;
                 case DisplayMetrics.DENSITY_XXHIGH:
-                    str = "small-xxhdpi";
-                    // Log.e("small 1","small-xxhdpi");
+
                     value = 20;
                     break;
                 case DisplayMetrics.DENSITY_XXXHIGH:
-                    str = "small-xxxhdpi";
-                    //Log.e("small 1","small-xxxhdpi");
+
                     value = 20;
                     break;
                 case DisplayMetrics.DENSITY_TV:
-                    str = "small-tvdpi";
-                    // Log.e("small 1","small-tvdpi");
+
                     value = 20;
                     break;
                 default:
-                    str = "small-unknown";
+
                     value = 20;
                     break;
             }
@@ -366,10 +342,9 @@ public class OrderActivity extends AppCompatActivity
 
         List<Fragment> fList = new ArrayList<Fragment>();
 
-        fList.add(PageFragment.create(1));
-        fList.add(PageFragment.create(2));
-        fList.add(PageFragment.create(3));
-        fList.add(PageFragment.create(4));
+        for (int i = 0  ; i < 10; i++){
+            fList.add(PageFragment.create(i));
+        }
 
         return fList;
 
@@ -399,18 +374,14 @@ public class OrderActivity extends AppCompatActivity
 
         }
 
-        adapter = new PageAdapter(getSupportFragmentManager(), fragments);
+        adapter = new PagerAdapter(getSupportFragmentManager(), fragments);
         pager.setPageTransformer(true, new ViewpagerTransformer());
         pager.setAdapter(adapter);
     }
     @Override
     public void onPause(){
         super.onPause();
-        //listview 안 에 내 용 넣 기
-        String[] Bills = new String[]{"Noodle : 1 개","Cat : 1 개","Noodle : 3 개\nCat : 2 개"};
-        //ListView listView = (ListView)findViewById(R.id.list_order);
-        //ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.listview_order,Bills);
-        //listView.setAdapter(arrayAdapter);
+
     }
 
     @Override

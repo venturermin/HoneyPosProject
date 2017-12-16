@@ -99,7 +99,6 @@ public class SignInActivity extends AppCompatActivity {
         ViewGroup root = (ViewGroup) findViewById(android.R.id.content);
         fontFuntion.setGlobalFont(root,mTypeface);
 
-
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

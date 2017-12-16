@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
         mdb = dbHelper.getWritableDatabase();
 
 
-        dbHelper.addMenu(menu);
     }
 
     ImageButton.OnClickListener BtnClick = new View.OnClickListener() {

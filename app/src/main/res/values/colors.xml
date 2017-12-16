@@ -6,4 +6,5 @@
     <color name="textColor">#013143</color>
     <color name="colorBack">#70cfc6</color>
     <color name="colorBackground">#e4e4e4</color>
+    <color name="colorBackJ">#f7f7fd</color>
 </resources>

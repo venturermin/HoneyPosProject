@@ -23,6 +23,9 @@ public class PageFragment extends Fragment {
     private RecyclerView.LayoutManager PageLayoutManager;
     ArrayList<RealtimeOrder> Billordermenu;
 
+    public PageFragment(){
+
+    }
 
     public static PageFragment create(int pageNumber) {
         PageFragment fragment = new PageFragment();
@@ -34,8 +37,8 @@ public class PageFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_page, container, false);
         PageRecyclerView = (RecyclerView) view.findViewById(R.id.billsrecyclerview);
         if(view instanceof RecyclerView){
@@ -49,6 +52,7 @@ public class PageFragment extends Fragment {
 
             PageAdapter = new BillAdapter(Billordermenu);
             PageRecyclerView.setAdapter(PageAdapter);
+            PageAdapter.notifyDataSetChanged();
         }
 
         return view;
