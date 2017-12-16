@@ -4,7 +4,8 @@
     <font
         android:fontStyle="normal"
         android:fontWeight="400"
-        android:font="@font/nanum_square_round_r"/>
+        android:font="@font/nanum_square_round_r"
+        />
 
 
 </font-family>
