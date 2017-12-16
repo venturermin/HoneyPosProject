@@ -37,7 +37,7 @@ public class CostUpdateActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cost_update);
-
+/*
         arrayList = new ArrayList<Cost>();
 
         dBforAnalysis = new DBforAnalysis(this, "postest.db", null,1);
@@ -51,6 +51,6 @@ public class CostUpdateActivity extends AppCompatActivity {
 
         costAdapter.notifyDataSetChanged();
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        recyclerView.setAdapter(costAdapter);
+        recyclerView.setAdapter(costAdapter);*/
     }
 }

@@ -18,7 +18,7 @@ import java.util.List;
 public class DBforAnalysis extends SQLiteOpenHelper{
 
     private Context context;
-
+    ArrayList<Cost> costlist;
     public DBforAnalysis(Context context, String name, SQLiteDatabase.CursorFactory factory, int version){
         super(context, name, factory, version);
         this.context = context;
@@ -81,7 +81,6 @@ public class DBforAnalysis extends SQLiteOpenHelper{
         //사용가능한 데이터 베이스 가져오기.
 
         SQLiteDatabase db = getWritableDatabase();
-        Integer menu_Id;
 
         //Menu Data insert(id는 자동 증가)
         StringBuffer sb = new StringBuffer();
@@ -108,7 +107,7 @@ public class DBforAnalysis extends SQLiteOpenHelper{
 
         Cursor cursor = db.rawQuery(sb.toString(), null);
 
-        ArrayList<Cost> costlist = new ArrayList<>();
+        costlist = new ArrayList<>();
 
         Cost cost = null;
         // moveToNext 다음에 데이터가 없으면 false, 있으면 true
@@ -119,6 +118,30 @@ public class DBforAnalysis extends SQLiteOpenHelper{
             cost.setCost_price(cursor.getString(2));
             cost.setCost_FK_menuId(cursor.getInt(3));
             costlist.add(cost);
+        }
+        cursor.close();
+        return costlist;
+    }
+
+    public ArrayList<String> getAllMnuData() {
+
+        StringBuffer sb = new StringBuffer();
+        sb.append("SELECT * FROM MENU_TABLE");
+
+        //읽기 전용 DB 객체를 생성
+        SQLiteDatabase db = getReadableDatabase();
+
+        Cursor cursor = db.rawQuery(sb.toString(), null);
+
+        ArrayList<String> costlist = new ArrayList<>();
+
+        while (cursor.moveToNext()){
+            int id = cursor.getInt(0);
+            String name = cursor.getString(1);
+            String price = cursor.getString(2);
+            String cost = cursor.getString(3);
+            byte[] image = cursor.getBlob(4);
+            costlist.add(name);
         }
         cursor.close();
         return costlist;
@@ -150,6 +173,20 @@ public class DBforAnalysis extends SQLiteOpenHelper{
                     cost.getCost_price(),
                     cost.getCost_id()
                 });
+    }
+
+    public String getMenuprice(String name){
+        String price = "";
+        SQLiteDatabase db = getReadableDatabase();
+        StringBuffer sb = new StringBuffer();
+
+        Menu menu = new Menu();
+        Cursor cursor = db.rawQuery("SELECT MENU_PRICE FROM MENU_TABLE WHERE MENU_NAME = '"+name +"'",null);
+        while(cursor.moveToNext()){
+            menu.setMenu_price(cursor.getString(0));
+        }
+        price = menu.getMenu_price();
+        return price;
     }
 
 }

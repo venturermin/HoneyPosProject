@@ -9,6 +9,10 @@ public class Menu {
     private String Menu_name;
     private byte[] Menu_image;
     private String Menu_price;
+
+    public Menu() {
+    }
+
     private String Menu_cost;
 
 

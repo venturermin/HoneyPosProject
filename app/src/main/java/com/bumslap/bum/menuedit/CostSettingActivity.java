@@ -2,6 +2,7 @@ package com.bumslap.bum.menuedit;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.CursorJoiner;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Point;
@@ -38,6 +39,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumslap.bum.DB.Cost;
+import com.bumslap.bum.DB.DBHelper;
 import com.bumslap.bum.DB.DBforAnalysis;
 import com.bumslap.bum.POSproject.SignFuntion.FontFuntion;
 import com.bumslap.bum.R;
@@ -60,13 +62,18 @@ public class CostSettingActivity extends AppCompatActivity implements GestureDet
     private PopupWindow pwindo;
     private int mWidthPixels, mHeightPixels;
     CostUpdateAdapter costUpdateAdapter;
-    Button IngradientUpdatBtn;
+    Button IngradientUpdatBtn, IngradientAddBtn , IngradientDeleteBtn;
     View layout;
-    CostUpdateAdapterGet costUpdateAdapterget;
+    ArrayList<String> Menu;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cost_setting);
+
+        dBforAnalysis = new DBforAnalysis(this, "POS.db", null,1);
+        //DBHelper dbHelper = new DBHelper(this, "postest.db", null,1);
+        costAdapter = new CostAdapter(arrayList, this);
+
 
         WindowManager w = getWindowManager();
         Display d = w.getDefaultDisplay();
@@ -92,13 +99,11 @@ public class CostSettingActivity extends AppCompatActivity implements GestureDet
             } catch (Exception ignored) { }
         this.gestureDetector = new GestureDetector(this,this);
         context = this;
-        floatingActionButton_cost = (FloatingActionButton)findViewById(R.id.floatingActionButton_cost);
-        floatingActionButton_cost.setOnClickListener(AddIngradient);
 
+        TextView menuPrice = (TextView)findViewById(R.id.textView3);
         //spinner
-        String[] Menu = {
-                "피자", "짜장면", "라면", "숯불 김밥"
-        };
+        Menu = new ArrayList<>();
+        Menu = dBforAnalysis.getAllMnuData();
 
         spinnerMenu = (Spinner)findViewById(R.id.spinnerMenu);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(
@@ -106,24 +111,15 @@ public class CostSettingActivity extends AppCompatActivity implements GestureDet
                 android.R.layout.simple_spinner_dropdown_item,
                 Menu);
         spinnerMenu.setAdapter(adapter);
-        spinnerMenu.setSelection(0);
+        spinnerMenu.setSelection(1);
 
-
-        //RecyclerView
-        arrayList = new ArrayList<Cost>();
-
-        dBforAnalysis = new DBforAnalysis(this, "postest.db", null,1);
-        mdb = dBforAnalysis.getWritableDatabase();
-
-        Cost cost = new Cost();
-        arrayList = dBforAnalysis.getAllCostData();
-
-        recyclerView = (RecyclerView)findViewById(R.id.RecyclerView);
-        costAdapter = new CostAdapter(arrayList, this);
+        //Get Menu price
+        String menuname = spinnerMenu.getSelectedItem().toString();
+        String price =  dBforAnalysis.getMenuprice(menuname);
+        menuPrice.setText(price);
 
         costAdapter.notifyDataSetChanged();
-        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        recyclerView.setAdapter(costAdapter);
+
 
         Button button = (Button)findViewById(R.id.button_edit);
         button.setOnClickListener(new View.OnClickListener() {
@@ -136,11 +132,41 @@ public class CostSettingActivity extends AppCompatActivity implements GestureDet
     }
     public void onResume() {
         super.onResume();
-        FontFuntion fontFuntion = new FontFuntion();
-        mTypeface = Typeface.createFromAsset(getAssets(), "fonts/NanumSquareRoundL.ttf");
-        ViewGroup root = (ViewGroup) findViewById(android.R.id.content);
-        fontFuntion.setGlobalFont(root,mTypeface);
+        //RecyclerView
+        arrayList = new ArrayList<Cost>();
+        mdb = dBforAnalysis.getWritableDatabase();
+
+        Cost cost = new Cost();
+        arrayList = dBforAnalysis.getAllCostData();
+
+        recyclerView = (RecyclerView)findViewById(R.id.RecyclerView);
+        costAdapter = new CostAdapter(arrayList, this);
+        int CostTotal = 0;
+        for(int i=0; i<arrayList.size(); i++){
+            if(isNumber(arrayList.get(i).getCost_price()) == true)
+                CostTotal = CostTotal + Integer.parseInt(arrayList.get(i).getCost_price());
+        }
+
+        EditText editText = (EditText)findViewById(R.id.editText2);
+        editText.setText(Integer.toString(CostTotal));
+
+        costAdapter.notifyDataSetChanged();
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        recyclerView.setAdapter(costAdapter);
+
     }
+
+    public static boolean isNumber(String str){
+        boolean result = false;
+        try{
+            Double.parseDouble(str) ;
+            result = true ;
+        }catch(Exception e){}
+
+
+        return result ;
+    }
+
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev){
         super.dispatchTouchEvent(ev);
@@ -216,34 +242,7 @@ public class CostSettingActivity extends AppCompatActivity implements GestureDet
     View.OnClickListener AddIngradient = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            //DB추가
-            Cost firIngradient = new Cost();
-            String menu = spinnerMenu.getSelectedItem().toString();
 
-            firIngradient.setCost_name("재");
-            firIngradient.setCost_price("가");
-            Integer menu_Id;
-
-            if(menu == "피자"){
-                menu_Id = 1;
-            }
-            else if (menu == "짜장면") {
-                menu_Id = 2;
-            }
-            else if (menu == "라면"){
-                menu_Id = 3;
-            }else {
-                menu_Id = 4;
-            }
-
-            firIngradient.setCost_FK_menuId(menu_Id);;
-            dBforAnalysis.addCost(firIngradient);
-            costAdapter = new CostAdapter(arrayList, CostSettingActivity.this);
-            costAdapter.notifyDataSetChanged();
-            /*
-            arrayList = dBforAnalysis.getAllCostData();
-            costAdapter = new CostAdapter(arrayList, CostSettingActivity.this);
-            recyclerView.setAdapter(costAdapter);*/
         }
     };
 
@@ -251,19 +250,22 @@ public class CostSettingActivity extends AppCompatActivity implements GestureDet
         try {
             //modal 창
             //  LayoutInflater 객체와 시킴
-            LayoutInflater inflater = (LayoutInflater) CostSettingActivity.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-            layout = inflater.inflate(R.layout.activity_cost_update, (ViewGroup)findViewById(R.id.view));
-
-            arrayList = new ArrayList<Cost>();
-
             Cost cost = new Cost();
+            LayoutInflater inflater = (LayoutInflater) CostSettingActivity.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            layout = inflater.inflate(R.layout.activity_cost_update, (ViewGroup)findViewById(R.id.view));
+            //arrayList = new ArrayList<Cost>();
+
+
             arrayList = dBforAnalysis.getAllCostData();
 
             recyclerView2 = (RecyclerView)layout.findViewById(R.id.rv);
             IngradientUpdatBtn = (Button)layout.findViewById(R.id.IngradientUpdatBtn);
+            IngradientAddBtn = (Button)layout.findViewById(R.id.IngradientAddBtn);
+            IngradientDeleteBtn = (Button)layout.findViewById(R.id.IngradientDeleteBtn);
 
-            IngradientUpdatBtn.setOnClickListener(clickUpdateBtn);
+            IngradientUpdatBtn.setOnClickListener(clickBtn);
+            IngradientAddBtn.setOnClickListener(clickBtn);
+            IngradientDeleteBtn.setOnClickListener(clickBtn);
 
             costUpdateAdapter = new CostUpdateAdapter(arrayList, this);
 
@@ -271,7 +273,7 @@ public class CostSettingActivity extends AppCompatActivity implements GestureDet
             recyclerView2.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
             recyclerView2.setAdapter(costUpdateAdapter);
 
-            pwindo = new PopupWindow(layout, mWidthPixels-100, mHeightPixels-500, true);
+            pwindo = new PopupWindow(layout, mWidthPixels, mHeightPixels, true);
             pwindo.showAtLocation(layout, Gravity.CENTER, 0, 0);
 
         } catch (Exception e) {
@@ -279,29 +281,86 @@ public class CostSettingActivity extends AppCompatActivity implements GestureDet
         }
     }
 
-    View.OnClickListener  clickUpdateBtn = new View.OnClickListener() {
+    View.OnClickListener clickBtn = new View.OnClickListener() {
+        Cost firIngradient;
         @Override
         public void onClick(View view) {
             //update
 
-            arrayList = new ArrayList<Cost>();
+            switch (view.getId()){
+                case R.id.IngradientUpdatBtn :
+                    //DB update
+                    arrayList = new ArrayList<Cost>();
 
-            //arrayList = dBforAnalysis.getAllCostData();
+                    Cost cost = new Cost();
+                    View v;
+                    EditText Ingradient_name;
+                    EditText Ingradient_price;
+                    recyclerView2 = (RecyclerView)layout.findViewById(R.id.rv);
+                    arrayList = dBforAnalysis.getAllCostData();
 
-            Cost cost = new Cost();
+                    Ingradient_name = (EditText) findViewById(R.id.editText);
+                    Ingradient_price = (EditText) findViewById(R.id.editText3);
+                    int lengthOfRec = recyclerView2.getChildCount();
+                    for (int i=0;i< lengthOfRec; i++){
+                        v = recyclerView2.getChildAt(i);
+                        Ingradient_name = v.findViewById(R.id.editText);
+                        Ingradient_price = v.findViewById(R.id.editText3);
+                        String name = Ingradient_name.getText().toString();
+                        String price = Ingradient_price.getText().toString();
+                        firIngradient = new Cost();
+                        firIngradient.setCost_id(arrayList.get(i).getCost_id());
 
-            recyclerView2 = (RecyclerView)layout.findViewById(R.id.rv);
+                        firIngradient.setCost_name(name);
+                        firIngradient.setCost_price(price);
+                        dBforAnalysis.updateCost(firIngradient);
+                    }
+                    break;
+                case R.id.IngradientAddBtn :
+                    //DB add
+                    firIngradient = new Cost();
+                    String menu = spinnerMenu.getSelectedItem().toString();
 
-            costUpdateAdapterget = new CostUpdateAdapterGet(arrayList, context);
+                    firIngradient.setCost_name("재료 명");
+                    firIngradient.setCost_price("재료 가격");
+                    Integer menu_Id;
+                        if(menu == "피자"){
+                        menu_Id = 1;
+                    }
+                    else if (menu == "짜장면") {
+                        menu_Id = 2;
+                    }
+                    else if (menu == "라면"){
+                        menu_Id = 3;
+                    }else {
+                        menu_Id = 4;
+                    }
+                    firIngradient.setCost_FK_menuId(menu_Id);
+                    dBforAnalysis.addCost(firIngradient);
+                    costAdapter = new CostAdapter(arrayList, CostSettingActivity.this);
+                    costAdapter.notifyDataSetChanged();
+                    break;
+                case R.id.IngradientDeleteBtn :
+                    //DB delete
 
-            ViewHolderCostUpdateGet viewHolderCostUpdateget = new ViewHolderCostUpdateGet(layout);
+                    recyclerView2 = (RecyclerView)layout.findViewById(R.id.rv);
+                    arrayList = dBforAnalysis.getAllCostData();
 
+                    CheckBox checkBox = (CheckBox)findViewById(R.id.checkBox);
+                    int lengthOfcheck = recyclerView2.getChildCount();
+                    for (int i=0;i< lengthOfcheck; i++){
+                        v = recyclerView2.getChildAt(i);
+                        checkBox = v.findViewById(R.id.checkBox);
+                        checkBox.setVisibility(View.VISIBLE);
+                        boolean checked =  checkBox.isChecked();
+                        if (checked == true){
+                            int id = arrayList.get(i).getCost_id();
+                            dBforAnalysis.deleteCost(id);
+                        }
+                    }
+                    costAdapter.notifyDataSetChanged();
+            }
 
-            String n = viewHolderCostUpdateget.Ingradient_name.getText().toString();
-            String v = viewHolderCostUpdateget.Ingradient_price.getText().toString();
-
-            recyclerView2.setAdapter(costUpdateAdapterget);
-            costUpdateAdapterget.notifyDataSetChanged();
 
         }
     };
