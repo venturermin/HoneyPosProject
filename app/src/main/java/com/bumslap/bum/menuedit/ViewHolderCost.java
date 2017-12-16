@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -32,18 +33,12 @@ import java.util.HashMap;
 
 public class ViewHolderCost extends RecyclerView.ViewHolder {
     TextView Ingradient_name, Ingradient_price;
-
+    CheckBox checkbox;
     public ViewHolderCost(final View itemView) {
         super(itemView);
         Ingradient_name = (TextView)itemView.findViewById(R.id.Ingradient_name);
         Ingradient_price = (TextView)itemView.findViewById(R.id.Ingradient_price);
-
-        Ingradient_name.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int i = getAdapterPosition();
-            }
-        });
+        checkbox = (CheckBox)itemView.findViewById(R.id.checkBox);
         /*
         Ingradient_name.setOnClickListener(new View.OnClickListener() {
             @Override

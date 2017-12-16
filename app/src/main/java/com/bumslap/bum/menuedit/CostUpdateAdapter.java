@@ -1,6 +1,7 @@
 package com.bumslap.bum.menuedit;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.bumslap.bum.DB.Cost;
+import com.bumslap.bum.POSproject.SignFuntion.FontFuntion;
 import com.bumslap.bum.R;
 
 import java.util.ArrayList;
@@ -20,6 +22,7 @@ public class CostUpdateAdapter extends RecyclerView.Adapter<ViewHolderCostUpdate
     private ArrayList<Cost> arrayList;
     private Context context;
     View view;
+    Typeface mTypeface;
     ViewHolderCostUpdate viewHolderCostUpdate;
     public CostUpdateAdapter(ArrayList<Cost> arrayList, Context context) {
         this.arrayList = arrayList;

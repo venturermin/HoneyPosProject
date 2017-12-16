@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="60dp"
     android:padding="4dp">
-
     <TextView
         android:id="@+id/Ingradient_price"
         android:layout_width="141dp"
@@ -18,10 +17,10 @@
         android:inputType="textPersonName"
         android:paddingLeft="20dp"
         android:text="재료 가격"
+        android:fontFamily="@font/nanum_square_round_r"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/Ingradient_name"
         android:layout_width="141dp"
@@ -33,6 +32,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:paddingLeft="20dp"
+        android:fontFamily="@font/nanum_square_round_r"
         android:text="재료 명"
         android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/Ingradient_price"
