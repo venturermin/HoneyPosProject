@@ -7,6 +7,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackJ"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     tools:context="com.bumslap.bum.menuedit.CostSettingActivity">
 
 
@@ -72,13 +74,13 @@
     <EditText
         android:id="@+id/editText2"
         android:layout_width="141dp"
-        android:layout_height="38dp"
+        android:layout_height="41dp"
         android:layout_marginEnd="12dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:inputType="number"
         android:fontFamily="@font/nanum_square_round_r"
+        android:inputType="number"
         app:layout_constraintEnd_toStartOf="@+id/textView5"
         app:layout_constraintStart_toEndOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />

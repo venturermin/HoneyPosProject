@@ -68,13 +68,7 @@ public class IngradientAdapter extends BaseAdapter{
         if(view == null){
 
             view = inflater.inflate(R.layout.listview_cost, null);
-            //holder.IngradientName = (TextView)view.findViewById(R.id.textView_name);
             holder.HIngradientName = (EditText) view.findViewById(R.id.EditText_Ingradientname);
-            //holder.HIngradientPrice = (EditText) view.findViewById(R.id.EditText_Ingradientprice);
-
-            //holder.IngradientPrice = (TextView) view.findViewById(R.id.textViewprice);
-            //LayoutInflater inflater1 =  activity.getLayoutInflater();
-            //View v = inflater.inflate(R.layout.activity_cost_setting, null);
             holder.button = (Button)view.findViewById(R.id.editBtn);
             holder.button.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -95,17 +89,6 @@ public class IngradientAdapter extends BaseAdapter{
             holder.HIngradientName.setClickable(true);
         }
 
-
-
-        //holder.IngradientName.getEditableText();
-        //holder.IngradientPrice.getEditableText();
-
-
-        //Cost cost = list.get(i);
-        //holder.HIngradientName.setText(list.get(i).getCost_name());
-       // holder.HIngradientPrice.setText(list.get(i).getCost_price());
-        //holder.IngradientName.setText(list.get(i).getCost_name());
-        //holder.IngradientPrice.setText(list.get(i).getCost_price());
         return view;
 
     }
