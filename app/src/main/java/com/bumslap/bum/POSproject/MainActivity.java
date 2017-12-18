@@ -1,5 +1,6 @@
 package com.bumslap.bum.POSproject;
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Typeface;
@@ -13,6 +14,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.bumslap.bum.DB.CardItem;
 import com.bumslap.bum.DB.DBforAnalysis;
 import com.bumslap.bum.DB.Menu;
 import com.bumslap.bum.POSproject.SignFuntion.FontFuntion;
@@ -33,9 +35,10 @@ public class MainActivity extends AppCompatActivity {
     LinearLayout sliderDotsPanel;
     private int dotsCount;
     private ImageView[] dots;
+    static Context context;
+    CardPagerAdapter mCardAdapter;
 
-
-    private ViewPager viewPager;
+    public ViewPager viewPager;
 
     private List<String> numberList;
 
@@ -52,11 +55,18 @@ public class MainActivity extends AppCompatActivity {
         sliderDotsPanel = (LinearLayout) findViewById(R.id.IndicatorDots);
 
         viewPager = (ViewPager) findViewById(R.id.viewPager);
-        viewPager.setAdapter(new ViewPagerAdapterMain(getSupportFragmentManager()));
+
+        mCardAdapter = new CardPagerAdapter();
+        mCardAdapter.addCardItem(new CardItem(R.drawable.first_time_viewpager));
+        mCardAdapter.addCardItem(new CardItem(R.drawable.night));
+
+        context = this;
+        viewPager.setAdapter(mCardAdapter);
 
 
-        ViewPagerAdapterMain viewPagerAdapterMain = new ViewPagerAdapterMain(getSupportFragmentManager());
-        dotsCount = viewPagerAdapterMain.getCount();
+
+
+        dotsCount = mCardAdapter.getCount();
         dots = new ImageView[dotsCount];
         for(int i=0;i<dotsCount;i++){
             dots[i] = new ImageView(this);
@@ -141,7 +151,9 @@ public class MainActivity extends AppCompatActivity {
     };
 
 
-
+    public static float dpToPixels(int dp, Context context) {
+        return dp * (context.getResources().getDisplayMetrics().density);
+    }
 
 
 
