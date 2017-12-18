@@ -1,43 +1,29 @@
 package com.bumslap.bum.order;
 
 import android.annotation.SuppressLint;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.database.Cursor;
-
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.GravityCompat;
-import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DefaultItemAnimator;
-
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.GridView;
-import android.widget.ListView;
-
 import android.widget.Toast;
-
 
 import com.bumslap.bum.DB.DBHelper;
 import com.bumslap.bum.DB.DBforAnalysis;
@@ -46,12 +32,9 @@ import com.bumslap.bum.DB.Order;
 import com.bumslap.bum.POSproject.MainActivity;
 import com.bumslap.bum.R;
 import com.bumslap.bum.menuedit.MenuSettingActivity;
-
-import com.bumslap.bum.menuedit.MenuUpdateActivity;
 import com.bumslap.bum.settings.UserSettingActivity;
 import com.bumslap.bum.statistics.BarChartActivity;
 import com.bumslap.bum.statistics.SalesStatus2Activity;
-
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -60,8 +43,7 @@ import java.util.HashMap;
 import java.util.List;
 
 
-public class OrderActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class OrderActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     Intent intent;
     GridView gridView;
@@ -74,7 +56,7 @@ public class OrderActivity extends AppCompatActivity
     ArrayList<RealtimeOrder> Billordermenu;
 
 
-    ViewPager pager;
+    ClickableViewPager pager;
     PagerAdapter adapter;
     String str_device;
     public static DBHelper dbforAnalysis;
@@ -149,12 +131,11 @@ public class OrderActivity extends AppCompatActivity
             }
         });
 */
-        ClickableViewPager viewPager = (ClickableViewPager)findViewById(R.id.order_pager);
+        ClickableViewPager viewPager = (ClickableViewPager) findViewById(R.id.order_pager);
         pager.setAdapter(adapter);
         viewPager.setOnItemClickListener(new ClickableViewPager.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                int i = position;
             }
         });
       /*
@@ -396,7 +377,7 @@ public class OrderActivity extends AppCompatActivity
     }
 
     private void init() {
-        pager = (ViewPager) findViewById(R.id.order_pager);
+        pager = (ClickableViewPager) findViewById(R.id.order_pager);
         differentDensityAndScreenSize(getApplicationContext());
         List<Fragment> fragments = getFragments();
         pager.setAdapter(adapter);
