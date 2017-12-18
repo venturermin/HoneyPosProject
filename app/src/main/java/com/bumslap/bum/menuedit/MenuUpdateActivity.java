@@ -47,7 +47,8 @@ public class MenuUpdateActivity extends AppCompatActivity {
 
         init();
 
-        dbforAnalysis = new DBHelper(getApplicationContext(), "menu2.db", null, 1);
+        //dbforAnalysis = new DBHelper(getApplicationContext(), "menu2.db", null, 1);
+
         dbforAnalysis.queryData("CREATE TABLE IF NOT EXISTS MENU_TABLE (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME VARCHAR, PRICE VARCHAR, COST VARCHAR, IMAGE BLOG)");
 
         UpdateMenuImageBTN.setOnClickListener(changeimage);

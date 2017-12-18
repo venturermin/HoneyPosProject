@@ -86,11 +86,11 @@ public class OrderActivity extends AppCompatActivity implements NavigationView.O
 
         menuListAdapter = new MenuListAdapter(this, R.layout.order_menu_item, Menulist);
         gridView.setAdapter(menuListAdapter);
-        dbforAnalysis = new DBHelper(getApplicationContext(), "menu2.db", null, 1);
+        //dbforAnalysis = new DBHelper(getApplicationContext(), "menu2.db", null, 1);
 
         newdbforAnalysis = new DBforAnalysis(this, "POS.db", null,1);
 
-        Cursor cursor = dbforAnalysis.getData("SELECT * FROM MENU_TABLE");
+        /*Cursor cursor = dbforAnalysis.getData("SELECT * FROM MENU_TABLE");
         Menulist.clear();
         while (cursor.moveToNext()){
             int id = cursor.getInt(0);
@@ -102,7 +102,7 @@ public class OrderActivity extends AppCompatActivity implements NavigationView.O
             Menulist.add(new com.bumslap.bum.DB.Menu(id, name, image, price, cost));
         }
         menuListAdapter.notifyDataSetChanged();
-        Billordermenu = new ArrayList<>();
+        Billordermenu = new ArrayList<>();*/
 
 
         //binding.recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, true));

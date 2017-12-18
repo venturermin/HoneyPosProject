@@ -14,9 +14,19 @@ import junit.runner.Version;
 
 public class DBHelper extends SQLiteOpenHelper {
 
-    public DBHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version){
-        super(context, name, factory, version);
+
+    private static final String MENU_TABLE = "Menu";
+    private static final String DB = "menu2.db";
+    private static final Integer ID = 0;
+    private static final int VERSION = 6;
+
+    public DBHelper(Context c){
+        super(c, DB, null, VERSION);
     }
+
+
+    // public DBHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version){
+    //      super(context, name, factory, version);}
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
@@ -38,6 +48,7 @@ public class DBHelper extends SQLiteOpenHelper {
         String sql = "INSERT INTO MENU_TABLE VALUES (NULL, ?, ?, ?, ?)";
 
         SQLiteStatement statement = database.compileStatement(sql);
+
         statement.clearBindings();
 
         statement.bindString(1, name);
@@ -48,8 +59,10 @@ public class DBHelper extends SQLiteOpenHelper {
         statement.executeInsert();
     }
 
-    public Cursor getData(String sql){
-        SQLiteDatabase database = getReadableDatabase();
-        return database.rawQuery(sql, null);
+    public SQLiteDatabase getDB(){
+        SQLiteDatabase database = this.getReadableDatabase();
+        return database;
     }
+
+
 }
