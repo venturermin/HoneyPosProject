@@ -65,7 +65,7 @@ public class OrderMenuSelectAdapter extends RecyclerView.Adapter<OrderMenuViewHo
         dBforAnalysis = new DBforAnalysis(context, "menu2.db", null, 1);
         Order menuitem = Menuitems.get(position);
 
-        MenunameDB = dBforAnalysis.getMenuName(menuitem.getOrder_FK_menuId());
+        MenunameDB = dBforAnalysis.getMenuName(Integer.parseInt(menuitem.getOrder_FK_menuId()));
 
         holder.Menuname.setText(MenunameDB);
 

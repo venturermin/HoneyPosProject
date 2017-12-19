@@ -40,6 +40,7 @@ import android.widget.Toast;
 
 
 import com.bumslap.bum.DB.DBHelper;
+import com.bumslap.bum.DB.DBProvider;
 import com.bumslap.bum.DB.DBforAnalysis;
 import com.bumslap.bum.DB.MenuListAdapter;
 import com.bumslap.bum.DB.Order;
@@ -73,7 +74,7 @@ public class OrderActivity extends AppCompatActivity
     RecyclerView.LayoutManager layoutManager;
     ArrayList<RealtimeOrder> Billordermenu;
     OrderMenuSelectAdapter orderMenuSelectAdapter;
-
+    DBProvider db;
 
     String str_device;
     public static DBHelper dbforAnalysis;
@@ -113,14 +114,14 @@ public class OrderActivity extends AppCompatActivity
 
         menuListAdapter = new MenuListAdapter(this, R.layout.order_menu_item, Menulist);
         gridView.setAdapter(menuListAdapter);
-        dbforAnalysis = new DBHelper(getApplicationContext(), "menu2.db", null, 1);
+        dbforAnalysis = new DBHelper(this);
 
         newdbforAnalysis = new DBforAnalysis(this, "POS.db", null,1);
 
-        Cursor cursor = dbforAnalysis.getData("SELECT * FROM MENU_TABLE");
+        Cursor cursor = db.getData("SELECT * FROM MENU_TABLE");
         Menulist.clear();
         while (cursor.moveToNext()){
-            int id = cursor.getInt(0);
+            String id = cursor.getString(0);
             String name = cursor.getString(1);
             String price = cursor.getString(2);
             String cost = cursor.getString(3);
@@ -194,8 +195,8 @@ public class OrderActivity extends AppCompatActivity
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id){
 
-                int MenuID = Menulist.get(position).getMenu_id();
-                String Menu = Integer.toString(MenuID);
+                String MenuID = Menulist.get(position).getMenu_id();
+
                 String Price = Menulist.get(position).getMenu_price().toString();
                 int Amount;
 
@@ -204,19 +205,19 @@ public class OrderActivity extends AppCompatActivity
 
                 // billRecyclerView.setAdapter(Adapter);
                 //billRecyclerView.smoothScrollBy(200, 100);
-                Toast.makeText(getApplicationContext(),""+position+"  "+Menu+" "+Price,Toast.LENGTH_LONG).show();
-                if(Ordermap.get(Menu)==null){
-                    Ordermap.put(Menu, 0);
+                Toast.makeText(getApplicationContext(),""+position+"  "+MenuID+" "+Price,Toast.LENGTH_LONG).show();
+                if(Ordermap.get(MenuID)==null){
+                    Ordermap.put(MenuID, 0);
                 }
-                Amount = Ordermap.get(Menu);
-                Ordermap.put(Menu, ++Amount);
+                Amount = Ordermap.get(MenuID);
+                Ordermap.put(MenuID, ++Amount);
                 OrderList.add(Ordermap);
                 CurrentTimeCall = System.currentTimeMillis();
                 CurrentDateCall = new Date(CurrentTimeCall);
                 CurrentDate = new SimpleDateFormat("yyyy-MM-dd");
                 CurrentTimeS = new SimpleDateFormat("hh-mm-ss");
                 CurrentTime = CurrentDate.format(CurrentDateCall);
-                Order_Amount = Ordermap.get(Menu);
+                Order_Amount = Ordermap.get(MenuID);
 
 
                 // orderMenuSelectAdapter.add(new Order(String.valueOf(Amount),CurrentTime,CurrentTime, MenuID,"no"));

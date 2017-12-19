@@ -58,12 +58,13 @@ public class DBforAnalysis extends SQLiteOpenHelper{
         sbCost.append(" COST_ID INTEGER PRIMARY KEY AUTOINCREMENT, ");
         sbCost.append(" COST_NAME TEXT, ");
         sbCost.append(" COST_PRICE TEXT,");
-        sbCost.append(" COST_FK_MENUID INTEGER);");
-
+        sbCost.append(" COST_FK_MENUID INTEGER );");
         db.execSQL(sbCost.toString());
 
         Toast.makeText(context, "메뉴 정보 생성", Toast.LENGTH_LONG).show();
     }
+
+
 
     /**
      * version이  up되어서 table 구조가 변경되었을 때 실행
@@ -117,6 +118,7 @@ public class DBforAnalysis extends SQLiteOpenHelper{
                 });
     }
 
+
     //DB Data Select
     public ArrayList<Cost> getAllCostData() {
 
@@ -144,6 +146,52 @@ public class DBforAnalysis extends SQLiteOpenHelper{
         return costlist;
     }
 
+
+    //메뉴에 해당되는 재료 가져오기
+    public ArrayList<Cost> getMenuMatchCostData(String i) {
+
+        StringBuffer sb = new StringBuffer();
+        sb.append(" SELECT COST_ID, COST_NAME, COST_PRICE, COST_FK_MENUID FROM COST_TABLE WHERE COST_FK_MENUID = '" + i + "';");
+
+        //읽기 전용 DB 객체를 생성
+        SQLiteDatabase db = getReadableDatabase();
+
+        Cursor cursor = db.rawQuery(sb.toString(), null);
+
+        costlist = new ArrayList<>();
+
+        Cost cost = null;
+        // moveToNext 다음에 데이터가 없으면 false, 있으면 true
+        while( cursor.moveToNext() ) {
+            cost = new Cost();
+            cost.setCost_id(cursor.getInt(0));
+            cost.setCost_name(cursor.getString(1));
+            cost.setCost_price(cursor.getString(2));
+            cost.setCost_FK_menuId(cursor.getInt(3));
+            costlist.add(cost);
+        }
+        cursor.close();
+        return costlist;
+    }
+
+    public String getMenuIdData(String a){
+        StringBuffer sb = new StringBuffer();
+        sb.append(" SELECT MENU_ID FROM MENU_TABLE WHERE MENU_NAME = '"+a +"';");
+
+        //읽기 전용 DB 객체를 생성
+        SQLiteDatabase db = getReadableDatabase();
+
+        Cursor cursor = db.rawQuery(sb.toString(), null);
+        String menu_id = "";
+
+        // moveToNext 다음에 데이터가 없으면 false, 있으면 true
+        while( cursor.moveToNext() ) {
+            menu_id = cursor.getString(0);
+        }
+        cursor.close();
+        return menu_id;
+
+    }
     public ArrayList<Order> getAllOrderData(){
 
         StringBuffer sb = new StringBuffer();
@@ -164,14 +212,42 @@ public class DBforAnalysis extends SQLiteOpenHelper{
             //order.setOrder_date(cursor.getString(1));
             order.setOrder_time(cursor.getString(2));
             order.setOrder_number(cursor.getString(3));
-            order.setOrder_FK_menuId(4);
+            order.setOrder_FK_menuId(cursor.getString(4));
             orderlist.add(order);
         }
         cursor.close();
         return orderlist;
     }
 
-    public ArrayList<String> getAllMnuData() {
+
+    public ArrayList<Menu> getMenuAllData() {
+
+        StringBuffer sb = new StringBuffer();
+        sb.append("SELECT * FROM MENU_TABLE");
+
+        //읽기 전용 DB 객체를 생성
+        SQLiteDatabase db = getReadableDatabase();
+
+        Cursor cursor = db.rawQuery(sb.toString(), null);
+
+        ArrayList<Menu> menuList = new ArrayList<>();
+        Menu menu;
+        while (cursor.moveToNext()){
+            menu = new Menu();
+            menu.setMenu_id(cursor.getString(0));
+            menu.setMenu_name(cursor.getString(1));
+            menu.setMenu_image(cursor.getBlob(2));
+            menu.setMenu_price(cursor.getString(3));
+            menu.setMenu_cost(cursor.getString(4));
+            menuList.add(menu);
+        }
+        cursor.close();
+        return menuList;
+    }
+
+
+
+    public ArrayList<String> getMenuname() {
 
         StringBuffer sb = new StringBuffer();
         sb.append("SELECT * FROM MENU_TABLE");
@@ -248,14 +324,14 @@ public class DBforAnalysis extends SQLiteOpenHelper{
                 });
     }
 
-    public String getMenuprice(String name){
+    public String getMenuprice(String name) {
         String price = "";
         SQLiteDatabase db = getReadableDatabase();
         StringBuffer sb = new StringBuffer();
 
         Menu menu = new Menu();
-        Cursor cursor = db.rawQuery("SELECT MENU_PRICE FROM MENU_TABLE WHERE MENU_NAME = '"+name +"'",null);
-        while(cursor.moveToNext()){
+        Cursor cursor = db.rawQuery("SELECT MENU_PRICE FROM MENU_TABLE WHERE MENU_NAME = '" + name + "'", null);
+        while (cursor.moveToNext()) {
             menu.setMenu_price(cursor.getString(0));
         }
         price = menu.getMenu_price();

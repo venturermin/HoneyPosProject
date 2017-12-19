@@ -12,13 +12,13 @@ public class Order {
     private String Order_amount;
     private String Order_date;
     private String Order_time;
-    private Integer Order_FK_menuId;
+    private String Order_FK_menuId;
     private String Order_number="ll";
 
     public Order() {
     }
 
-    public Order(String order_amount, String order_date, String order_time, Integer order_FK_menuId, String order_number) {
+    public Order(String order_amount, String order_date, String order_time, String order_FK_menuId, String order_number) {
         Order_amount = order_amount;
         Order_date = order_date;
         Order_time = order_time;
@@ -49,11 +49,11 @@ public class Order {
     public void setOrder_time(String Order_time){
         this.Order_time = Order_time;
     }
-    public Integer getOrder_FK_menuId(){
+    public String getOrder_FK_menuId(){
         return Order_FK_menuId;
     }
 
-    public void setOrder_FK_menuId(Integer Order_FK_menuId){
+    public void setOrder_FK_menuId(String Order_FK_menuId){
         this.Order_FK_menuId = Order_FK_menuId;
     }
     public String getOrder_number(){ return Order_number;}

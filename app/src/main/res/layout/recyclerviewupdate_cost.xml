@@ -3,48 +3,51 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     android:layout_height="wrap_content">
 
     <EditText
         android:id="@+id/editText"
-        android:layout_width="189dp"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginTop="13dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
         android:fontFamily="@font/nanum_square_round_r"
+        android:hint="재료 명"
+        android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/editText3"
         app:layout_constraintStart_toEndOf="@+id/checkBox"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/editText3"
-        android:layout_width="123dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="80dp"
+        android:layout_height="42dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="13dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
         android:fontFamily="@font/nanum_square_round_r"
+        android:hint="재료 가격"
+        android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/editText"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <CheckBox
         android:id="@+id/checkBox"
-        android:layout_width="32dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="23dp"
-        android:layout_marginStart="7dp"
+        android:layout_width="33dp"
+        android:layout_height="26dp"
+        android:layout_marginBottom="11dp"
         android:layout_marginTop="23dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

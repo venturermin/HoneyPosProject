@@ -11,7 +11,7 @@
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="0dp"
-        android:layout_height="585dp"
+        android:layout_height="545dp"
         android:layout_marginTop="28dp"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -35,36 +35,68 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/IngradientUpdatBtn"
-        android:layout_width="wrap_content"
+        android:id="@+id/button2"
+        android:layout_width="49dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="11dp"
-        android:text="수 정"
-        android:fontFamily="@font/nanum_square_round_r"
+        android:text="X"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/IngradientAddBtn"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/IngradientAddBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:text="추 가"
-        app:layout_constraintStart_toEndOf="@+id/IngradientDeleteBtn"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/IngradientDeleteBtn"
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab1"
+        android:layout_width="wrap_content"
+        android:layout_height="52dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="8dp"
+        android:clickable="true"
+        android:src="@drawable/ic_add"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="6dp"
-        android:layout_marginStart="84dp"
-        android:text="삭 제"
-        app:layout_constraintBottom_toTopOf="@+id/rv"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/ic_add"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/fab1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/rv" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_save"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/fab2"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_delete"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/fab3"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 
 </android.support.constraint.ConstraintLayout>

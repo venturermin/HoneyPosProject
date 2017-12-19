@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bumslap.bum.DB.DBHelper;
+import com.bumslap.bum.DB.DBProvider;
 import com.bumslap.bum.DB.Menu;
 import com.bumslap.bum.R;
 import com.bumslap.bum.order.OrderActivity;
@@ -36,6 +37,7 @@ public class MenuUpdateActivity extends AppCompatActivity {
     Context context = this;
 
     public static DBHelper dbforAnalysis;
+    public static DBProvider db;
 
     Menu menu;
 
@@ -46,9 +48,11 @@ public class MenuUpdateActivity extends AppCompatActivity {
         setTitle("메뉴 등록");
 
         init();
+        // DBProvider에 DBHelper 인스턴스 포함되어 있음
+        db = new DBProvider(this);
+        db.open();
 
-        dbforAnalysis = new DBHelper(getApplicationContext(), "menu2.db", null, 1);
-        dbforAnalysis.queryData("CREATE TABLE IF NOT EXISTS MENU_TABLE (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME VARCHAR, PRICE VARCHAR, COST VARCHAR, IMAGE BLOG)");
+        db.queryData("CREATE TABLE IF NOT EXISTS MENU_TABLE (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME VARCHAR, PRICE VARCHAR, COST VARCHAR, IMAGE BLOG)");
 
         UpdateMenuImageBTN.setOnClickListener(changeimage);
         UpdateBTN.setOnClickListener(UpdateMenu);
@@ -66,7 +70,27 @@ public class MenuUpdateActivity extends AppCompatActivity {
 
 
     }
+    Button.OnClickListener UpdateMenu = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            try {
+                db.insertData(
+                        UpdateMenuName.getText().toString().trim(),
+                        UpdateMenuPrice.getText().toString().trim(),
+                        UpdateMenuCost.getText().toString().trim(),
+                        imgaeViewToByte(UpdateMenuImage)
+                );
 
+                Toast.makeText(getApplicationContext(), "메뉴 등록 완료", Toast.LENGTH_LONG).show();
+
+                Intent intent = new Intent(getApplicationContext(), MenuSettingActivity.class);
+                startActivity(intent);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    };
     Button.OnClickListener changeimage = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -139,25 +163,7 @@ public class MenuUpdateActivity extends AppCompatActivity {
     }
 
 
-    Button.OnClickListener UpdateMenu = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            try {
-                dbforAnalysis.insertData(
-                        UpdateMenuName.getText().toString().trim(),
-                        UpdateMenuPrice.getText().toString().trim(),
-                        UpdateMenuCost.getText().toString().trim(),
-                        imgaeViewToByte(UpdateMenuImage)
-                );
 
-                Toast.makeText(getApplicationContext(), "메뉴 등록 완료", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(getApplicationContext(), OrderActivity.class);
-                startActivity(intent);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    };
 
         private byte[] imgaeViewToByte(ImageView image) {
             Bitmap bitmap = ((BitmapDrawable) image.getDrawable()).getBitmap();
