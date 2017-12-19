@@ -3,10 +3,8 @@ package com.bumslap.bum.settings;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.bumslap.bum.POSproject.SignFuntion.FontFuntion;
 import com.bumslap.bum.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -22,13 +20,10 @@ public class UserSettingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_setting);
         setTitle("설정");
-        mTypeface = Typeface.createFromAsset(getAssets(), "fonts/NanumSquareRoundL.ttf");
-        ViewGroup root = (ViewGroup) findViewById(android.R.id.content);
+
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        FontFuntion fontFuntion = new FontFuntion();
 
-        fontFuntion.setGlobalFont(root,mTypeface);
         mAuth = FirebaseAuth.getInstance();
 
 

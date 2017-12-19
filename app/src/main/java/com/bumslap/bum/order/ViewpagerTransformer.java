@@ -1,14 +1,13 @@
 package com.bumslap.bum.order;
 
 import android.os.Build;
-import android.support.v4.view.ViewPager;
 import android.view.View;
 
 /**
  * Created by oyoun on 17. 12. 14.
  */
 
-public class ViewpagerTransformer implements ViewPager.PageTransformer {
+public class ViewpagerTransformer implements ClickableViewPager.PageTransformer {
 
     public static final float MAX_SCALE = 1.0f;
     public static final float MIN_SCALE = 0.8f;

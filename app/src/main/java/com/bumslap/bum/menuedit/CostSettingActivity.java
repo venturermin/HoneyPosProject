@@ -60,14 +60,12 @@ public class CostSettingActivity extends AppCompatActivity implements GestureDet
     CostUpdateAdapter costUpdateAdapter;
     Button IngradientUpdatBtn, IngradientAddBtn , IngradientDeleteBtn, colseBtn;
     View layout;
-    ArrayList<String> MenuName, MenuPrice;
-    ArrayList<Integer> MenuId;
+    ArrayList<String> MenuName, MenuPrice, MenuId;
     ArrayList<Menu> MenuallData;
     TextView menuPrice;
     String price, name, menu = "";
     TextView sumCost, margin;
-    Integer menu_id;
-    String menu_name;
+    String menu_name, menu_id;
 
 
     FloatingActionButton fab1, fab2, fab3, fab4;
@@ -347,7 +345,7 @@ public class CostSettingActivity extends AppCompatActivity implements GestureDet
                     firIngradient.setCost_price("");
 
                     Menu_id();
-                    firIngradient.setCost_FK_menuId(menu_id);
+                    firIngradient.setCost_FK_menuId(Integer.parseInt(menu_id));
                     dBforAnalysis.addCost(firIngradient);
 
                     costAllData = dBforAnalysis.getMenuMatchCostData(menu_id);
@@ -399,7 +397,7 @@ public class CostSettingActivity extends AppCompatActivity implements GestureDet
                     //DB delete
 
                     recyclerView2 = (RecyclerView)layout.findViewById(R.id.rv);
-                    Integer id = Menu_id();
+                    String id = Menu_id();
 
                     costAllData = dBforAnalysis.getMenuMatchCostData(menu_id);
                     CheckBox checkBox = (CheckBox)findViewById(R.id.checkBox);
@@ -423,8 +421,8 @@ public class CostSettingActivity extends AppCompatActivity implements GestureDet
                             checkBox.setVisibility(View.VISIBLE);
                             boolean checked = checkBox.isChecked();
                             if (checked == true) {
-                                id = costAllData.get(i).getCost_id();
-                                dBforAnalysis.deleteCost(id);
+                                id = costAllData.get(i).getCost_id().toString();
+                                dBforAnalysis.deleteCost(Integer.parseInt(id));
                             }
                         }
                         costAllData = dBforAnalysis.getMenuMatchCostData(menu_id);
@@ -464,7 +462,7 @@ public class CostSettingActivity extends AppCompatActivity implements GestureDet
         return result ;
     }
 
-    public int Menu_id(){
+    public String Menu_id(){
         try {
             menu_name = spinnerMenu.getSelectedItem().toString();
         }

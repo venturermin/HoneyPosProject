@@ -76,6 +76,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="100dp"
             android:text="고상범 님 환영합니다."
+            android:fontFamily="@font/nanum_square_round_l"
             android:textSize="18sp"
             app:layout_constraintStart_toEndOf="@+id/cardView"
             app:layout_constraintTop_toTopOf="parent" />
@@ -98,6 +99,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="정보수정"
+            android:fontFamily="@font/nanum_square_round_l"
             app:layout_constraintStart_toEndOf="@+id/edit_button"
             app:layout_constraintTop_toTopOf="parent" />
 

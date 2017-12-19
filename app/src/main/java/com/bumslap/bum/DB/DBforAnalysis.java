@@ -148,7 +148,7 @@ public class DBforAnalysis extends SQLiteOpenHelper{
 
 
     //메뉴에 해당되는 재료 가져오기
-    public ArrayList<Cost> getMenuMatchCostData(Integer i) {
+    public ArrayList<Cost> getMenuMatchCostData(String i) {
 
         StringBuffer sb = new StringBuffer();
         sb.append(" SELECT COST_ID, COST_NAME, COST_PRICE, COST_FK_MENUID FROM COST_TABLE WHERE COST_FK_MENUID = '" + i + "';");
@@ -174,7 +174,7 @@ public class DBforAnalysis extends SQLiteOpenHelper{
         return costlist;
     }
 
-    public Integer getMenuIdData(String a){
+    public String getMenuIdData(String a){
         StringBuffer sb = new StringBuffer();
         sb.append(" SELECT MENU_ID FROM MENU_TABLE WHERE MENU_NAME = '"+a +"';");
 
@@ -182,11 +182,11 @@ public class DBforAnalysis extends SQLiteOpenHelper{
         SQLiteDatabase db = getReadableDatabase();
 
         Cursor cursor = db.rawQuery(sb.toString(), null);
-        int menu_id = 0;
+        String menu_id = "";
 
         // moveToNext 다음에 데이터가 없으면 false, 있으면 true
         while( cursor.moveToNext() ) {
-            menu_id = cursor.getInt(0);
+            menu_id = cursor.getString(0);
         }
         cursor.close();
         return menu_id;
@@ -234,7 +234,7 @@ public class DBforAnalysis extends SQLiteOpenHelper{
         Menu menu;
         while (cursor.moveToNext()){
             menu = new Menu();
-            menu.setMenu_id(cursor.getInt(0));
+            menu.setMenu_id(cursor.getString(0));
             menu.setMenu_name(cursor.getString(1));
             menu.setMenu_image(cursor.getBlob(2));
             menu.setMenu_price(cursor.getString(3));

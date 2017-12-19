@@ -5,13 +5,20 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
 import android.util.Log;
+import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.bumslap.bum.POSproject.SignFuntion.FontFuntion;
 import com.bumslap.bum.R;
@@ -38,6 +45,8 @@ import com.kakao.usermgmt.response.model.UserProfile;
 import com.kakao.util.exception.KakaoException;
 import com.kakao.util.helper.log.Logger;
 
+import static com.bumslap.bum.POSproject.MainActivity.context;
+
 public class SignInActivity extends AppCompatActivity {
     private final int RC_SIGN_IN = 1;
     SignInButton signInButton;
@@ -51,6 +60,11 @@ public class SignInActivity extends AppCompatActivity {
     LoginButton loginButton_kakao;
     Typeface mTypeface;
     ProgressBar progressBar;
+    ImageView imageViewMain;
+    Button signIn;
+    boolean isEyeBtn;
+    ToggleButton eyeBtn;
+    ImageButton eraseBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,13 +77,15 @@ public class SignInActivity extends AppCompatActivity {
 
         progressBar.setProgressDrawable(draw);*/
 
-
+        PasswordText = (EditText) findViewById(R.id.PasswordText);
+        eraseBtn = findViewById(R.id.eraseBtn);
 
         mAuth = FirebaseAuth.getInstance();
+        imageViewMain = findViewById(R.id.imageView10);
 
         signInButton = (SignInButton) findViewById(R.id.google_signin);
         emailText = (EditText) findViewById(R.id.EmailText);
-        PasswordText = (EditText) findViewById(R.id.PasswordText);
+
         SignUpBtn = (Button) findViewById(R.id.SignInBtn);
 
         callback = new SessionCallback();                  // 이 두개의 함수 중요함
@@ -87,6 +103,34 @@ public class SignInActivity extends AppCompatActivity {
                 .build();
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso); //signinclient  잘 이해되지 않는다
+
+
+        eyeBtn = findViewById(R.id.eyeBtn);
+
+        PasswordText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if(b){
+                    eraseBtn.setVisibility(View.VISIBLE);
+                }
+                else {
+                    eraseBtn.setVisibility(View.GONE);
+                }
+            }
+        });
+
+        eyeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(eyeBtn.isChecked()){
+                    PasswordText.setInputType(InputType.TYPE_CLASS_TEXT);
+
+                }
+                else if(!eyeBtn.isChecked()){
+                    PasswordText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                }
+            }
+        });
     }
 
 
@@ -123,7 +167,7 @@ public class SignInActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(getApplicationContext(),"Authntication is checked",Toast.LENGTH_LONG).show();
+
                             FirebaseUser user = mAuth.getCurrentUser();
                             Intent intent = new Intent(SignInActivity.this, MainActivity.class);
                             startActivity(intent);
@@ -212,11 +256,14 @@ public class SignInActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+                            SignUpBtn.startAnimation(AnimationUtils.loadAnimation(context, R.anim.shake));
+
+
                             Intent intent = new Intent(SignInActivity.this, MainActivity.class);
                             startActivity(intent);
 
                         } else {
-
+                            SignUpBtn.startAnimation(AnimationUtils.loadAnimation(context, R.anim.shake));
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
                            // Toast.makeText(MainActivity.this, "Authentication failed.",
@@ -235,10 +282,15 @@ public class SignInActivity extends AppCompatActivity {
             String email = emailText.getText().toString();
             String password = PasswordText.getText().toString();
             signInWithEmail(email, password);
+
         }
         else {
-            Toast.makeText(getApplicationContext(),"Not Available",Toast.LENGTH_LONG).show();
-        }
+
+            imageViewMain.startAnimation(AnimationUtils.loadAnimation(this, R.anim.shake));
+            Toast.makeText(getApplicationContext(),"아이디 & 비밀번호를 확인해주세요",Toast.LENGTH_LONG).show();
+
+            }
+
 
 
     }
@@ -360,7 +412,31 @@ public class SignInActivity extends AppCompatActivity {
     }// end of session
 
 
+    public void onClickedFind(View v){
+
+        Intent intent = new Intent(SignInActivity.this, PasswordFindActivity.class);
+        startActivity(intent);
+
+    }
 
 
+  /*  public void onClickedEye(View v){
+
+        if (isEyeBtn){
+            PasswordText.setInputType(InputType.TYPE_TEXT_VARIATION_WEB_PASSWORD);
+            eyeBtn.setImageResource(R.drawable.eye_clicked);
+
+        }
+        else {
+            eyeBtn.setImageResource(R.drawable.eye);
+            PasswordText.setInputType(InputType.TYPE_CLASS_TEXT);
+        }
+        isEyeBtn = !isEyeBtn;
+
+    }*/
+        public void onClickedErase(View v){
+            PasswordText.setText("");
+
+        }
 
 }//end of class

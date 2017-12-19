@@ -5,7 +5,7 @@ package com.bumslap.bum.DB;
  */
 
 public class Menu {
-    private int Menu_id ;
+    private String Menu_id ;
     private String Menu_name;
     private byte[] Menu_image;
     private String Menu_price;
@@ -16,7 +16,7 @@ public class Menu {
     private String Menu_cost;
 
 
-    public Menu(int menu_id, String menu_name, byte[] menu_image, String menu_price, String menu_cost) {
+    public Menu(String menu_id, String menu_name, byte[] menu_image, String menu_price, String menu_cost) {
         this.Menu_id = menu_id;
         this.Menu_name = menu_name;
         this.Menu_image = menu_image;
@@ -25,11 +25,11 @@ public class Menu {
     }
 
 
-    public int getMenu_id(){
+    public String getMenu_id() {
         return Menu_id;
     }
 
-   public String getMenu_name(){
+    public String getMenu_name(){
         return Menu_name;
     }
 
@@ -45,11 +45,12 @@ public class Menu {
         return Menu_cost;
     }
 
-    public void setMenu_id(int Menu_id){
+    public void setMenu_id(String Menu_id){
         this.Menu_id = Menu_id;
     }
 
     public void setMenu_name(String Menu_name){
+
         this.Menu_name = Menu_name;
     }
 
