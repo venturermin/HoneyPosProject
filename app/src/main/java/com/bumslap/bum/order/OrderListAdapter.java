@@ -20,7 +20,7 @@ import java.util.ArrayList;
 /**
  * Created by oyoun on 17. 12. 16.
  */
-
+/*
 public class OrderListAdapter extends BaseAdapter {
 
     private ArrayList<Order> OrderMenulist;
@@ -81,3 +81,4 @@ public class OrderListAdapter extends BaseAdapter {
         return row;
     }
 }
+*/

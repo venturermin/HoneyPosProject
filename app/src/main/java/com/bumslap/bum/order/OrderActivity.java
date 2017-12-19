@@ -72,7 +72,7 @@ public class OrderActivity extends AppCompatActivity
     RecyclerView.Adapter Adapter;
     RecyclerView.LayoutManager layoutManager;
     ArrayList<RealtimeOrder> Billordermenu;
-
+    OrderMenuSelectAdapter orderMenuSelectAdapter;
 
 
     String str_device;
@@ -85,9 +85,13 @@ public class OrderActivity extends AppCompatActivity
     long CurrentTimeCall;
     Date CurrentDateCall;
     SimpleDateFormat CurrentDate;
-    String CureentTime;
+    SimpleDateFormat CurrentTimeS;
+    String CurrentTime;
     int Order_Amount;
-    OrderListAdapter orderListAdapter;
+
+    ArrayList<OrderWrapDataSet> orderwraplist;
+    OrderWrapAdapter orderWrapAdapter;
+    OrderWrapDataSet orderWrapDataSet;
 
     DBforAnalysis newdbforAnalysis;
 
@@ -131,30 +135,73 @@ public class OrderActivity extends AppCompatActivity
         //binding.recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, true));
         //binding.recyclerView.scrollToPosition(itemClass.size() - 1);
 
-        layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
 
-        //billRecyclerView = (RecyclerView) findViewById(R.id.list_order);
-        //billRecyclerView.setLayoutManager(layoutManager);
-
-
-
+        billRecyclerView = (RecyclerView) findViewById(R.id.order_recycler);
+        /*
+        layoutManager = new LinearLayoutManager(getApplicationContext()); //, LinearLayoutManager.HORIZONTAL, false
+        Adapter = new OrderMenuSelectAdapter(Order_menu_List, getApplicationContext());
+        billRecyclerView.setLayoutManager(layoutManager);
+        billRecyclerView.setAdapter(Adapter);
+        */
+        layoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false); //, LinearLayoutManager.HORIZONTAL, false
+        orderWrapAdapter = new OrderWrapAdapter(orderwraplist, getApplicationContext());
+        billRecyclerView.setLayoutManager(layoutManager);
+        billRecyclerView.setAdapter(orderWrapAdapter);
 
         OrderList = new ArrayList<HashMap<String, Integer>>();
         Ordermap = null;
         Ordermap = new HashMap<String, Integer>();
+        Order_menu_List = new ArrayList<Order>();
 
+        orderWrapDataSet = new OrderWrapDataSet();
+        OrderWrapDataSet orderWrapDataSet1 = new OrderWrapDataSet();
+        orderWrapDataSet1.setBillTitleNumber("asdas");
+        orderwraplist = new ArrayList<OrderWrapDataSet>();
+
+
+
+        layoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false); //, LinearLayoutManager.HORIZONTAL, false
+        orderWrapAdapter = new OrderWrapAdapter(orderwraplist, getApplicationContext());
+        billRecyclerView.setLayoutManager(layoutManager);
+        billRecyclerView.setAdapter(orderWrapAdapter);
+
+        /*
+
+        billRecyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+            @Override
+            public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
+                if (e.getAction() == MotionEvent.ACTION_DOWN){
+                    View reV = rv.findChildViewUnder(e.getX(), e.getY());
+                    int position = rv.getChildAdapterPosition(reV);
+                    //Toast.makeText(getApplicationContext(), position , Toast.LENGTH_LONG).show();
+                }
+                return false;
+            }
+
+            @Override
+            public void onTouchEvent(RecyclerView rv, MotionEvent e) {
+
+            }
+
+            @Override
+            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+
+            }
+        });
+
+*/
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id){
 
-                String Menu = Menulist.get(position).getMenu_name().toString();
+                int MenuID = Menulist.get(position).getMenu_id();
+                String Menu = Integer.toString(MenuID);
                 String Price = Menulist.get(position).getMenu_price().toString();
-                Billordermenu.add(new RealtimeOrder(Menu));
                 int Amount;
 
                 //billRecyclerView.setLayoutManager(layoutManager);
                 //billRecyclerView.setItemAnimator(new DefaultItemAnimator());
-                Adapter = new BillAdapter(Billordermenu);
+
                 // billRecyclerView.setAdapter(Adapter);
                 //billRecyclerView.smoothScrollBy(200, 100);
                 Toast.makeText(getApplicationContext(),""+position+"  "+Menu+" "+Price,Toast.LENGTH_LONG).show();
@@ -167,11 +214,29 @@ public class OrderActivity extends AppCompatActivity
                 CurrentTimeCall = System.currentTimeMillis();
                 CurrentDateCall = new Date(CurrentTimeCall);
                 CurrentDate = new SimpleDateFormat("yyyy-MM-dd");
-                CureentTime = CurrentDate.format(CurrentDateCall);
+                CurrentTimeS = new SimpleDateFormat("hh-mm-ss");
+                CurrentTime = CurrentDate.format(CurrentDateCall);
                 Order_Amount = Ordermap.get(Menu);
 
-                Order_menu_List = new ArrayList<>();
-                orderListAdapter = new OrderListAdapter(Order_menu_List, getApplicationContext());
+
+                // orderMenuSelectAdapter.add(new Order(String.valueOf(Amount),CurrentTime,CurrentTime, MenuID,"no"));
+                //Adapter = new OrderMenuSelectAdapter();
+                Order_menu_List.add(new Order(String.valueOf(Amount),CurrentDate.toString(),CurrentTimeS.toString(), MenuID,"no"));
+                orderWrapDataSet.setBillAllData(Order_menu_List);
+
+                orderwraplist.add(orderWrapDataSet);
+
+                layoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false); //, LinearLayoutManager.HORIZONTAL, false
+                orderWrapAdapter = new OrderWrapAdapter(orderwraplist, getApplicationContext());
+                billRecyclerView.setLayoutManager(layoutManager);
+                billRecyclerView.setAdapter(orderWrapAdapter);
+
+/*
+                layoutManager = new LinearLayoutManager(getApplicationContext()); //, LinearLayoutManager.HORIZONTAL, false
+                Adapter = new OrderMenuSelectAdapter(Order_menu_List, getApplicationContext());
+                billRecyclerView.setLayoutManager(layoutManager);
+                billRecyclerView.setAdapter(Adapter);
+*/
 
             }
         });

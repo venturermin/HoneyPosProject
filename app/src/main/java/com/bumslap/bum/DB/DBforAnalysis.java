@@ -161,7 +161,7 @@ public class DBforAnalysis extends SQLiteOpenHelper{
         while( cursor.moveToNext() ) {
             order = new Order();
             order.setOrder_amount(cursor.getString(0));
-            order.setOrder_date(cursor.getString(1));
+            //order.setOrder_date(cursor.getString(1));
             order.setOrder_time(cursor.getString(2));
             order.setOrder_number(cursor.getString(3));
             order.setOrder_FK_menuId(4);
@@ -194,6 +194,31 @@ public class DBforAnalysis extends SQLiteOpenHelper{
         cursor.close();
         return costlist;
     }
+
+
+
+
+    public String getMenuName(Integer id) {
+
+        StringBuffer sb = new StringBuffer();
+        sb.append("SELECT NAME FROM MENU_TABLE WHERE ID = '"+ id + "';");
+
+        //읽기 전용 DB 객체를 생성
+        SQLiteDatabase db = getReadableDatabase();
+
+        Cursor cursor = db.rawQuery(sb.toString(), null);
+
+        String name = "";
+        while (cursor.moveToNext()){
+            name = cursor.getString(0);
+        }
+        cursor.close();
+        return name;
+    }
+
+
+
+
 
     //DB Data delete
     public void deleteCost(Integer i) {

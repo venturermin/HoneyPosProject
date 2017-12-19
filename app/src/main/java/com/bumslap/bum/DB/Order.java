@@ -1,6 +1,8 @@
 package com.bumslap.bum.DB;
 
 
+import java.text.SimpleDateFormat;
+
 /**
  * Created by jaein on 12/7/17.
  */
@@ -11,7 +13,7 @@ public class Order {
     private String Order_date;
     private String Order_time;
     private Integer Order_FK_menuId;
-    private String Order_number;
+    private String Order_number="ll";
 
     public Order() {
     }
@@ -32,11 +34,11 @@ public class Order {
         this.Order_amount = Order_amount;
     }
 
-    public String getOrder_date(){
+    public String  getOrder_date(){
         return Order_date;
     }
 
-    public void setOrder_date(String Order_date){
+    public void setOrder_date(String  Order_date){
         this.Order_date = Order_date;
     }
 
