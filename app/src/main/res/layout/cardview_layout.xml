@@ -15,7 +15,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         android:padding="16dp"
-        
+        <TextView
+            android:id="@+id/item_uniqueID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="16dp"
+            android:layout_toEndOf="@+id/item_image"
+            android:layout_toRightOf="@+id/item_price"
+            android:textSize="25sp" />
+
         <ImageView
             android:id="@+id/item_image"
             android:layout_width="100dp"
@@ -36,7 +45,7 @@
             android:textSize="25sp" />
 
         <TextView
-            android:id="@+id/item_detail"
+            android:id="@+id/item_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/item_title"
