@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
         mCardAdapter = new CardPagerAdapter();
         mCardAdapter.addCardItem(new CardItem(R.drawable.first_time_viewpager));
-        mCardAdapter.addCardItem(new CardItem(R.drawable.night));
+        mCardAdapter.addCardItem(new CardItem(R.drawable.mainimg));
 
         context = this;
         viewPager.setAdapter(mCardAdapter);
@@ -154,6 +154,9 @@ public class MainActivity extends AppCompatActivity {
     public static float dpToPixels(int dp, Context context) {
         return dp * (context.getResources().getDisplayMetrics().density);
     }
+
+
+
 
 
 

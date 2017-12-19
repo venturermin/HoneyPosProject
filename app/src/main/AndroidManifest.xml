@@ -4,12 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
-
-
     <application
-
-
-
         android:name=".POSproject.GlobalApplicationActivity"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -17,34 +12,32 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".POSproject.SignUpActivity"></activity>
-        <activity android:name=".order.OrderActivity"></activity>
-        <activity android:name=".menuedit.MenuUpdateActivity">  </activity>
+        <activity android:name=".POSproject.SignUpActivity" />
+        <activity android:name=".order.OrderActivity" />
+        <activity android:name=".menuedit.MenuUpdateActivity" />
         <activity android:name=".menuedit.MenuSettingActivity" />
-        <activity android:name=".menuedit.CostSettingActivity"></activity>
+        <activity android:name=".menuedit.CostSettingActivity" />
         <activity android:name=".settings.UserSettingActivity" />
         <activity android:name=".POSproject.SignInActivity">
-
-        </activity>
-        <activity android:name=".statistics.BarChartActivity" />
-        <activity android:name=".statistics.PieChartDataActivity" />
-        <activity android:name=".POSproject.EmailVerifyActivity" />
-        <activity android:name=".statistics.PieChartActivity" />
-        <activity android:name=".statistics.SalesStatus2Activity" />
-        <activity android:name=".POSproject.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".statistics.BarChartActivity" />
+        <activity android:name=".statistics.PieChartDataActivity" />
+        <activity android:name=".POSproject.EmailVerifyActivity" />
+        <activity android:name=".statistics.PieChartActivity" />
+        <activity android:name=".statistics.SalesStatus2Activity" />
+        <activity android:name=".POSproject.MainActivity"></activity>
 
         <meta-data
             android:name="com.kakao.sdk.AppKey"
             android:value="bfcde3375e44b2a4b4f5e56927a3aa56" />
 
-
+        <activity android:name=".POSproject.TutorialPage" />
+        <activity android:name=".POSproject.PasswordFindActivity"></activity>
     </application>
-
 
 </manifest>

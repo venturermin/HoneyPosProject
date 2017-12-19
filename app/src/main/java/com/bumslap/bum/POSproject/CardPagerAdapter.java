@@ -1,5 +1,6 @@
 package com.bumslap.bum.POSproject;
 
+import android.content.Intent;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.CardView;
@@ -73,7 +74,8 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
 
 
                     if (position == 0){
-
+                        Intent intent = new Intent(MainActivity.context,TutorialPage.class);
+                        MainActivity.context.startActivity(intent);
                         Toast.makeText(MainActivity.context,String.valueOf(position),Toast.LENGTH_SHORT).show();
                     } else if(position == 1){
                         //MainActivity.mViewPager.setCurrentItem(getItem(+1),true);
