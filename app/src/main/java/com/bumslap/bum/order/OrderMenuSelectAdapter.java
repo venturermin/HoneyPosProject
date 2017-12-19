@@ -32,7 +32,7 @@ public class OrderMenuSelectAdapter extends RecyclerView.Adapter<OrderMenuViewHo
             k = orderArrayList.size();
             for (i = 0; i < orderArrayList.size(); i++) {
                 for (j = 0; j <= i; j++) {
-                    if (orderArrayList.get(i).getOrder_FK_menuId() == orderArrayList.get(j).getOrder_FK_menuId()) {
+                    if (Integer.parseInt(orderArrayList.get(i).getOrder_FK_menuId()) == Integer.parseInt(orderArrayList.get(j).getOrder_FK_menuId())) {
                         orderArrayList.set(j, orderArrayList.get(i));
 
                         k++;
@@ -62,7 +62,7 @@ public class OrderMenuSelectAdapter extends RecyclerView.Adapter<OrderMenuViewHo
 
     @Override
     public void onBindViewHolder(OrderMenuViewHoler holder, int position) {
-        dBforAnalysis = new DBforAnalysis(context, "menu2.db", null, 1);
+        dBforAnalysis = new DBforAnalysis(context, "menu2.db", null, 6);
         Order menuitem = Menuitems.get(position);
 
         MenunameDB = dBforAnalysis.getMenuName(Integer.parseInt(menuitem.getOrder_FK_menuId()));

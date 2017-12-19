@@ -114,22 +114,27 @@ public class OrderActivity extends AppCompatActivity
 
         menuListAdapter = new MenuListAdapter(this, R.layout.order_menu_item, Menulist);
         gridView.setAdapter(menuListAdapter);
+        db = new DBProvider(this);
+        db.open();
         dbforAnalysis = new DBHelper(this);
 
         newdbforAnalysis = new DBforAnalysis(this, "POS.db", null,1);
+        try {
+            Cursor cursor = db.getData("SELECT * FROM MENU_TABLE");
+            Menulist.clear();
+            while (cursor.moveToNext()){
+                String id = cursor.getString(0);
+                String name = cursor.getString(1);
+                String price = cursor.getString(2);
+                String cost = cursor.getString(3);
+                byte[] image = cursor.getBlob(4);
 
-        Cursor cursor = db.getData("SELECT * FROM MENU_TABLE");
-        Menulist.clear();
-        while (cursor.moveToNext()){
-            String id = cursor.getString(0);
-            String name = cursor.getString(1);
-            String price = cursor.getString(2);
-            String cost = cursor.getString(3);
-            byte[] image = cursor.getBlob(4);
-
-            Menulist.add(new com.bumslap.bum.DB.Menu(id, name, image, price, cost));
+                Menulist.add(new com.bumslap.bum.DB.Menu(id, name, image, price, cost));
+            }
+        }catch (NullPointerException e){
         }
         menuListAdapter.notifyDataSetChanged();
+
         Billordermenu = new ArrayList<>();
 
 
