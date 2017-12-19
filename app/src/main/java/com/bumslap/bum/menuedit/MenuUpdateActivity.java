@@ -57,7 +57,6 @@ public class MenuUpdateActivity extends AppCompatActivity {
     private void init() {
         UpdateBTN = (Button) findViewById(R.id.UpdateBtn);
 
-
         UpdateMenuImage = (ImageView) findViewById(R.id.UpdateMenuImage);
         UpdateMenuName = (EditText) findViewById(R.id.UpdateMenuName);
         UpdateMenuPrice = (EditText) findViewById(R.id.UpdateMenuPrice);

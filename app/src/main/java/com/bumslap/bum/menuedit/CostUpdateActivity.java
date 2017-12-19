@@ -21,36 +21,14 @@ import com.bumslap.bum.R;
 import java.util.ArrayList;
 
 public class CostUpdateActivity extends AppCompatActivity {
-    Button MenuSetBtn, CostSetBtn;
-    Intent mvSetIntent;
-    private GestureDetector gestureDetector;
-    FloatingActionButton floatingActionButton_cost;
-    DBforAnalysis dBforAnalysis;
-    IngradientAdapter IngradientAdapter;
-    Spinner spinnerMenu;
-    RecyclerView recyclerView;
-    CostAdapter costAdapter;
-    ArrayList<Cost> arrayList;
-    SQLiteDatabase mdb;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cost_update);
-/*
-        arrayList = new ArrayList<Cost>();
 
-        dBforAnalysis = new DBforAnalysis(this, "postest.db", null,1);
-        mdb = dBforAnalysis.getWritableDatabase();
-
-        Cost cost = new Cost();
-        arrayList = dBforAnalysis.getAllCostData();
-
-        recyclerView = (RecyclerView)findViewById(R.id.rv);
-        costAdapter = new CostAdapter(arrayList, this);
-
-        costAdapter.notifyDataSetChanged();
-        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        recyclerView.setAdapter(costAdapter);*/
     }
+
+
 }

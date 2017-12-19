@@ -31,6 +31,7 @@ public class MenuSettingActivity extends AppCompatActivity implements GestureDet
     Intent mvSetIntent;
     private GestureDetector gestureDetector;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
