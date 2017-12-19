@@ -20,8 +20,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.bumslap.bum.BuildConfig;
+
 import com.bumslap.bum.DB.DBProvider;
 import com.bumslap.bum.R;
+import com.facebook.stetho.Stetho;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,10 +35,7 @@ public class MenuSettingActivity extends AppCompatActivity implements GestureDet
     RecyclerView.LayoutManager mLayoutManager;
     Intent mvSetIntent;
     private GestureDetector gestureDetector;
-
     android.app.AlertDialog.Builder alertDialogBuilder;
-
-
     RecyclerView.Adapter mMyadapter;
     RecyclerView mRecyclerView;
     private DBProvider db;
@@ -48,10 +47,10 @@ public class MenuSettingActivity extends AppCompatActivity implements GestureDet
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_setting);
 
-        /*if(BuildConfig.DEBUG){
+        if(BuildConfig.DEBUG){
             Context context = getApplicationContext();
             Stetho.initializeWithDefaults(this);
-        }*/
+        }
 
         this.gestureDetector = new GestureDetector(this,this);
         FloatingActionButton floatingActionButton =
@@ -84,74 +83,13 @@ public class MenuSettingActivity extends AppCompatActivity implements GestureDet
         //call the retrieve method
         retrieve();
         // DeleteData method move on from here to MyAdapter class.
-        //deleteData();
+
 
     }
-
-    // delete Data
-    /** private void deleteData() {
-     mDBHelper = new DBHelper(getApplicationContext(), "menu2.db", null, 1);
-     mRecyclerView.addOnItemTouchListener(new RecyclerTouchListener(this, mRecyclerView, new ClickListener() {
-    @Override
-    public void onClick(View view, final int position) {
-
-    final CharSequence[] items = {"삭제", "수정"};
-    android.app.AlertDialog.Builder alertDialogBuilder = new android.app.AlertDialog.Builder(context);
-    // 제목셋팅
-    alertDialogBuilder.setTitle("실행 시킬 앱");
-    alertDialogBuilder.setItems(items,
-    new DialogInterface.OnClickListener() {
-    public void onClick(DialogInterface dialog,
-    int id) {
-
-    // 프로그램을 종료한다
-    Toast.makeText(getApplicationContext(), items[id] + " 요!? ", Toast.LENGTH_SHORT).show();
-    switch (id) {
-    case 0:
-
-    mDBHelper.deleteData(position);
-    Toast.makeText(MenuSettingActivity.this, "Data updated", Toast.LENGTH_LONG).show();
-    mAdapter.notifyDataSetChanged();
-    mDBHelper.close();
-    break;
-
-    case 1:
-    break;
-    }
-    dialog.dismiss();
-    }
-    });
-
-    // 다이얼로그 생성
-    android.app.AlertDialog alertDialog = alertDialogBuilder.create();
-
-    // 다이얼로그 보여주기
-    alertDialog.show();
-    //Values are passing to activity & to fragment as well
-
-
-    Toast.makeText(MenuSettingActivity.this, "Single Click on position :"+position,
-    Toast.LENGTH_SHORT).show();
-
-    }
-
-    @Override
-    public void onLongClick(View view, int position) {
-    Toast.makeText(MenuSettingActivity.this, "Long press on position :"+position,
-    Toast.LENGTH_LONG).show();
-
-    }
-    }));
-     }*/
-
 
     //RETRIEVE = call
     private void retrieve()
     {
-        //SELECT
-//        db = new DBProvider(this);
-//        db.open();
-//        mDBHelper = new DBHelper(this);
 
         Cursor cursor =  db.getData("SELECT * FROM MENU_TABLE");
         menulist.clear();
@@ -166,7 +104,7 @@ public class MenuSettingActivity extends AppCompatActivity implements GestureDet
 
         }
 
-//        mMyadapter.notifyDataSetChanged();
+            mMyadapter.notifyDataSetChanged();
 
     }
 

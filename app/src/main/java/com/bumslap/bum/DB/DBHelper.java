@@ -38,26 +38,9 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
-    public void queryData(String sql){
-        SQLiteDatabase database = getWritableDatabase();
-        database.execSQL(sql);
-    }
 
-    public void insertData(String name, String price, String cost, byte[] image){
-        SQLiteDatabase database = getWritableDatabase();
-        String sql = "INSERT INTO MENU_TABLE VALUES (NULL, ?, ?, ?, ?)";
 
-        SQLiteStatement statement = database.compileStatement(sql);
 
-        statement.clearBindings();
-
-        statement.bindString(1, name);
-        statement.bindString(2, price);
-        statement.bindString(3, cost);
-        statement.bindBlob(4, image);
-
-        statement.executeInsert();
-    }
 
     public SQLiteDatabase getDB(){
         SQLiteDatabase database = this.getReadableDatabase();

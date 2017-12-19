@@ -9,109 +9,55 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ad45ed27-7205-43c1-b497-318457cddf1c" name="Default" comment="Merge branch 'master' of https://github.com/venturermin/HoneyPosProject&#10;&#10;# Conflicts:&#10;#&#9;.gradle/4.1/fileHashes/fileHashes.bin&#10;#&#9;.gradle/4.1/fileHashes/fileHashes.lock&#10;#&#9;.gradle/4.1/javaCompile/classAnalysis.bin&#10;#&#9;.gradle/4.1/javaCompile/javaCompile.lock&#10;#&#9;.gradle/4.1/javaCompile/taskHistory.bin&#10;#&#9;.gradle/4.1/javaCompile/taskJars.bin&#10;#&#9;.gradle/4.1/taskHistory/fileSnapshots.bin&#10;#&#9;.gradle/4.1/taskHistory/taskHistory.bin&#10;#&#9;.gradle/4.1/taskHistory/taskHistory.lock&#10;#&#9;.idea/libraries/__local_aars____home_bum_Lastproject_HoneyPosProject_app_libs_activation_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/__local_aars____home_bum_Lastproject_HoneyPosProject_app_libs_additionnal_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/__local_aars____home_bum_Lastproject_HoneyPosProject_app_libs_mail_1_4_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/__local_aars____home_bum_Lastproject_HoneyPosProject_app_libs_mpandroidchartlibrary_2_2_4_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/__local_aars____home_jaein_honeyPOs_HoneyPosProject_app_libs_activation_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/__local_aars____home_jaein_honeyPOs_HoneyPosProject_app_libs_additionnal_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/__local_aars____home_jaein_honeyPOs_HoneyPosProject_app_libs_mail_1_4_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/__local_aars____home_oyoun_Develope_project_HoneyPosProject_app_libs_activation_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/__local_aars____home_oyoun_Develope_project_HoneyPosProject_app_libs_additionnal_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/__local_aars____home_oyoun_Develope_project_HoneyPosProject_app_libs_mail_1_4_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/android_arch_lifecycle_runtime_1_0_0.xml&#10;#&#9;.idea/libraries/com_android_support_animated_vector_drawable_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_appcompat_v7_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_cardview_v7_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_constraint_constraint_layout_1_0_2.xml&#10;#&#9;.idea/libraries/com_android_support_design_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_recyclerview_v7_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_support_compat_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_support_core_ui_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_support_core_utils_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_support_fragment_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_support_media_compat_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_support_v4_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_support_vector_drawable_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_test_espresso_espresso_core_3_0_1.xml&#10;#&#9;.idea/libraries/com_android_support_test_espresso_espresso_idling_resource_3_0_1.xml&#10;#&#9;.idea/libraries/com_android_support_test_rules_1_0_1.xml&#10;#&#9;.idea/libraries/com_android_support_test_runner_1_0_1.xml&#10;#&#9;.idea/libraries/com_android_support_transition_26_1_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_auth_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_auth_api_phone_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_auth_api_phone_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_auth_base_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_auth_base_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_base_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_base_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_basement_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_basement_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_tasks_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_tasks_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_analytics_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_analytics_impl_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_analytics_impl_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_analytics_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_auth_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_auth_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_common_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_common_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_core_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_database_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_database_connection_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_database_connection_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_database_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_iid_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_iid_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_kakao_sdk_auth_1_1_7.xml&#10;#&#9;.idea/libraries/com_kakao_sdk_network_1_1_7.xml&#10;#&#9;.idea/libraries/com_kakao_sdk_usermgmt_1_1_7.xml&#10;#&#9;.idea/libraries/com_kakao_sdk_util_1_1_7.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;app/src/main/AndroidManifest.xml&#10;#&#9;app/src/main/java/com/bumslap/bum/DB/DBforAnalysis.java&#10;#&#9;local.properties">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-18-19-18-42-490.rawproto" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-18-19-19-03-929.rawproto" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-18-19-19-48-178.rawproto" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-18-19-34-24-858.rawproto" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-18-19-34-28-784.rawproto" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-18-19-37-45-918.rawproto" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-18-19-38-15-046.rawproto" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/__local_aars____home_min_good_HoneyPosProject_app_libs_activation_jar_unspecified_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/__local_aars____home_min_good_HoneyPosProject_app_libs_additionnal_jar_unspecified_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/__local_aars____home_min_good_HoneyPosProject_app_libs_mail_1_4_jar_unspecified_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/__local_aars____home_min_good_HoneyPosProject_app_libs_mpandroidchartlibrary_2_2_4_jar_unspecified_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/com_facebook_stetho_stetho_1_4_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/commons_cli_commons_cli_1_2_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/DB/DBProvider.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-18-19-18-42-490.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-18-19-19-03-929.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-18-19-19-48-178.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-18-19-34-24-858.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-18-19-34-28-784.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-18-19-37-45-918.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-18-19-38-15-046.json" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/__local_aars____home_bum_Lastproject_HoneyPosProject_app_libs_activation_jar_unspecified_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/__local_aars____home_bum_Lastproject_HoneyPosProject_app_libs_additionnal_jar_unspecified_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/__local_aars____home_bum_Lastproject_HoneyPosProject_app_libs_mail_1_4_jar_unspecified_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/__local_aars____home_bum_Lastproject_HoneyPosProject_app_libs_mpandroidchartlibrary_2_2_4_jar_unspecified_jar.xml" afterPath="" />
+    <list default="true" id="ad45ed27-7205-43c1-b497-318457cddf1c" name="Default" comment="min push">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-19-10-30-57-855.rawproto" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-19-10-31-57-751.rawproto" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-19-10-37-12-133.rawproto" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-19-11-03-30-867.rawproto" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-19-11-10-47-342.rawproto" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-19-11-12-18-684.rawproto" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-19-11-15-14-967.rawproto" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-19-11-19-23-129.rawproto" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-19-11-21-06-296.rawproto" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-19-11-22-02-771.rawproto" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-19-11-24-34-278.rawproto" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-19-11-29-50-263.rawproto" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-19-11-31-25-096.rawproto" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-19-11-34-28-364.rawproto" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-19-11-35-48-446.rawproto" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-19-11-37-31-957.rawproto" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-19-11-39-52-539.rawproto" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-19-10-30-57-855.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-19-10-31-57-751.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-19-10-37-12-133.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-19-11-03-30-867.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-19-11-10-47-342.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-19-11-12-18-684.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-19-11-15-14-967.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-19-11-19-23-129.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-19-11-21-06-296.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-19-11-22-02-771.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-19-11-24-34-278.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-19-11-29-50-263.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-19-11-31-25-096.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-19-11-34-28-364.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-19-11-35-48-446.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-19-11-37-31-957.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/android-profile/profile-2017-12-19-11-39-52-539.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/resourceHashesCache.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/resourceHashesCache.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/jarAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/jarAnalysis.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskHistory.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskJars.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskJars.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/android_arch_lifecycle_runtime_1_0_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/android_arch_lifecycle_runtime_1_0_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_android_support_animated_vector_drawable_26_1_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_android_support_animated_vector_drawable_26_1_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_android_support_appcompat_v7_26_1_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_android_support_appcompat_v7_26_1_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_android_support_cardview_v7_26_1_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_android_support_cardview_v7_26_1_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_android_support_constraint_constraint_layout_1_0_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_android_support_constraint_constraint_layout_1_0_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_android_support_design_26_1_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_android_support_design_26_1_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_android_support_recyclerview_v7_26_1_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_android_support_recyclerview_v7_26_1_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_android_support_support_compat_26_1_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_android_support_support_compat_26_1_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_android_support_support_core_ui_26_1_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_android_support_support_core_ui_26_1_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_android_support_support_core_utils_26_1_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_android_support_support_core_utils_26_1_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_android_support_support_fragment_26_1_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_android_support_support_fragment_26_1_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_android_support_support_media_compat_26_1_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_android_support_support_media_compat_26_1_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_android_support_support_v4_26_1_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_android_support_support_v4_26_1_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_android_support_support_vector_drawable_26_1_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_android_support_support_vector_drawable_26_1_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_android_support_test_espresso_espresso_core_3_0_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_android_support_test_espresso_espresso_core_3_0_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_android_support_test_espresso_espresso_idling_resource_3_0_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_android_support_test_espresso_espresso_idling_resource_3_0_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_android_support_test_rules_1_0_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_android_support_test_rules_1_0_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_android_support_test_runner_1_0_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_android_support_test_runner_1_0_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_android_support_transition_26_1_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_android_support_transition_26_1_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_auth_11_6_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_auth_11_6_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_auth_api_phone_11_6_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_auth_api_phone_11_6_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_auth_api_phone_license_11_6_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_auth_api_phone_license_11_6_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_auth_base_11_6_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_auth_base_11_6_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_auth_base_license_11_6_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_auth_base_license_11_6_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_base_11_6_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_base_11_6_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_base_license_11_6_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_base_license_11_6_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_basement_11_6_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_basement_11_6_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_basement_license_11_6_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_basement_license_11_6_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_tasks_11_6_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_tasks_11_6_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_tasks_license_11_6_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_tasks_license_11_6_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_analytics_11_6_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_analytics_11_6_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_analytics_impl_11_6_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_analytics_impl_11_6_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_analytics_impl_license_11_6_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_analytics_impl_license_11_6_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_analytics_license_11_6_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_analytics_license_11_6_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_auth_11_6_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_auth_11_6_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_auth_license_11_6_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_auth_license_11_6_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_common_11_6_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_common_11_6_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_common_license_11_6_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_common_license_11_6_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_core_11_6_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_core_11_6_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_database_11_6_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_database_11_6_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_database_connection_11_6_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_database_connection_11_6_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_database_connection_license_11_6_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_database_connection_license_11_6_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_database_license_11_6_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_database_license_11_6_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_iid_11_6_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_iid_11_6_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_iid_license_11_6_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_iid_license_11_6_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_kakao_sdk_auth_1_1_7.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_kakao_sdk_auth_1_1_7.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_kakao_sdk_network_1_1_7.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_kakao_sdk_network_1_1_7.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_kakao_sdk_usermgmt_1_1_7.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_kakao_sdk_usermgmt_1_1_7.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_kakao_sdk_util_1_1_7.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_kakao_sdk_util_1_1_7.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_squareup_javawriter_2_1_1_jar.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_squareup_javawriter_2_1_1_jar.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/javax_inject_javax_inject_1_jar.xml" afterPath="$PROJECT_DIR$/.idea/libraries/javax_inject_javax_inject_1_jar.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/junit_junit_4_12_jar.xml" afterPath="$PROJECT_DIR$/.idea/libraries/junit_junit_4_12_jar.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/org_hamcrest_hamcrest_core_1_3_jar.xml" afterPath="$PROJECT_DIR$/.idea/libraries/org_hamcrest_hamcrest_core_1_3_jar.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/org_hamcrest_hamcrest_integration_1_3_jar.xml" afterPath="$PROJECT_DIR$/.idea/libraries/org_hamcrest_hamcrest_integration_1_3_jar.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/org_hamcrest_hamcrest_library_1_3_jar.xml" afterPath="$PROJECT_DIR$/.idea/libraries/org_hamcrest_hamcrest_library_1_3_jar.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/DB/DBHelper.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/DB/DBHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/DB/Menu.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/DB/Menu.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/DB/DBProvider.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/DB/DBProvider.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/menuedit/MenuSettingActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/menuedit/MenuSettingActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/menuedit/MenuUpdateActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/menuedit/MenuUpdateActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/menuedit/MyAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/menuedit/MyAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/order/OrderActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/order/OrderActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/cardview_layout.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/cardview_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/classes/" />
@@ -164,31 +110,50 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="OrderActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/order/OrderActivity.java">
+      <file leaf-file-name="MenuSettingActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/menuedit/MenuSettingActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="12" column="39" lean-forward="false" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
+            <state relative-caret-position="315">
+              <caret line="102" column="51" lean-forward="false" selection-start-line="102" selection-start-column="51" selection-end-line="102" selection-end-column="51" />
               <folding>
-                <element signature="e#5186#6758#0" expanded="true" />
-                <element signature="e#6757#6758#0" expanded="true" />
-                <element signature="e#6930#6961#0" expanded="true" />
-                <element signature="e#6963#6995#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MenuSettingActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/menuedit/MenuSettingActivity.java">
+      <file leaf-file-name="RecyclerView.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/recyclerview-v7/26.1.0/63d6891b399433c913fe91ce95a8456de02d367f/recyclerview-v7-26.1.0-sources.jar!/android/support/v7/widget/RecyclerView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="76" column="8" lean-forward="false" selection-start-line="76" selection-start-column="8" selection-end-line="76" selection-end-column="8" />
+            <state relative-caret-position="-1716">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#8505#8506#0" expanded="true" />
-                <element signature="e#8548#8549#0" expanded="true" />
+                <element signature="e#292012#292013#0" expanded="true" />
+                <element signature="e#292063#292064#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="264">
+              <caret line="29" column="74" lean-forward="false" selection-start-line="29" selection-start-column="74" selection-end-line="29" selection-end-column="74" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-manifest">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MyAdapter.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/menuedit/MyAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="185">
+              <caret line="48" column="42" lean-forward="true" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="42" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -196,66 +161,26 @@
       <file leaf-file-name="MenuUpdateActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/menuedit/MenuUpdateActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="47" column="15" lean-forward="false" selection-start-line="47" selection-start-column="15" selection-end-line="47" selection-end-column="15" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="39" column="34" lean-forward="false" selection-start-line="39" selection-start-column="34" selection-end-line="39" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Menu.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/DB/Menu.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1040">
-              <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MyAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/menuedit/MyAdapter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1016">
-              <caret line="74" column="47" lean-forward="false" selection-start-line="74" selection-start-column="47" selection-end-line="74" selection-end-column="47" />
+            <state relative-caret-position="487">
+              <caret line="58" column="5" lean-forward="false" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
               <folding>
-                <element signature="e#2147#2461#0" expanded="true" />
-                <element signature="e#2460#2461#0" expanded="true" />
-                <element signature="e#2517#2518#0" expanded="true" />
-                <element signature="e#2555#2556#0" expanded="true" />
+                <element signature="e#2399#3152#0" expanded="true" />
+                <element signature="e#3151#3152#0" expanded="true" />
+                <element signature="e#3195#5158#0" expanded="true" />
+                <element signature="e#5157#5158#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cardview_layout.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/cardview_layout.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="881">
-              <caret line="43" column="54" lean-forward="false" selection-start-line="43" selection-start-column="54" selection-end-line="43" selection-end-column="54" />
-              <folding />
-            </state>
-          </provider>
+      <file leaf-file-name="activity_menu_update.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_menu_update.xml">
           <provider editor-type-id="android-designer2">
             <state />
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DBProvider.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/DB/DBProvider.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="496">
-              <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+            <state relative-caret-position="382">
+              <caret line="149" column="34" lean-forward="false" selection-start-line="149" selection-start-column="25" selection-end-line="149" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -264,8 +189,8 @@
       <file leaf-file-name="DBHelper.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/DB/DBHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
-              <caret line="23" column="21" lean-forward="false" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+            <state relative-caret-position="777">
+              <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
               <folding>
                 <element signature="e#579#580#0" expanded="true" />
                 <element signature="e#622#623#0" expanded="true" />
@@ -274,14 +199,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClickableViewPager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/order/ClickableViewPager.java">
+      <file leaf-file-name="DBProvider.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/DB/DBProvider.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="14" column="53" lean-forward="false" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
+            <state relative-caret-position="263">
+              <caret line="54" column="21" lean-forward="false" selection-start-line="54" selection-start-column="21" selection-end-line="54" selection-end-column="21" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#657#658#0" expanded="true" />
+                <element signature="e#702#703#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CostUpdateAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/menuedit/CostUpdateAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-362">
+              <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CostUpdateActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/menuedit/CostUpdateActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="104">
+              <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -301,6 +247,26 @@
     <findStrings>
       <find>CircleAnimIndicator</find>
       <find>Viewpager</find>
+      <find>oncrea</find>
+      <find>oncre</find>
+      <find>oncr</find>
+      <find>onc</find>
+      <find>on</find>
+      <find>o</find>
+      <find>c</find>
+      <find>cr</find>
+      <find>cre</find>
+      <find>create</find>
+      <find>creat</find>
+      <find>C</find>
+      <find>CR</find>
+      <find>CRE</find>
+      <find>CREATE</find>
+      <find>float</find>
+      <find>float`</find>
+      <find>등록</find>
+      <find>UpdateBtn</find>
+      <find>UpdateMenu</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -2063,26 +2029,27 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_sign_in.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/font/nanum.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_user_setting.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/order/ViewpagerTransformer.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/settings/UserSettingActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/order/ClickableViewPager.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/DB/DBProvider.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/DB/DBHelper.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/menuedit/MyAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/cardview_layout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/DB/Menu.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/menuedit/MenuSettingActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/menuedit/MenuUpdateActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/order/OrderActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/DB/DBHelper.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/DB/DBProvider.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/menuedit/MenuUpdateActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/menuedit/MenuSettingActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/menuedit/MyAdapter.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="-1" />
     <option name="y" value="24" />
-    <option name="width" value="1920" />
-    <option name="height" value="1032" />
+    <option name="width" value="1922" />
+    <option name="height" value="1033" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -2099,6 +2066,283 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="main">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="main">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="java">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="com/bumslap/bum">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="main">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="java">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="com/bumslap/bum">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="DB">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="AndroidView">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HoneyPosProject" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gradle Scripts" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidBuildScriptsGroupNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HoneyPosProject" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HoneyPosProject" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HoneyPosProject" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HoneyPosProject" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="firebaserealtimedatabase" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HoneyPosProject" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="firebaserealtimedatabase" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HoneyPosProject" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bum" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HoneyPosProject" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bum" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="menuedit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HoneyPosProject" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bum" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -2181,32 +2425,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
-      <pane id="AndroidView">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HoneyPosProject" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gradle Scripts" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidBuildScriptsGroupNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HoneyPosProject" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="PackagesPane">
         <subPane>
           <PATH>
@@ -2224,7 +2442,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Document/HoneyPosProject" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
     <property name="device.picker.selection" value="Nexus_5X_API_27" />
   </component>
@@ -2323,7 +2541,8 @@
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="" />
       <method>
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1513593535142" />
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1513651287057" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2370,7 +2589,8 @@
         <option name="ADVANCED_PROFILING_ENABLED" value="false" />
       </Profilers>
       <method>
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1513593535142" />
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1513651287057" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2531,7 +2751,8 @@
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="" />
       <method>
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1513593535143" />
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1513651287061" />
       </method>
     </configuration>
     <list size="1">
@@ -2675,34 +2896,42 @@
       <option name="project" value="LOCAL" />
       <updated>1513561285294</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="min push">
+      <created>1513593552521</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1513593552521</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="24" width="1920" height="1032" extended-state="0" />
+    <frame x="-1" y="24" width="1922" height="1033" extended-state="6" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14033149" sideWeight="0.4764957" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.057395145" sideWeight="0.5085379" order="13" side_tool="true" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29723758" sideWeight="0.69871795" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.057395145" sideWeight="0.4914621" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14033149" sideWeight="0.4764957" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14033149" sideWeight="0.52350426" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.55074114" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32839224" sideWeight="0.48931623" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3281768" sideWeight="0.48504272" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3281768" sideWeight="0.49252936" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29723758" sideWeight="0.70405984" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.50426894" order="12" side_tool="true" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24893162" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24866596" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3281768" sideWeight="0.4957265" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39794755" sideWeight="0.49358973" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -2712,7 +2941,6 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" x="100" y="124" width="1720" height="832" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32839224" sideWeight="0.49786323" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -2737,7 +2965,8 @@
     <MESSAGE value="pulled 13th" />
     <MESSAGE value="commit goh" />
     <MESSAGE value="Merge branch 'master' of https://github.com/venturermin/HoneyPosProject&#10;&#10;# Conflicts:&#10;#&#9;.gradle/4.1/fileHashes/fileHashes.bin&#10;#&#9;.gradle/4.1/fileHashes/fileHashes.lock&#10;#&#9;.gradle/4.1/javaCompile/classAnalysis.bin&#10;#&#9;.gradle/4.1/javaCompile/javaCompile.lock&#10;#&#9;.gradle/4.1/javaCompile/taskHistory.bin&#10;#&#9;.gradle/4.1/javaCompile/taskJars.bin&#10;#&#9;.gradle/4.1/taskHistory/fileSnapshots.bin&#10;#&#9;.gradle/4.1/taskHistory/taskHistory.bin&#10;#&#9;.gradle/4.1/taskHistory/taskHistory.lock&#10;#&#9;.idea/libraries/__local_aars____home_bum_Lastproject_HoneyPosProject_app_libs_activation_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/__local_aars____home_bum_Lastproject_HoneyPosProject_app_libs_additionnal_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/__local_aars____home_bum_Lastproject_HoneyPosProject_app_libs_mail_1_4_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/__local_aars____home_bum_Lastproject_HoneyPosProject_app_libs_mpandroidchartlibrary_2_2_4_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/__local_aars____home_jaein_honeyPOs_HoneyPosProject_app_libs_activation_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/__local_aars____home_jaein_honeyPOs_HoneyPosProject_app_libs_additionnal_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/__local_aars____home_jaein_honeyPOs_HoneyPosProject_app_libs_mail_1_4_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/__local_aars____home_oyoun_Develope_project_HoneyPosProject_app_libs_activation_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/__local_aars____home_oyoun_Develope_project_HoneyPosProject_app_libs_additionnal_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/__local_aars____home_oyoun_Develope_project_HoneyPosProject_app_libs_mail_1_4_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/android_arch_lifecycle_runtime_1_0_0.xml&#10;#&#9;.idea/libraries/com_android_support_animated_vector_drawable_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_appcompat_v7_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_cardview_v7_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_constraint_constraint_layout_1_0_2.xml&#10;#&#9;.idea/libraries/com_android_support_design_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_recyclerview_v7_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_support_compat_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_support_core_ui_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_support_core_utils_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_support_fragment_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_support_media_compat_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_support_v4_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_support_vector_drawable_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_test_espresso_espresso_core_3_0_1.xml&#10;#&#9;.idea/libraries/com_android_support_test_espresso_espresso_idling_resource_3_0_1.xml&#10;#&#9;.idea/libraries/com_android_support_test_rules_1_0_1.xml&#10;#&#9;.idea/libraries/com_android_support_test_runner_1_0_1.xml&#10;#&#9;.idea/libraries/com_android_support_transition_26_1_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_auth_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_auth_api_phone_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_auth_api_phone_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_auth_base_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_auth_base_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_base_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_base_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_basement_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_basement_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_tasks_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_tasks_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_analytics_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_analytics_impl_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_analytics_impl_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_analytics_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_auth_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_auth_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_common_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_common_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_core_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_database_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_database_connection_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_database_connection_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_database_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_iid_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_iid_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_kakao_sdk_auth_1_1_7.xml&#10;#&#9;.idea/libraries/com_kakao_sdk_network_1_1_7.xml&#10;#&#9;.idea/libraries/com_kakao_sdk_usermgmt_1_1_7.xml&#10;#&#9;.idea/libraries/com_kakao_sdk_util_1_1_7.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;app/src/main/AndroidManifest.xml&#10;#&#9;app/src/main/java/com/bumslap/bum/DB/DBforAnalysis.java&#10;#&#9;local.properties" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/venturermin/HoneyPosProject&#10;&#10;# Conflicts:&#10;#&#9;.gradle/4.1/fileHashes/fileHashes.bin&#10;#&#9;.gradle/4.1/fileHashes/fileHashes.lock&#10;#&#9;.gradle/4.1/javaCompile/classAnalysis.bin&#10;#&#9;.gradle/4.1/javaCompile/javaCompile.lock&#10;#&#9;.gradle/4.1/javaCompile/taskHistory.bin&#10;#&#9;.gradle/4.1/javaCompile/taskJars.bin&#10;#&#9;.gradle/4.1/taskHistory/fileSnapshots.bin&#10;#&#9;.gradle/4.1/taskHistory/taskHistory.bin&#10;#&#9;.gradle/4.1/taskHistory/taskHistory.lock&#10;#&#9;.idea/libraries/__local_aars____home_bum_Lastproject_HoneyPosProject_app_libs_activation_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/__local_aars____home_bum_Lastproject_HoneyPosProject_app_libs_additionnal_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/__local_aars____home_bum_Lastproject_HoneyPosProject_app_libs_mail_1_4_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/__local_aars____home_bum_Lastproject_HoneyPosProject_app_libs_mpandroidchartlibrary_2_2_4_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/__local_aars____home_jaein_honeyPOs_HoneyPosProject_app_libs_activation_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/__local_aars____home_jaein_honeyPOs_HoneyPosProject_app_libs_additionnal_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/__local_aars____home_jaein_honeyPOs_HoneyPosProject_app_libs_mail_1_4_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/__local_aars____home_oyoun_Develope_project_HoneyPosProject_app_libs_activation_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/__local_aars____home_oyoun_Develope_project_HoneyPosProject_app_libs_additionnal_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/__local_aars____home_oyoun_Develope_project_HoneyPosProject_app_libs_mail_1_4_jar_unspecified_jar.xml&#10;#&#9;.idea/libraries/android_arch_lifecycle_runtime_1_0_0.xml&#10;#&#9;.idea/libraries/com_android_support_animated_vector_drawable_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_appcompat_v7_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_cardview_v7_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_constraint_constraint_layout_1_0_2.xml&#10;#&#9;.idea/libraries/com_android_support_design_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_recyclerview_v7_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_support_compat_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_support_core_ui_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_support_core_utils_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_support_fragment_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_support_media_compat_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_support_v4_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_support_vector_drawable_26_1_0.xml&#10;#&#9;.idea/libraries/com_android_support_test_espresso_espresso_core_3_0_1.xml&#10;#&#9;.idea/libraries/com_android_support_test_espresso_espresso_idling_resource_3_0_1.xml&#10;#&#9;.idea/libraries/com_android_support_test_rules_1_0_1.xml&#10;#&#9;.idea/libraries/com_android_support_test_runner_1_0_1.xml&#10;#&#9;.idea/libraries/com_android_support_transition_26_1_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_auth_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_auth_api_phone_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_auth_api_phone_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_auth_base_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_auth_base_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_base_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_base_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_basement_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_basement_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_tasks_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_android_gms_play_services_tasks_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_analytics_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_analytics_impl_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_analytics_impl_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_analytics_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_auth_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_auth_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_common_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_common_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_core_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_database_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_database_connection_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_database_connection_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_database_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_iid_11_6_0.xml&#10;#&#9;.idea/libraries/com_google_firebase_firebase_iid_license_11_6_0.xml&#10;#&#9;.idea/libraries/com_kakao_sdk_auth_1_1_7.xml&#10;#&#9;.idea/libraries/com_kakao_sdk_network_1_1_7.xml&#10;#&#9;.idea/libraries/com_kakao_sdk_usermgmt_1_1_7.xml&#10;#&#9;.idea/libraries/com_kakao_sdk_util_1_1_7.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;app/src/main/AndroidManifest.xml&#10;#&#9;app/src/main/java/com/bumslap/bum/DB/DBforAnalysis.java&#10;#&#9;local.properties" />
+    <MESSAGE value="min push" />
+    <option name="LAST_COMMIT_MESSAGE" value="min push" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2850,6 +3079,54 @@
           <properties />
           <option name="timeStamp" value="135" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/menuedit/MenuUpdateActivity.java</url>
+          <line>94</line>
+          <properties />
+          <option name="timeStamp" value="144" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/menuedit/MenuUpdateActivity.java</url>
+          <line>83</line>
+          <properties />
+          <option name="timeStamp" value="155" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/menuedit/MenuUpdateActivity.java</url>
+          <line>85</line>
+          <properties />
+          <option name="timeStamp" value="156" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/menuedit/MenuUpdateActivity.java</url>
+          <line>86</line>
+          <properties />
+          <option name="timeStamp" value="157" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/menuedit/MenuUpdateActivity.java</url>
+          <line>77</line>
+          <properties />
+          <option name="timeStamp" value="158" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/menuedit/MenuUpdateActivity.java</url>
+          <line>78</line>
+          <properties />
+          <option name="timeStamp" value="159" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/menuedit/MenuUpdateActivity.java</url>
+          <line>79</line>
+          <properties />
+          <option name="timeStamp" value="160" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/menuedit/MenuUpdateActivity.java</url>
+          <line>80</line>
+          <properties />
+          <option name="timeStamp" value="161" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/statistics/SnackbarStatisticsActivity.java</url>
           <line>13</line>
@@ -2884,53 +3161,18 @@
           <properties field="AmountStastisticBtn" class="com.bumslap.bum.statistics.PieChartDataActivity" />
           <option name="timeStamp" value="90" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/menuedit/MenuUpdateActivity.java</url>
+          <line>93</line>
+          <properties field="changeimage" class="com.bumslap.bum.menuedit.MenuUpdateActivity" />
+          <option name="timeStamp" value="145" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="136" />
+      <option name="time" value="164" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/app_bar_order.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_menu_setting.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_piechart.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_order.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="11" column="38" lean-forward="false" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/POSproject/SignFuntion/ModalFuntion.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/statistics/PieChartActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-18">
@@ -2954,24 +3196,24 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_signup.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="882">
           <caret line="49" column="64" lean-forward="false" selection-start-line="49" selection-start-column="64" selection-end-line="49" selection-end-column="64" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_order.xml">
       <provider selected="true" editor-type-id="android-designer2">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_order.xml">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="-758">
           <caret line="7" column="55" lean-forward="false" selection-start-line="7" selection-start-column="55" selection-end-line="7" selection-end-column="55" />
           <folding />
         </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/POSproject/SignUpActivity.java">
@@ -2990,13 +3232,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/progressbar_set.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="522">
           <caret line="29" column="13" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/DB/DBforAnalysis.java">
@@ -3034,43 +3276,43 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_bar_chart.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="5" column="39" lean-forward="false" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/viewpager_nonselected_item.xml">
       <provider selected="true" editor-type-id="android-designer2">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/viewpager_nonselected_item.xml">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="8" column="8" lean-forward="true" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
         </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/viewpager_selected_item.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="8" column="8" lean-forward="true" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_view_pager_in_main.xml">
       <provider selected="true" editor-type-id="android-designer2">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_view_pager_in_main.xml">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="558">
           <caret line="31" column="8" lean-forward="false" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
         </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/POSproject/FragmentForMainViewPager.java">
@@ -3088,13 +3330,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_fragment_main.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/POSproject/ViewPagerAdapterMain.java">
@@ -3112,13 +3354,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/button_pressed_selector_open.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="36">
           <caret line="2" column="49" lean-forward="false" selection-start-line="2" selection-start-column="49" selection-end-line="2" selection-end-column="49" />
         </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
@@ -3130,23 +3372,23 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="1548">
           <caret line="86" column="61" lean-forward="false" selection-start-line="86" selection-start-column="61" selection-end-line="86" selection-end-column="61" />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_sign_in.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3312">
           <caret line="184" column="67" lean-forward="false" selection-start-line="184" selection-start-column="67" selection-end-line="184" selection-end-column="67" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/font/NanumSquareRoundB.ttf" />
@@ -3165,14 +3407,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_user_setting.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2756">
           <caret line="106" column="43" lean-forward="false" selection-start-line="106" selection-start-column="43" selection-end-line="106" selection-end-column="43" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
@@ -3187,7 +3429,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
           <caret line="5" column="52" lean-forward="false" selection-start-line="5" selection-start-column="52" selection-end-line="5" selection-end-column="52" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3195,19 +3436,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1144">
           <caret line="101" column="42" lean-forward="false" selection-start-line="101" selection-start-column="42" selection-end-line="101" selection-end-column="42" />
-          <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="832">
-          <caret line="32" column="68" lean-forward="false" selection-start-line="32" selection-start-column="68" selection-end-line="32" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-manifest">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/settings/UserSettingActivity.java">
@@ -3233,20 +3462,7 @@
         <state relative-caret-position="234">
           <caret line="14" column="53" lean-forward="false" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
           <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/menuedit/MyAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1016">
-          <caret line="74" column="47" lean-forward="false" selection-start-line="74" selection-start-column="47" selection-end-line="74" selection-end-column="47" />
-          <folding>
-            <element signature="e#2147#2461#0" expanded="true" />
-            <element signature="e#2460#2461#0" expanded="true" />
-            <element signature="e#2517#2518#0" expanded="true" />
-            <element signature="e#2555#2556#0" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3261,16 +3477,72 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
+        <state relative-caret-position="1014">
           <caret line="39" column="34" lean-forward="false" selection-start-line="39" selection-start-column="34" selection-end-line="39" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/cardview_layout.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1118">
+          <caret line="43" column="54" lean-forward="false" selection-start-line="43" selection-start-column="54" selection-end-line="43" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/order/OrderActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="63" column="25" lean-forward="false" selection-start-line="63" selection-start-column="25" selection-end-line="63" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/menuedit/IngradientAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-988">
+          <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/menuedit/CostUpdateAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-362">
+          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/menuedit/CostUpdateActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_menu_update.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="149" column="34" lean-forward="false" selection-start-line="149" selection-start-column="25" selection-end-line="149" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/DB/DBHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="23" column="21" lean-forward="false" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+        <state relative-caret-position="777">
+          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding>
             <element signature="e#579#580#0" expanded="true" />
             <element signature="e#622#623#0" expanded="true" />
@@ -3278,55 +3550,67 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/DB/DBProvider.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/recyclerview-v7/26.1.0/63d6891b399433c913fe91ce95a8456de02d367f/recyclerview-v7-26.1.0-sources.jar!/android/support/v7/widget/RecyclerView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+        <state relative-caret-position="-1716">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#292012#292013#0" expanded="true" />
+            <element signature="e#292063#292064#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="29" column="74" lean-forward="false" selection-start-line="29" selection-start-column="74" selection-end-line="29" selection-end-column="74" />
           <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/menuedit/MenuUpdateActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="487">
+          <caret line="58" column="5" lean-forward="false" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
+          <folding>
+            <element signature="e#2399#3152#0" expanded="true" />
+            <element signature="e#3151#3152#0" expanded="true" />
+            <element signature="e#3195#5158#0" expanded="true" />
+            <element signature="e#5157#5158#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/menuedit/MenuSettingActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="76" column="8" lean-forward="false" selection-start-line="76" selection-start-column="8" selection-end-line="76" selection-end-column="8" />
+        <state relative-caret-position="315">
+          <caret line="102" column="51" lean-forward="false" selection-start-line="102" selection-start-column="51" selection-end-line="102" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#8505#8506#0" expanded="true" />
-            <element signature="e#8548#8549#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/menuedit/MenuUpdateActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/DB/DBProvider.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="47" column="15" lean-forward="false" selection-start-line="47" selection-start-column="15" selection-end-line="47" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/cardview_layout.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="881">
-          <caret line="43" column="54" lean-forward="false" selection-start-line="43" selection-start-column="54" selection-end-line="43" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/order/OrderActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="12" column="39" lean-forward="false" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
+        <state relative-caret-position="263">
+          <caret line="54" column="21" lean-forward="false" selection-start-line="54" selection-start-column="21" selection-end-line="54" selection-end-column="21" />
           <folding>
-            <element signature="e#5186#6758#0" expanded="true" />
-            <element signature="e#6757#6758#0" expanded="true" />
-            <element signature="e#6930#6961#0" expanded="true" />
-            <element signature="e#6963#6995#0" expanded="true" />
+            <element signature="e#657#658#0" expanded="true" />
+            <element signature="e#702#703#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bumslap/bum/menuedit/MyAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="48" column="42" lean-forward="true" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>

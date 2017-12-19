@@ -20,7 +20,13 @@
         <activity android:name=".POSproject.SignUpActivity"></activity>
         <activity android:name=".order.OrderActivity"></activity>
         <activity android:name=".menuedit.MenuUpdateActivity">  </activity>
-        <activity android:name=".menuedit.MenuSettingActivity" />
+        <activity android:name=".menuedit.MenuSettingActivity" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
         <activity android:name=".menuedit.CostSettingActivity"></activity>
         <activity android:name=".settings.UserSettingActivity" />
         <activity android:name=".POSproject.SignInActivity">
@@ -32,11 +38,7 @@
         <activity android:name=".statistics.PieChartActivity" />
         <activity android:name=".statistics.SalesStatus2Activity" />
         <activity android:name=".POSproject.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <meta-data
