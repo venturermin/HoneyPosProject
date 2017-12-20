@@ -66,6 +66,8 @@ public class DBProvider {
         db.delete("MENU_TABLE", id   + " = ? ", new String[] { id });
         //}
     }
+
+
     public void close(){
         dbHelper.close();
     }
