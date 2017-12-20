@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -27,6 +28,7 @@ import com.bumslap.bum.order.OrderActivity;
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.ArrayList;
 
 public class MenuUpdateActivity extends AppCompatActivity {
     Button UpdateBTN;
@@ -35,6 +37,8 @@ public class MenuUpdateActivity extends AppCompatActivity {
     FloatingActionButton UpdateMenuImageBTN;
     int IMAGE_CAPTURE = 1;
     Context context = this;
+    ArrayList<com.bumslap.bum.DB.Menu> menulist;
+    public Bitmap Bitmapimage;
 
     public static DBHelper dbforAnalysis;
     public static DBProvider db;
@@ -48,14 +52,17 @@ public class MenuUpdateActivity extends AppCompatActivity {
         setTitle("메뉴 등록");
 
         init();
-        // DBProvider에 DBHelper 인스턴스 포함되어 있음
+        // DBProvider에 DBHelper 인스턴스
         db = new DBProvider(this);
         db.open();
-
+        menulist = new ArrayList<>();
         db.queryData("CREATE TABLE IF NOT EXISTS MENU_TABLE (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME VARCHAR, PRICE VARCHAR, COST VARCHAR, IMAGE BLOG)");
 
         UpdateMenuImageBTN.setOnClickListener(changeimage);
         UpdateBTN.setOnClickListener(UpdateMenu);
+
+        //select 호출 메소드
+        retrieve();
     }
 
     private void init() {
@@ -70,6 +77,36 @@ public class MenuUpdateActivity extends AppCompatActivity {
 
 
     }
+
+    private void retrieve()
+    {
+
+        Cursor cursor =  db.getData("SELECT * FROM MENU_TABLE");
+        menulist.clear();
+        while (cursor.moveToNext()){
+            String id = cursor.getString(0);
+            String name = cursor.getString(1);
+            String price = cursor.getString(2);
+            String cost = cursor.getString(3);
+            byte[] image = cursor.getBlob(4);
+
+            menulist.add(new com.bumslap.bum.DB.Menu(id, name, image, price, cost));
+
+            //byte[] to bitmap in DBProvider.class
+            db.byteArrayToBitmap(image);
+
+            UpdateMenuImage.setImageBitmap(Bitmapimage);
+            UpdateMenuName.setText(name);
+            UpdateMenuPrice.setText(price);
+            UpdateMenuCost.setText(cost);
+
+        }
+
+        //notifyDataSetChanged();
+
+    }
+
+
     Button.OnClickListener UpdateMenu = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -100,8 +137,11 @@ public class MenuUpdateActivity extends AppCompatActivity {
 
             // 제목셋팅
             alertDialogBuilder.setTitle("실행 시킬 앱");
-            alertDialogBuilder.setItems(items,
-                    new DialogInterface.OnClickListener() {
+            alertDialogBuilder.setItems(
+
+                    items,new DialogInterface.OnClickListener()
+
+                    {
                         public void onClick(DialogInterface dialog,
                                             int id) {
 
@@ -125,7 +165,9 @@ public class MenuUpdateActivity extends AppCompatActivity {
                             }
                             dialog.dismiss();
                         }
-                    });
+                    }
+
+                    );
 
             // 다이얼로그 생성
             android.app.AlertDialog alertDialog = alertDialogBuilder.create();

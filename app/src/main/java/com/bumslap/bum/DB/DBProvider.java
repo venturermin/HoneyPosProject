@@ -5,6 +5,8 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
 /**
  * Created by min on 12/15/17.
@@ -66,6 +68,11 @@ public class DBProvider {
     }
     public void close(){
         dbHelper.close();
+    }
+
+    public Bitmap byteArrayToBitmap(byte[] byteArray ) {
+        Bitmap Bitmapimage = BitmapFactory.decodeByteArray( byteArray, 0, byteArray.length ) ;
+        return Bitmapimage ;
     }
 
 }

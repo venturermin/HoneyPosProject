@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="com.kakao.sdk:usermgmt-1.1.7">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/usermgmt-1.1.7.aar/3cfa99791c66b9c057720faf4b6f0265/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/usermgmt-1.1.7.aar/3cfa99791c66b9c057720faf4b6f0265/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/usermgmt-1.1.7.aar/655305376b5d39d7a207bf655ae5545b/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/usermgmt-1.1.7.aar/655305376b5d39d7a207bf655ae5545b/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
