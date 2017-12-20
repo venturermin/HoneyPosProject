@@ -91,7 +91,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                                 switch (id) {
                                     case 0:
                                     Intent intent = new Intent(context, MenuUpdateActivity.class);
-                                    intent.putExtra("value",menulist.get(position).getMenu_id());
+                                    intent.putExtra("id",menulist.get(position).getMenu_id());
                                     context.startActivity(intent);
 
                                         break;

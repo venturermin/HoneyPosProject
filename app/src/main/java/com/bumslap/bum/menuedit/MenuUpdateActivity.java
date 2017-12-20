@@ -61,6 +61,8 @@ public class MenuUpdateActivity extends AppCompatActivity {
         UpdateMenuImageBTN.setOnClickListener(changeimage);
         UpdateBTN.setOnClickListener(UpdateMenu);
 
+        Intent intent = getIntent();
+        String id = intent.getExtras().getString("id");
         //select 호출 메소드
         retrieve();
     }
@@ -101,9 +103,7 @@ public class MenuUpdateActivity extends AppCompatActivity {
             UpdateMenuCost.setText(cost);
 
         }
-
         //notifyDataSetChanged();
-
     }
 
 
