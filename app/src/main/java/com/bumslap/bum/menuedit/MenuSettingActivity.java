@@ -82,7 +82,6 @@ public class MenuSettingActivity extends AppCompatActivity implements GestureDet
         //already Opened database in MenuUpdateActivity
         //call the retrieve method
         retrieve();
-        // DeleteData method move on from here to MyAdapter class.
 
 
     }
